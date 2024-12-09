@@ -215,8 +215,9 @@
         <header class="lh-1">
             <!-- 상단 로그인/회원가입 영역 -->
             <div class="d-flex justify-content-end py-2 border-bottom">
-                <div class="me-3">
-                    <a class="btn btn-sm btn-outline-default me-2" href="../view/login.html">로그인</a>
+                <div class="me-1">
+                    <a class="btn btn-sm btn-outline-default" href="../view/login.html">로그인</a>
+                    <a class="btn btn-sm btn-outline-default">/</a>
                     <a class="btn btn-sm btn-outline-default" href="../view/join.html">회원가입</a>
                 </div>
             </div>
@@ -264,9 +265,21 @@
                         단계별 추천
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">입문</a></li>
                         <li><a class="dropdown-item" href="#">초급</a></li>
                         <li><a class="dropdown-item" href="#">중급</a></li>
                         <li><a class="dropdown-item" href="#">고급</a></li>
+                    </ul>
+                </div>
+                <div class="nav-item dropdown mx-4" id="adminMenu" style="display: none;">
+                    <a class="nav-link link-body-emphasis dropdown-toggle" href="#" id="adminDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        관리자 메뉴
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                        <li><a class="dropdown-item" href="#">회원 관리</a></li>
+                        <li><a class="dropdown-item" href="#">도서 관리</a></li>
+                        <li><a class="dropdown-item" href="#">게시글 관리</a></li>
                     </ul>
                 </div>
             </nav>
