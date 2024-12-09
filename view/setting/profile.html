@@ -1,12 +1,10 @@
 <!doctype html>
-<html lang="ko" data-bs-theme="auto">
+<html lang="ko">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.122.0">
-    <div id="header"></div>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
+
     <title>개 북 취</title>
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap" rel="stylesheet"> 
@@ -16,16 +14,41 @@
     <!-- bootstrap -->
     <link href="../../view/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="../../view/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>   
-    <script src="../../view/node_modules/bootstrap/js/color-modes.js"></script>     
+    <script src="../../view/node_modules/bootstrap/js/color-modes.js"></script>
+
+      <!-- jquery -->
+    <script src="../../view/scripts/jquery.min.js"></script> 
+    
+    <!-- CHOICES CSS --> 
+    <link type="text/css" href="../../view/scripts/choices.min.css" rel="stylesheet">
+    <script src="../../view/scripts/choices.min.js"></script>    
 
     <!-- custom -->
     <link href="../../view/styles/font/font.css" rel="stylesheet">       
     <link href="../../view/styles/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../view/styles/bootstrap-icons.css" />      
-    <script src="../../view/shared/load-header.js"></script>    
+    <script src="../view/shared/load-header.js"></script>   
+    
+	<script type="text/javascript">
+
+		$(function(){	
+
+            /* Choices JS */
+            var choices = new Choices('#language', { 
+                allowSearch: false, 
+                removeItemButton: true,
+                               
+            }).setValue([ ]);    
+
+		});
+
+	</script>   
 </head>
 
 <body>
+
+    <div id="header"></div>    
+
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="check2" viewBox="0 0 16 16">
             <path
@@ -135,8 +158,7 @@
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
                     <div class="search-container d-flex align-items-center me-3">
-                        <input type="search" class="form-control form-control-sm" placeholder="검색어를 입력하세요"
-                            aria-label="Search">
+                        <input type="search" class="form-control form-control-sm" placeholder="검색어를 입력하세요" aria-label="Search">
                         <button class="btn btn-link link-secondary" type="button" aria-label="Search">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
                                 stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -203,12 +225,12 @@
                                 <div class="col-12">
                                     <label for="" class="form-label">이름</label>
                                     <input type="text" class="form-control" id="" placeholder="" value="" required="" />
-                                    <div class="invalid-feedback">Valid name is required.</div>                           
+                                    <div class="invalid-feedback">이름을 입력해 주세요.</div>                           
                                 </div>
                                 <div class="col-12">
                                     <label for="" class="form-label">닉네임</label>
                                     <input type="text" class="form-control" id="" placeholder="" value="" required="" />
-                                    <div class="invalid-feedback">Valid nicname is required.</div>
+                                    <div class="invalid-feedback">닉네임을 입력해 주세요.</div>
                                 </div>
                             </div>
                         </div>
@@ -224,7 +246,7 @@
                                 <option value="4">마케팅</option>
                                 <option value="5">기타</option>
                             </select>
-                            <div class="invalid-feedback">Valid name is required.</div>
+                            <div class="invalid-feedback">대표직군을 입력해 주세요.</div>
                         </div>
                         <div class="col-sm-6">
                             <label for="" class="form-label">대표 직무</label>
@@ -243,52 +265,25 @@
                                 <option value="11">퍼블리셔</option>
                                 <option value="12">QA</option>
                             </select>
-                            <div class="invalid-feedback">Valid nicname is required.</div>
+                            <div class="invalid-feedback">대표직무를 입력해 주세요.</div>
                         </div>                        
                         <div class="col-12">
                             <label for="" class="form-label">Email</label>
                             <input type="email" class="form-control" id="" placeholder="you@example.com" />
-                            <div class="invalid-feedback">Please enter a valid email address for shipping updates.</div>
+                            <div class="invalid-feedback">Email를 입력해 주세요.</div>
                         </div>
                         <div class="col-12">
-                            <label for="" class="form-label">관심있는 기술 태그 입력</label>
+                            <label for="language" class="form-label">관심있는 기술 태그 입력</label>
                             <div class="form-text mt-0 mb-1">사용 중인 기술이나 관심있는 기술 태그를 선택해주세요.</div>
-                            <input type="text" class="form-control" id="" placeholder="관심있는 기술 태그 입력을 해주세요." />
-                            <div class="border border-secondary-subtle rounded py-2 px-1 mt-2 overflow-y-auto" style="max-height: 127px;">
-                                <div class="row g-2 ms-0 me-0">
-                                    <div class="col-auto">
-                                        <a class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center"><i class="bi bi-x me-1"></i>프론트엔드</a>
-                                    </div>
-                                    <div class="col-auto">
-                                        <a class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center"><i class="bi bi-x me-1"></i>모바일</a>
-                                    </div>
-                                    <div class="col-auto">
-                                        <a class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center"><i class="bi bi-x me-1"></i>클라우드 산업</a>
-                                    </div>                                                                
-                                    <div class="col-auto">
-                                        <a class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center"><i class="bi bi-x me-1"></i>UI/UX</a>
-                                    </div>
-                                    <div class="col-auto">
-                                        <a class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center"><i class="bi bi-x me-1"></i>프론트엔드</a>
-                                    </div>
-                                    <div class="col-auto">
-                                        <a class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center"><i class="bi bi-x me-1"></i>프론트엔드</a>
-                                    </div>
-                                    <div class="col-auto">
-                                        <a class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center"><i class="bi bi-x me-1"></i>모바일</a>
-                                    </div>
-                                    <div class="col-auto">
-                                        <a class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center"><i class="bi bi-x me-1"></i>클라우드 산업</a>
-                                    </div>                                                                
-                                    <div class="col-auto">
-                                        <a class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center"><i class="bi bi-x me-1"></i>UI/UX</a>
-                                    </div>
-                                    <div class="col-auto">
-                                        <a class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center"><i class="bi bi-x me-1"></i>프론트엔드</a>
-                                    </div>                                                                                                                                                      
-                                </div>
-                            </div>
-                            <div class="invalid-feedback">Please enter a valid email address for shipping updates.</div>
+                            <select class="form-control" name="language[]" id="language" multiple>
+                                <option value="">관심있는 기술 태그 입력을 해주세요.</option>                                
+                                <option value="Choice 1">프론트엔드</option> 
+                                <option value="Choice 2">모바일</option> 
+                                <option value="Choice 3">클라우드 산업</option> 
+                                <option value="Choice 4">UI/UX</option> 
+                                <option value="Choice 5">빅데이터</option>                                 
+                            </select>                            
+                            <div class="invalid-feedback">관심있는 기술 태그를 입력해 주세요.</div>
                         </div>                        
                         <div class="col-12">
                             <div class="d-flex align-items-center justify-content-between">
@@ -298,12 +293,12 @@
                                 </div>
                             </div>
                             <textarea class="form-control" id="" rows="5"></textarea>
-                            <div class="invalid-feedback">Please enter your shipping address.</div>
+                            <div class="invalid-feedback">한줄소개를 입력해 주세요.</div>
                         </div>
                         <div class="col-12">
                             <label for="" class="form-label">회사명</label>
                             <input type="text" class="form-control" id="" placeholder="" value="" required="" />
-                            <div class="invalid-feedback">Valid name is required.</div>
+                            <div class="invalid-feedback">회사명을 입력해 주세요.</div>
                         </div> 
                         <div class="col-12">
                             <label for="" class="form-label">링크</label>
@@ -325,7 +320,7 @@
                                 </span>
                                 <input type="text" class="form-control" placeholder="Link to social profile" />
                             </div>                                               
-                            <div class="invalid-feedback">Valid name is required.</div>
+                            <div class="invalid-feedback">링크를 입력해 주세요.</div>
                         </div>                                               
                     </div>
         
