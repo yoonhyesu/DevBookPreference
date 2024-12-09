@@ -1,54 +1,74 @@
 <!doctype html>
 <html lang="ko">
-
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
 
     <title>개 북 취</title>
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap" rel="stylesheet"> 
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-
+    
     <!-- bootstrap -->
     <link href="../../view/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="../../view/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../view/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>   
     <script src="../../view/node_modules/bootstrap/js/color-modes.js"></script>
 
-    <!-- jquery -->
-    <script src="../../view/scripts/jquery.min.js"></script>
-
-    <!-- CHOICES CSS -->
+      <!-- jquery -->
+    <script src="../../view/scripts/jquery.min.js"></script> 
+    
+    <!-- CHOICES CSS --> 
     <link type="text/css" href="../../view/scripts/choices.min.css" rel="stylesheet">
-    <script src="../../view/scripts/choices.min.js"></script>
+    <script src="../../view/scripts/choices.min.js"></script>    
 
     <!-- custom -->
-    <link href="../../view/styles/font/font.css" rel="stylesheet">
+    <link href="../../view/styles/font/font.css" rel="stylesheet">       
     <link href="../../view/styles/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../view/styles/bootstrap-icons.css" />
-    <script src="../view/shared/load-header.js"></script>
+    <link rel="stylesheet" href="../../view/styles/bootstrap-icons.css" />      
+    <script src="../../view/shared/load-header.js"></script>   
+    
+	<script type="text/javascript">
 
-    <script type="text/javascript">
+		$(function(){
 
-        $(function () {
+            let loadFile = function (event) {
+                var reader = new FileReader();
+                reader.onload = function () {
+                    var output = document.getElementById('profile-img');
+                    if (event.target.files[0].type.match('image.*')) {
+                        output.src = reader.result;
+                    } else {
+                        event.target.value = '';
+                        alert('please select a valid image');
+                    }
+                };
+                if(event.target.files[0]){
+                    reader.readAsDataURL(event.target.files[0]);
+                }
+
+            };            
 
             /* Choices JS */
-            var choices = new Choices('#language', {
-                allowSearch: false,
+            var choices = new Choices('#language', { 
+                allowSearch: false, 
                 removeItemButton: true,
+                               
+            }).setValue([ ]);
 
-            }).setValue([]);
+            // for profile photo update
+            let ProfileChange = document.querySelector('#profile-change');
+            ProfileChange.addEventListener('change', loadFile);        
 
-        });
+		});
 
-    </script>
+	</script>   
 </head>
 
 <body>
 
-    <div id="header"></div>
+    <div id="header"></div>    
 
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="check2" viewBox="0 0 16 16">
@@ -159,8 +179,7 @@
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
                     <div class="search-container d-flex align-items-center me-3">
-                        <input type="search" class="form-control form-control-sm" placeholder="검색어를 입력하세요"
-                            aria-label="Search">
+                        <input type="search" class="form-control form-control-sm" placeholder="검색어를 입력하세요" aria-label="Search">
                         <button class="btn btn-link link-secondary" type="button" aria-label="Search">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
                                 stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -199,36 +218,37 @@
     </div>
 
     <main class="container">
-
+ 
         <div class="row g-5 mb-5">
             <div class="col-md-5 col-lg-4">
                 <h4 class="fw-semibold mb-3">내 계정 </h4>
-                <hr class="my-3">
-                <nav
-                    class="nav nav-pills justify-content-center flex-lg-column justify-content-lg-start gap-1 sidebar-nav">
+                <hr class="my-3">                
+                <nav class="nav nav-pills justify-content-center flex-lg-column justify-content-lg-start gap-1 sidebar-nav">
                     <a class="nav-link d-flex align-items-center active fw-semibold" href="profile.html">프로필</a>
                     <a class="nav-link d-flex align-items-center" href="account.html">계정 관리</a>
                 </nav>
             </div>
             <div class="col-md-7 col-lg-8">
                 <h4 class="fw-semibold mb-3">회원정보</h4>
-                <hr class="my-3">
+                <hr class="my-3">                
                 <form class="needs-validation" novalidate="">
                     <div class="row g-3 mb-3">
-                        <div class="col-12 col-lg-3">
+                        <div class="col-12 col-lg-3">        
                             <div class="user-image">
                                 <div class="profile mb-3">
-                                    <img src="../../view/images/IMG_0028.PNG" alt="profile image" />
+                                    <img src="../../view/images/IMG_0028.PNG" alt="profile image" id="profile-img" />
                                 </div>
-                                <a class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center">변경</a>
-                            </div>
+                                <a class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center">
+                                    <input type="file" name="photo" class="position-absolute w-100 h-100 op-0" id="profile-change">변경
+                                </a>                                                              
+                            </div>                            
                         </div>
                         <div class="col-12 col-lg-9">
                             <div class="row g-3">
                                 <div class="col-12">
                                     <label for="" class="form-label">이름</label>
                                     <input type="text" class="form-control" id="" placeholder="" value="" required="" />
-                                    <div class="invalid-feedback">이름을 입력해 주세요.</div>
+                                    <div class="invalid-feedback">이름을 입력해 주세요.</div>                           
                                 </div>
                                 <div class="col-12">
                                     <label for="" class="form-label">닉네임</label>
@@ -237,7 +257,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>                    
                     <div class="row g-3">
                         <div class="col-sm-6">
                             <label for="" class="form-label">대표 직군</label>
@@ -269,7 +289,7 @@
                                 <option value="12">QA</option>
                             </select>
                             <div class="invalid-feedback">대표직무를 입력해 주세요.</div>
-                        </div>
+                        </div>                        
                         <div class="col-12">
                             <label for="" class="form-label">Email</label>
                             <input type="email" class="form-control" id="" placeholder="you@example.com" />
@@ -279,15 +299,15 @@
                             <label for="language" class="form-label">관심있는 기술 태그 입력</label>
                             <div class="form-text mt-0 mb-1">사용 중인 기술이나 관심있는 기술 태그를 선택해주세요.</div>
                             <select class="form-control" name="language[]" id="language" multiple>
-                                <option value="">관심있는 기술 태그 입력을 해주세요.</option>
-                                <option value="Choice 1">프론트엔드</option>
-                                <option value="Choice 2">모바일</option>
-                                <option value="Choice 3">클라우드 산업</option>
-                                <option value="Choice 4">UI/UX</option>
-                                <option value="Choice 5">빅데이터</option>
-                            </select>
+                                <option value="">관심있는 기술 태그 입력을 해주세요.</option>                                
+                                <option value="Choice 1">프론트엔드</option> 
+                                <option value="Choice 2">모바일</option> 
+                                <option value="Choice 3">클라우드 산업</option> 
+                                <option value="Choice 4">UI/UX</option> 
+                                <option value="Choice 5">빅데이터</option>                                 
+                            </select>                            
                             <div class="invalid-feedback">관심있는 기술 태그를 입력해 주세요.</div>
-                        </div>
+                        </div>                        
                         <div class="col-12">
                             <div class="d-flex align-items-center justify-content-between">
                                 <label for="address" class="form-label">한줄소개</label>
@@ -302,44 +322,38 @@
                             <label for="" class="form-label">회사명</label>
                             <input type="text" class="form-control" id="" placeholder="" value="" required="" />
                             <div class="invalid-feedback">회사명을 입력해 주세요.</div>
-                        </div>
+                        </div> 
                         <div class="col-12">
                             <label for="" class="form-label">링크</label>
                             <div class="input-group mb-2">
                                 <span class="input-group-text" id="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                        class="bi bi-link-45deg" viewBox="0 0 16 16">
-                                        <path
-                                            d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
-                                        <path
-                                            d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                                        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
                                     </svg>
                                 </span>
                                 <input type="text" class="form-control" placeholder="Link to social profile" />
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                        class="bi bi-link-45deg" viewBox="0 0 16 16">
-                                        <path
-                                            d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
-                                        <path
-                                            d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                                        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
                                     </svg>
                                 </span>
                                 <input type="text" class="form-control" placeholder="Link to social profile" />
-                            </div>
+                            </div>                                               
                             <div class="invalid-feedback">링크를 입력해 주세요.</div>
-                        </div>
+                        </div>                                               
                     </div>
-
+        
                     <hr class="my-4">
-
+        
                     <button class="btn btn-primary" type="submit">확인</button>
-                    <button class="btn btn-secondary" type="submit">취소</button>
+                    <button class="btn btn-secondary" type="submit">취소</button>                    
                 </form>
             </div>
-        </div>
+        </div>        
 
     </main>
 
@@ -351,5 +365,4 @@
     </footer>
 
 </body>
-
 </html>
