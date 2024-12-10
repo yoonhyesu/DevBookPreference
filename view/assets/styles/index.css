@@ -18,6 +18,8 @@ h6 {
     font-family:"Noto Sans KR",'맑은 고딕',Dotum,"돋움",arial,verdana,sans-serif;
 }
 
+ul,ol,dl,li { list-style:none; }	
+
 .flex-auto {
     flex: 0 0 auto;
 }
@@ -25,11 +27,17 @@ h6 {
 .h-250 {
     height: 250px;
 }
+.h-300 {
+    height: 300px;
+}
 
 @media (min-width: 768px) {
     .h-md-250 {
         height: 250px;
     }
+    .h-md-300 {
+        height: 300px;
+    }    
 }
 
 /* Pagination */
@@ -195,4 +203,34 @@ h6 {
     border-radius: 0;
     max-width: 100%;
     padding: 4px 0 4px 2px;
+}
+
+
+/* 추천 category */
+.category-area {
+    position: relative;
+    width: 73%;
+    margin: 0 auto;
+}
+
+.category-area li .btn {
+    min-width: 120px;
+    min-height: 120px;
+}
+
+
+/* 개발자별 category */
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50% 50%;
+    overflow: hidden;
+}
+.profile-img img {
+    max-width: 100%;
+    height: auto;
+}
+
+.dropdown .dropdown-toggle::after {
+    display: none;
 }
