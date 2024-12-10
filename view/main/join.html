@@ -191,34 +191,38 @@
                                             placeholder="아이디" required>
                                         <button class="btn btn-outline-info" type="button" id="checkID">중복체크</button>
                                     </div>
-                                    <div id="useridFeedback" class="invalid-feedback"></div>
+                                    <div id="id-message" class="form-text"></div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">비밀번호*</label>
-                                    <input type="password" class="form-control" id="password" name="password"
-                                        placeholder="비밀번호" required>
-                                    <div id="passwordFeedback" class="invalid-feedback"></div>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="password" name="password"
+                                            placeholder="비밀번호" required>
+                                        <button class="btn btn-outline-secondary" type="button"
+                                            id="togglePassword">보기</button>
+                                    </div>
+                                    <div id="pw-message" class="form-text"></div>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="user_name" class="form-label">이름*</label>
                                     <input type="text" class="form-control" id="user_name" name="user_name"
                                         placeholder="이름" required>
-                                    <div class="invalid-feedback">이름</div>
+                                    <div id="name-message" class="form-text"></div>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="email" class="form-label">이메일*</label>
                                     <input type="email" class="form-control" id="email" name="email" placeholder="이메일"
                                         required>
-                                    <div class="invalid-feedback">이메일을 입력하세요.</div>
+                                    <div id="email-message" class="form-text"></div>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="phoneNumber" class="form-label">휴대폰 번호*</label>
-                                    <input type="tel" class="form-control" id="phone_number" placeholder="휴대폰 번호"
+                                    <input type="tel" class="form-control" id="phone_number" placeholder="010-1234-5678"
                                         required>
-                                    <div class="invalid-feedback">휴대폰 번호를 입력하세요.</div>
+                                    <div id="phone-message" class="form-text"></div>
                                 </div>
                             </div>
 
@@ -240,7 +244,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/load-header.js"></script>
-    <script src="../assets/js/join.js"></script>
 </body>
 
 </html>
