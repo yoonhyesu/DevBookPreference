@@ -231,6 +231,12 @@ ul,ol,dl,li { list-style:none; }
     height: auto;
 }
 
-.dropdown .dropdown-toggle::after {
+.user-chat .dropdown .dropdown-toggle::after {
     display: none;
+}
+
+
+/* pagination */
+.pagination .page-link .bi {
+    vertical-align: top;
 }
