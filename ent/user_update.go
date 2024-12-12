@@ -3,8 +3,8 @@
 package ent
 
 import (
-	"SpaceDev/ent/predicate"
-	"SpaceDev/ent/user"
+	"DBP/ent/predicate"
+	"DBP/ent/user"
 	"context"
 	"errors"
 	"fmt"
@@ -28,16 +28,16 @@ func (uu *UserUpdate) Where(ps ...predicate.User) *UserUpdate {
 	return uu
 }
 
-// SetUserID sets the "user_id" field.
-func (uu *UserUpdate) SetUserID(s string) *UserUpdate {
-	uu.mutation.SetUserID(s)
+// SetUserId sets the "userId" field.
+func (uu *UserUpdate) SetUserId(s string) *UserUpdate {
+	uu.mutation.SetUserId(s)
 	return uu
 }
 
-// SetNillableUserID sets the "user_id" field if the given value is not nil.
-func (uu *UserUpdate) SetNillableUserID(s *string) *UserUpdate {
+// SetNillableUserId sets the "userId" field if the given value is not nil.
+func (uu *UserUpdate) SetNillableUserId(s *string) *UserUpdate {
 	if s != nil {
-		uu.SetUserID(*s)
+		uu.SetUserId(*s)
 	}
 	return uu
 }
@@ -56,13 +56,13 @@ func (uu *UserUpdate) SetNillablePassword(s *string) *UserUpdate {
 	return uu
 }
 
-// SetUserName sets the "user_name" field.
+// SetUserName sets the "userName" field.
 func (uu *UserUpdate) SetUserName(s string) *UserUpdate {
 	uu.mutation.SetUserName(s)
 	return uu
 }
 
-// SetNillableUserName sets the "user_name" field if the given value is not nil.
+// SetNillableUserName sets the "userName" field if the given value is not nil.
 func (uu *UserUpdate) SetNillableUserName(s *string) *UserUpdate {
 	if s != nil {
 		uu.SetUserName(*s)
@@ -70,13 +70,13 @@ func (uu *UserUpdate) SetNillableUserName(s *string) *UserUpdate {
 	return uu
 }
 
-// SetUserStatus sets the "user_status" field.
+// SetUserStatus sets the "userStatus" field.
 func (uu *UserUpdate) SetUserStatus(b bool) *UserUpdate {
 	uu.mutation.SetUserStatus(b)
 	return uu
 }
 
-// SetNillableUserStatus sets the "user_status" field if the given value is not nil.
+// SetNillableUserStatus sets the "userStatus" field if the given value is not nil.
 func (uu *UserUpdate) SetNillableUserStatus(b *bool) *UserUpdate {
 	if b != nil {
 		uu.SetUserStatus(*b)
@@ -98,13 +98,13 @@ func (uu *UserUpdate) SetNillableEmail(s *string) *UserUpdate {
 	return uu
 }
 
-// SetPhoneNumber sets the "phone_number" field.
+// SetPhoneNumber sets the "phoneNumber" field.
 func (uu *UserUpdate) SetPhoneNumber(s string) *UserUpdate {
 	uu.mutation.SetPhoneNumber(s)
 	return uu
 }
 
-// SetNillablePhoneNumber sets the "phone_number" field if the given value is not nil.
+// SetNillablePhoneNumber sets the "phoneNumber" field if the given value is not nil.
 func (uu *UserUpdate) SetNillablePhoneNumber(s *string) *UserUpdate {
 	if s != nil {
 		uu.SetPhoneNumber(*s)
@@ -112,14 +112,14 @@ func (uu *UserUpdate) SetNillablePhoneNumber(s *string) *UserUpdate {
 	return uu
 }
 
-// SetJobCd sets the "job_cd" field.
+// SetJobCd sets the "jobCd" field.
 func (uu *UserUpdate) SetJobCd(i int) *UserUpdate {
 	uu.mutation.ResetJobCd()
 	uu.mutation.SetJobCd(i)
 	return uu
 }
 
-// SetNillableJobCd sets the "job_cd" field if the given value is not nil.
+// SetNillableJobCd sets the "jobCd" field if the given value is not nil.
 func (uu *UserUpdate) SetNillableJobCd(i *int) *UserUpdate {
 	if i != nil {
 		uu.SetJobCd(*i)
@@ -127,25 +127,25 @@ func (uu *UserUpdate) SetNillableJobCd(i *int) *UserUpdate {
 	return uu
 }
 
-// AddJobCd adds i to the "job_cd" field.
+// AddJobCd adds i to the "jobCd" field.
 func (uu *UserUpdate) AddJobCd(i int) *UserUpdate {
 	uu.mutation.AddJobCd(i)
 	return uu
 }
 
-// ClearJobCd clears the value of the "job_cd" field.
+// ClearJobCd clears the value of the "jobCd" field.
 func (uu *UserUpdate) ClearJobCd() *UserUpdate {
 	uu.mutation.ClearJobCd()
 	return uu
 }
 
-// SetProfileImage sets the "profile_image" field.
+// SetProfileImage sets the "profileImage" field.
 func (uu *UserUpdate) SetProfileImage(s string) *UserUpdate {
 	uu.mutation.SetProfileImage(s)
 	return uu
 }
 
-// SetNillableProfileImage sets the "profile_image" field if the given value is not nil.
+// SetNillableProfileImage sets the "profileImage" field if the given value is not nil.
 func (uu *UserUpdate) SetNillableProfileImage(s *string) *UserUpdate {
 	if s != nil {
 		uu.SetProfileImage(*s)
@@ -153,19 +153,19 @@ func (uu *UserUpdate) SetNillableProfileImage(s *string) *UserUpdate {
 	return uu
 }
 
-// ClearProfileImage clears the value of the "profile_image" field.
+// ClearProfileImage clears the value of the "profileImage" field.
 func (uu *UserUpdate) ClearProfileImage() *UserUpdate {
 	uu.mutation.ClearProfileImage()
 	return uu
 }
 
-// SetGithubLink sets the "github_link" field.
+// SetGithubLink sets the "githubLink" field.
 func (uu *UserUpdate) SetGithubLink(s string) *UserUpdate {
 	uu.mutation.SetGithubLink(s)
 	return uu
 }
 
-// SetNillableGithubLink sets the "github_link" field if the given value is not nil.
+// SetNillableGithubLink sets the "githubLink" field if the given value is not nil.
 func (uu *UserUpdate) SetNillableGithubLink(s *string) *UserUpdate {
 	if s != nil {
 		uu.SetGithubLink(*s)
@@ -173,19 +173,19 @@ func (uu *UserUpdate) SetNillableGithubLink(s *string) *UserUpdate {
 	return uu
 }
 
-// ClearGithubLink clears the value of the "github_link" field.
+// ClearGithubLink clears the value of the "githubLink" field.
 func (uu *UserUpdate) ClearGithubLink() *UserUpdate {
 	uu.mutation.ClearGithubLink()
 	return uu
 }
 
-// SetBlogLink sets the "blog_link" field.
+// SetBlogLink sets the "blogLink" field.
 func (uu *UserUpdate) SetBlogLink(s string) *UserUpdate {
 	uu.mutation.SetBlogLink(s)
 	return uu
 }
 
-// SetNillableBlogLink sets the "blog_link" field if the given value is not nil.
+// SetNillableBlogLink sets the "blogLink" field if the given value is not nil.
 func (uu *UserUpdate) SetNillableBlogLink(s *string) *UserUpdate {
 	if s != nil {
 		uu.SetBlogLink(*s)
@@ -193,19 +193,19 @@ func (uu *UserUpdate) SetNillableBlogLink(s *string) *UserUpdate {
 	return uu
 }
 
-// ClearBlogLink clears the value of the "blog_link" field.
+// ClearBlogLink clears the value of the "blogLink" field.
 func (uu *UserUpdate) ClearBlogLink() *UserUpdate {
 	uu.mutation.ClearBlogLink()
 	return uu
 }
 
-// SetUserText sets the "user_text" field.
+// SetUserText sets the "userText" field.
 func (uu *UserUpdate) SetUserText(s string) *UserUpdate {
 	uu.mutation.SetUserText(s)
 	return uu
 }
 
-// SetNillableUserText sets the "user_text" field if the given value is not nil.
+// SetNillableUserText sets the "userText" field if the given value is not nil.
 func (uu *UserUpdate) SetNillableUserText(s *string) *UserUpdate {
 	if s != nil {
 		uu.SetUserText(*s)
@@ -213,7 +213,7 @@ func (uu *UserUpdate) SetNillableUserText(s *string) *UserUpdate {
 	return uu
 }
 
-// ClearUserText clears the value of the "user_text" field.
+// ClearUserText clears the value of the "userText" field.
 func (uu *UserUpdate) ClearUserText() *UserUpdate {
 	uu.mutation.ClearUserText()
 	return uu
@@ -259,13 +259,13 @@ func (uu *UserUpdate) ClearSkill() *UserUpdate {
 	return uu
 }
 
-// SetCreateDate sets the "create_date" field.
+// SetCreateDate sets the "createDate" field.
 func (uu *UserUpdate) SetCreateDate(t time.Time) *UserUpdate {
 	uu.mutation.SetCreateDate(t)
 	return uu
 }
 
-// SetNillableCreateDate sets the "create_date" field if the given value is not nil.
+// SetNillableCreateDate sets the "createDate" field if the given value is not nil.
 func (uu *UserUpdate) SetNillableCreateDate(t *time.Time) *UserUpdate {
 	if t != nil {
 		uu.SetCreateDate(*t)
@@ -273,13 +273,13 @@ func (uu *UserUpdate) SetNillableCreateDate(t *time.Time) *UserUpdate {
 	return uu
 }
 
-// SetUpdateDate sets the "update_date" field.
+// SetUpdateDate sets the "updateDate" field.
 func (uu *UserUpdate) SetUpdateDate(t time.Time) *UserUpdate {
 	uu.mutation.SetUpdateDate(t)
 	return uu
 }
 
-// SetNillableUpdateDate sets the "update_date" field if the given value is not nil.
+// SetNillableUpdateDate sets the "updateDate" field if the given value is not nil.
 func (uu *UserUpdate) SetNillableUpdateDate(t *time.Time) *UserUpdate {
 	if t != nil {
 		uu.SetUpdateDate(*t)
@@ -287,13 +287,13 @@ func (uu *UserUpdate) SetNillableUpdateDate(t *time.Time) *UserUpdate {
 	return uu
 }
 
-// SetSessionToken sets the "session_token" field.
+// SetSessionToken sets the "sessionToken" field.
 func (uu *UserUpdate) SetSessionToken(s string) *UserUpdate {
 	uu.mutation.SetSessionToken(s)
 	return uu
 }
 
-// SetNillableSessionToken sets the "session_token" field if the given value is not nil.
+// SetNillableSessionToken sets the "sessionToken" field if the given value is not nil.
 func (uu *UserUpdate) SetNillableSessionToken(s *string) *UserUpdate {
 	if s != nil {
 		uu.SetSessionToken(*s)
@@ -301,19 +301,19 @@ func (uu *UserUpdate) SetNillableSessionToken(s *string) *UserUpdate {
 	return uu
 }
 
-// ClearSessionToken clears the value of the "session_token" field.
+// ClearSessionToken clears the value of the "sessionToken" field.
 func (uu *UserUpdate) ClearSessionToken() *UserUpdate {
 	uu.mutation.ClearSessionToken()
 	return uu
 }
 
-// SetSessionExpiry sets the "session_expiry" field.
+// SetSessionExpiry sets the "sessionExpiry" field.
 func (uu *UserUpdate) SetSessionExpiry(t time.Time) *UserUpdate {
 	uu.mutation.SetSessionExpiry(t)
 	return uu
 }
 
-// SetNillableSessionExpiry sets the "session_expiry" field if the given value is not nil.
+// SetNillableSessionExpiry sets the "sessionExpiry" field if the given value is not nil.
 func (uu *UserUpdate) SetNillableSessionExpiry(t *time.Time) *UserUpdate {
 	if t != nil {
 		uu.SetSessionExpiry(*t)
@@ -321,7 +321,7 @@ func (uu *UserUpdate) SetNillableSessionExpiry(t *time.Time) *UserUpdate {
 	return uu
 }
 
-// ClearSessionExpiry clears the value of the "session_expiry" field.
+// ClearSessionExpiry clears the value of the "sessionExpiry" field.
 func (uu *UserUpdate) ClearSessionExpiry() *UserUpdate {
 	uu.mutation.ClearSessionExpiry()
 	return uu
@@ -361,9 +361,9 @@ func (uu *UserUpdate) ExecX(ctx context.Context) {
 
 // check runs all checks and user-defined validators on the builder.
 func (uu *UserUpdate) check() error {
-	if v, ok := uu.mutation.UserID(); ok {
-		if err := user.UserIDValidator(v); err != nil {
-			return &ValidationError{Name: "user_id", err: fmt.Errorf(`ent: validator failed for field "User.user_id": %w`, err)}
+	if v, ok := uu.mutation.UserId(); ok {
+		if err := user.UserIdValidator(v); err != nil {
+			return &ValidationError{Name: "userId", err: fmt.Errorf(`ent: validator failed for field "User.userId": %w`, err)}
 		}
 	}
 	if v, ok := uu.mutation.Password(); ok {
@@ -373,12 +373,12 @@ func (uu *UserUpdate) check() error {
 	}
 	if v, ok := uu.mutation.UserName(); ok {
 		if err := user.UserNameValidator(v); err != nil {
-			return &ValidationError{Name: "user_name", err: fmt.Errorf(`ent: validator failed for field "User.user_name": %w`, err)}
+			return &ValidationError{Name: "userName", err: fmt.Errorf(`ent: validator failed for field "User.userName": %w`, err)}
 		}
 	}
 	if v, ok := uu.mutation.PhoneNumber(); ok {
 		if err := user.PhoneNumberValidator(v); err != nil {
-			return &ValidationError{Name: "phone_number", err: fmt.Errorf(`ent: validator failed for field "User.phone_number": %w`, err)}
+			return &ValidationError{Name: "phoneNumber", err: fmt.Errorf(`ent: validator failed for field "User.phoneNumber": %w`, err)}
 		}
 	}
 	return nil
@@ -396,8 +396,8 @@ func (uu *UserUpdate) sqlSave(ctx context.Context) (n int, err error) {
 			}
 		}
 	}
-	if value, ok := uu.mutation.UserID(); ok {
-		_spec.SetField(user.FieldUserID, field.TypeString, value)
+	if value, ok := uu.mutation.UserId(); ok {
+		_spec.SetField(user.FieldUserId, field.TypeString, value)
 	}
 	if value, ok := uu.mutation.Password(); ok {
 		_spec.SetField(user.FieldPassword, field.TypeString, value)
@@ -497,16 +497,16 @@ type UserUpdateOne struct {
 	mutation *UserMutation
 }
 
-// SetUserID sets the "user_id" field.
-func (uuo *UserUpdateOne) SetUserID(s string) *UserUpdateOne {
-	uuo.mutation.SetUserID(s)
+// SetUserId sets the "userId" field.
+func (uuo *UserUpdateOne) SetUserId(s string) *UserUpdateOne {
+	uuo.mutation.SetUserId(s)
 	return uuo
 }
 
-// SetNillableUserID sets the "user_id" field if the given value is not nil.
-func (uuo *UserUpdateOne) SetNillableUserID(s *string) *UserUpdateOne {
+// SetNillableUserId sets the "userId" field if the given value is not nil.
+func (uuo *UserUpdateOne) SetNillableUserId(s *string) *UserUpdateOne {
 	if s != nil {
-		uuo.SetUserID(*s)
+		uuo.SetUserId(*s)
 	}
 	return uuo
 }
@@ -525,13 +525,13 @@ func (uuo *UserUpdateOne) SetNillablePassword(s *string) *UserUpdateOne {
 	return uuo
 }
 
-// SetUserName sets the "user_name" field.
+// SetUserName sets the "userName" field.
 func (uuo *UserUpdateOne) SetUserName(s string) *UserUpdateOne {
 	uuo.mutation.SetUserName(s)
 	return uuo
 }
 
-// SetNillableUserName sets the "user_name" field if the given value is not nil.
+// SetNillableUserName sets the "userName" field if the given value is not nil.
 func (uuo *UserUpdateOne) SetNillableUserName(s *string) *UserUpdateOne {
 	if s != nil {
 		uuo.SetUserName(*s)
@@ -539,13 +539,13 @@ func (uuo *UserUpdateOne) SetNillableUserName(s *string) *UserUpdateOne {
 	return uuo
 }
 
-// SetUserStatus sets the "user_status" field.
+// SetUserStatus sets the "userStatus" field.
 func (uuo *UserUpdateOne) SetUserStatus(b bool) *UserUpdateOne {
 	uuo.mutation.SetUserStatus(b)
 	return uuo
 }
 
-// SetNillableUserStatus sets the "user_status" field if the given value is not nil.
+// SetNillableUserStatus sets the "userStatus" field if the given value is not nil.
 func (uuo *UserUpdateOne) SetNillableUserStatus(b *bool) *UserUpdateOne {
 	if b != nil {
 		uuo.SetUserStatus(*b)
@@ -567,13 +567,13 @@ func (uuo *UserUpdateOne) SetNillableEmail(s *string) *UserUpdateOne {
 	return uuo
 }
 
-// SetPhoneNumber sets the "phone_number" field.
+// SetPhoneNumber sets the "phoneNumber" field.
 func (uuo *UserUpdateOne) SetPhoneNumber(s string) *UserUpdateOne {
 	uuo.mutation.SetPhoneNumber(s)
 	return uuo
 }
 
-// SetNillablePhoneNumber sets the "phone_number" field if the given value is not nil.
+// SetNillablePhoneNumber sets the "phoneNumber" field if the given value is not nil.
 func (uuo *UserUpdateOne) SetNillablePhoneNumber(s *string) *UserUpdateOne {
 	if s != nil {
 		uuo.SetPhoneNumber(*s)
@@ -581,14 +581,14 @@ func (uuo *UserUpdateOne) SetNillablePhoneNumber(s *string) *UserUpdateOne {
 	return uuo
 }
 
-// SetJobCd sets the "job_cd" field.
+// SetJobCd sets the "jobCd" field.
 func (uuo *UserUpdateOne) SetJobCd(i int) *UserUpdateOne {
 	uuo.mutation.ResetJobCd()
 	uuo.mutation.SetJobCd(i)
 	return uuo
 }
 
-// SetNillableJobCd sets the "job_cd" field if the given value is not nil.
+// SetNillableJobCd sets the "jobCd" field if the given value is not nil.
 func (uuo *UserUpdateOne) SetNillableJobCd(i *int) *UserUpdateOne {
 	if i != nil {
 		uuo.SetJobCd(*i)
@@ -596,25 +596,25 @@ func (uuo *UserUpdateOne) SetNillableJobCd(i *int) *UserUpdateOne {
 	return uuo
 }
 
-// AddJobCd adds i to the "job_cd" field.
+// AddJobCd adds i to the "jobCd" field.
 func (uuo *UserUpdateOne) AddJobCd(i int) *UserUpdateOne {
 	uuo.mutation.AddJobCd(i)
 	return uuo
 }
 
-// ClearJobCd clears the value of the "job_cd" field.
+// ClearJobCd clears the value of the "jobCd" field.
 func (uuo *UserUpdateOne) ClearJobCd() *UserUpdateOne {
 	uuo.mutation.ClearJobCd()
 	return uuo
 }
 
-// SetProfileImage sets the "profile_image" field.
+// SetProfileImage sets the "profileImage" field.
 func (uuo *UserUpdateOne) SetProfileImage(s string) *UserUpdateOne {
 	uuo.mutation.SetProfileImage(s)
 	return uuo
 }
 
-// SetNillableProfileImage sets the "profile_image" field if the given value is not nil.
+// SetNillableProfileImage sets the "profileImage" field if the given value is not nil.
 func (uuo *UserUpdateOne) SetNillableProfileImage(s *string) *UserUpdateOne {
 	if s != nil {
 		uuo.SetProfileImage(*s)
@@ -622,19 +622,19 @@ func (uuo *UserUpdateOne) SetNillableProfileImage(s *string) *UserUpdateOne {
 	return uuo
 }
 
-// ClearProfileImage clears the value of the "profile_image" field.
+// ClearProfileImage clears the value of the "profileImage" field.
 func (uuo *UserUpdateOne) ClearProfileImage() *UserUpdateOne {
 	uuo.mutation.ClearProfileImage()
 	return uuo
 }
 
-// SetGithubLink sets the "github_link" field.
+// SetGithubLink sets the "githubLink" field.
 func (uuo *UserUpdateOne) SetGithubLink(s string) *UserUpdateOne {
 	uuo.mutation.SetGithubLink(s)
 	return uuo
 }
 
-// SetNillableGithubLink sets the "github_link" field if the given value is not nil.
+// SetNillableGithubLink sets the "githubLink" field if the given value is not nil.
 func (uuo *UserUpdateOne) SetNillableGithubLink(s *string) *UserUpdateOne {
 	if s != nil {
 		uuo.SetGithubLink(*s)
@@ -642,19 +642,19 @@ func (uuo *UserUpdateOne) SetNillableGithubLink(s *string) *UserUpdateOne {
 	return uuo
 }
 
-// ClearGithubLink clears the value of the "github_link" field.
+// ClearGithubLink clears the value of the "githubLink" field.
 func (uuo *UserUpdateOne) ClearGithubLink() *UserUpdateOne {
 	uuo.mutation.ClearGithubLink()
 	return uuo
 }
 
-// SetBlogLink sets the "blog_link" field.
+// SetBlogLink sets the "blogLink" field.
 func (uuo *UserUpdateOne) SetBlogLink(s string) *UserUpdateOne {
 	uuo.mutation.SetBlogLink(s)
 	return uuo
 }
 
-// SetNillableBlogLink sets the "blog_link" field if the given value is not nil.
+// SetNillableBlogLink sets the "blogLink" field if the given value is not nil.
 func (uuo *UserUpdateOne) SetNillableBlogLink(s *string) *UserUpdateOne {
 	if s != nil {
 		uuo.SetBlogLink(*s)
@@ -662,19 +662,19 @@ func (uuo *UserUpdateOne) SetNillableBlogLink(s *string) *UserUpdateOne {
 	return uuo
 }
 
-// ClearBlogLink clears the value of the "blog_link" field.
+// ClearBlogLink clears the value of the "blogLink" field.
 func (uuo *UserUpdateOne) ClearBlogLink() *UserUpdateOne {
 	uuo.mutation.ClearBlogLink()
 	return uuo
 }
 
-// SetUserText sets the "user_text" field.
+// SetUserText sets the "userText" field.
 func (uuo *UserUpdateOne) SetUserText(s string) *UserUpdateOne {
 	uuo.mutation.SetUserText(s)
 	return uuo
 }
 
-// SetNillableUserText sets the "user_text" field if the given value is not nil.
+// SetNillableUserText sets the "userText" field if the given value is not nil.
 func (uuo *UserUpdateOne) SetNillableUserText(s *string) *UserUpdateOne {
 	if s != nil {
 		uuo.SetUserText(*s)
@@ -682,7 +682,7 @@ func (uuo *UserUpdateOne) SetNillableUserText(s *string) *UserUpdateOne {
 	return uuo
 }
 
-// ClearUserText clears the value of the "user_text" field.
+// ClearUserText clears the value of the "userText" field.
 func (uuo *UserUpdateOne) ClearUserText() *UserUpdateOne {
 	uuo.mutation.ClearUserText()
 	return uuo
@@ -728,13 +728,13 @@ func (uuo *UserUpdateOne) ClearSkill() *UserUpdateOne {
 	return uuo
 }
 
-// SetCreateDate sets the "create_date" field.
+// SetCreateDate sets the "createDate" field.
 func (uuo *UserUpdateOne) SetCreateDate(t time.Time) *UserUpdateOne {
 	uuo.mutation.SetCreateDate(t)
 	return uuo
 }
 
-// SetNillableCreateDate sets the "create_date" field if the given value is not nil.
+// SetNillableCreateDate sets the "createDate" field if the given value is not nil.
 func (uuo *UserUpdateOne) SetNillableCreateDate(t *time.Time) *UserUpdateOne {
 	if t != nil {
 		uuo.SetCreateDate(*t)
@@ -742,13 +742,13 @@ func (uuo *UserUpdateOne) SetNillableCreateDate(t *time.Time) *UserUpdateOne {
 	return uuo
 }
 
-// SetUpdateDate sets the "update_date" field.
+// SetUpdateDate sets the "updateDate" field.
 func (uuo *UserUpdateOne) SetUpdateDate(t time.Time) *UserUpdateOne {
 	uuo.mutation.SetUpdateDate(t)
 	return uuo
 }
 
-// SetNillableUpdateDate sets the "update_date" field if the given value is not nil.
+// SetNillableUpdateDate sets the "updateDate" field if the given value is not nil.
 func (uuo *UserUpdateOne) SetNillableUpdateDate(t *time.Time) *UserUpdateOne {
 	if t != nil {
 		uuo.SetUpdateDate(*t)
@@ -756,13 +756,13 @@ func (uuo *UserUpdateOne) SetNillableUpdateDate(t *time.Time) *UserUpdateOne {
 	return uuo
 }
 
-// SetSessionToken sets the "session_token" field.
+// SetSessionToken sets the "sessionToken" field.
 func (uuo *UserUpdateOne) SetSessionToken(s string) *UserUpdateOne {
 	uuo.mutation.SetSessionToken(s)
 	return uuo
 }
 
-// SetNillableSessionToken sets the "session_token" field if the given value is not nil.
+// SetNillableSessionToken sets the "sessionToken" field if the given value is not nil.
 func (uuo *UserUpdateOne) SetNillableSessionToken(s *string) *UserUpdateOne {
 	if s != nil {
 		uuo.SetSessionToken(*s)
@@ -770,19 +770,19 @@ func (uuo *UserUpdateOne) SetNillableSessionToken(s *string) *UserUpdateOne {
 	return uuo
 }
 
-// ClearSessionToken clears the value of the "session_token" field.
+// ClearSessionToken clears the value of the "sessionToken" field.
 func (uuo *UserUpdateOne) ClearSessionToken() *UserUpdateOne {
 	uuo.mutation.ClearSessionToken()
 	return uuo
 }
 
-// SetSessionExpiry sets the "session_expiry" field.
+// SetSessionExpiry sets the "sessionExpiry" field.
 func (uuo *UserUpdateOne) SetSessionExpiry(t time.Time) *UserUpdateOne {
 	uuo.mutation.SetSessionExpiry(t)
 	return uuo
 }
 
-// SetNillableSessionExpiry sets the "session_expiry" field if the given value is not nil.
+// SetNillableSessionExpiry sets the "sessionExpiry" field if the given value is not nil.
 func (uuo *UserUpdateOne) SetNillableSessionExpiry(t *time.Time) *UserUpdateOne {
 	if t != nil {
 		uuo.SetSessionExpiry(*t)
@@ -790,7 +790,7 @@ func (uuo *UserUpdateOne) SetNillableSessionExpiry(t *time.Time) *UserUpdateOne 
 	return uuo
 }
 
-// ClearSessionExpiry clears the value of the "session_expiry" field.
+// ClearSessionExpiry clears the value of the "sessionExpiry" field.
 func (uuo *UserUpdateOne) ClearSessionExpiry() *UserUpdateOne {
 	uuo.mutation.ClearSessionExpiry()
 	return uuo
@@ -843,9 +843,9 @@ func (uuo *UserUpdateOne) ExecX(ctx context.Context) {
 
 // check runs all checks and user-defined validators on the builder.
 func (uuo *UserUpdateOne) check() error {
-	if v, ok := uuo.mutation.UserID(); ok {
-		if err := user.UserIDValidator(v); err != nil {
-			return &ValidationError{Name: "user_id", err: fmt.Errorf(`ent: validator failed for field "User.user_id": %w`, err)}
+	if v, ok := uuo.mutation.UserId(); ok {
+		if err := user.UserIdValidator(v); err != nil {
+			return &ValidationError{Name: "userId", err: fmt.Errorf(`ent: validator failed for field "User.userId": %w`, err)}
 		}
 	}
 	if v, ok := uuo.mutation.Password(); ok {
@@ -855,12 +855,12 @@ func (uuo *UserUpdateOne) check() error {
 	}
 	if v, ok := uuo.mutation.UserName(); ok {
 		if err := user.UserNameValidator(v); err != nil {
-			return &ValidationError{Name: "user_name", err: fmt.Errorf(`ent: validator failed for field "User.user_name": %w`, err)}
+			return &ValidationError{Name: "userName", err: fmt.Errorf(`ent: validator failed for field "User.userName": %w`, err)}
 		}
 	}
 	if v, ok := uuo.mutation.PhoneNumber(); ok {
 		if err := user.PhoneNumberValidator(v); err != nil {
-			return &ValidationError{Name: "phone_number", err: fmt.Errorf(`ent: validator failed for field "User.phone_number": %w`, err)}
+			return &ValidationError{Name: "phoneNumber", err: fmt.Errorf(`ent: validator failed for field "User.phoneNumber": %w`, err)}
 		}
 	}
 	return nil
@@ -895,8 +895,8 @@ func (uuo *UserUpdateOne) sqlSave(ctx context.Context) (_node *User, err error) 
 			}
 		}
 	}
-	if value, ok := uuo.mutation.UserID(); ok {
-		_spec.SetField(user.FieldUserID, field.TypeString, value)
+	if value, ok := uuo.mutation.UserId(); ok {
+		_spec.SetField(user.FieldUserId, field.TypeString, value)
 	}
 	if value, ok := uuo.mutation.Password(); ok {
 		_spec.SetField(user.FieldPassword, field.TypeString, value)

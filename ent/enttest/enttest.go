@@ -5,11 +5,11 @@ package enttest
 import (
 	"context"
 
-	"SpaceDev/ent"
+	"DBP/ent"
 	// required by schema hooks.
-	_ "SpaceDev/ent/runtime"
+	_ "DBP/ent/runtime"
 
-	"SpaceDev/ent/migrate"
+	"DBP/ent/migrate"
 
 	"entgo.io/ent/dialect/sql/schema"
 )

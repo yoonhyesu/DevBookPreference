@@ -3,8 +3,8 @@
 package ent
 
 import (
-	"SpaceDev/ent/schema"
-	"SpaceDev/ent/user"
+	"DBP/ent/schema"
+	"DBP/ent/user"
 	"time"
 )
 
@@ -14,36 +14,32 @@ import (
 func init() {
 	userFields := schema.User{}.Fields()
 	_ = userFields
-	// userDescUserID is the schema descriptor for user_id field.
-	userDescUserID := userFields[1].Descriptor()
-	// user.UserIDValidator is a validator for the "user_id" field. It is called by the builders before save.
-	user.UserIDValidator = userDescUserID.Validators[0].(func(string) error)
+	// userDescUserId is the schema descriptor for userId field.
+	userDescUserId := userFields[0].Descriptor()
+	// user.UserIdValidator is a validator for the "userId" field. It is called by the builders before save.
+	user.UserIdValidator = userDescUserId.Validators[0].(func(string) error)
 	// userDescPassword is the schema descriptor for password field.
-	userDescPassword := userFields[2].Descriptor()
+	userDescPassword := userFields[1].Descriptor()
 	// user.PasswordValidator is a validator for the "password" field. It is called by the builders before save.
 	user.PasswordValidator = userDescPassword.Validators[0].(func(string) error)
-	// userDescUserName is the schema descriptor for user_name field.
-	userDescUserName := userFields[3].Descriptor()
-	// user.UserNameValidator is a validator for the "user_name" field. It is called by the builders before save.
+	// userDescUserName is the schema descriptor for userName field.
+	userDescUserName := userFields[2].Descriptor()
+	// user.UserNameValidator is a validator for the "userName" field. It is called by the builders before save.
 	user.UserNameValidator = userDescUserName.Validators[0].(func(string) error)
-	// userDescUserStatus is the schema descriptor for user_status field.
-	userDescUserStatus := userFields[4].Descriptor()
-	// user.DefaultUserStatus holds the default value on creation for the user_status field.
+	// userDescUserStatus is the schema descriptor for userStatus field.
+	userDescUserStatus := userFields[3].Descriptor()
+	// user.DefaultUserStatus holds the default value on creation for the userStatus field.
 	user.DefaultUserStatus = userDescUserStatus.Default.(bool)
-	// userDescPhoneNumber is the schema descriptor for phone_number field.
-	userDescPhoneNumber := userFields[6].Descriptor()
-	// user.PhoneNumberValidator is a validator for the "phone_number" field. It is called by the builders before save.
+	// userDescPhoneNumber is the schema descriptor for phoneNumber field.
+	userDescPhoneNumber := userFields[5].Descriptor()
+	// user.PhoneNumberValidator is a validator for the "phoneNumber" field. It is called by the builders before save.
 	user.PhoneNumberValidator = userDescPhoneNumber.Validators[0].(func(string) error)
-	// userDescCreateDate is the schema descriptor for create_date field.
-	userDescCreateDate := userFields[14].Descriptor()
-	// user.DefaultCreateDate holds the default value on creation for the create_date field.
+	// userDescCreateDate is the schema descriptor for createDate field.
+	userDescCreateDate := userFields[13].Descriptor()
+	// user.DefaultCreateDate holds the default value on creation for the createDate field.
 	user.DefaultCreateDate = userDescCreateDate.Default.(time.Time)
-	// userDescUpdateDate is the schema descriptor for update_date field.
-	userDescUpdateDate := userFields[15].Descriptor()
-	// user.DefaultUpdateDate holds the default value on creation for the update_date field.
+	// userDescUpdateDate is the schema descriptor for updateDate field.
+	userDescUpdateDate := userFields[14].Descriptor()
+	// user.DefaultUpdateDate holds the default value on creation for the updateDate field.
 	user.DefaultUpdateDate = userDescUpdateDate.Default.(time.Time)
-	// userDescID is the schema descriptor for id field.
-	userDescID := userFields[0].Descriptor()
-	// user.IDValidator is a validator for the "id" field. It is called by the builders before save.
-	user.IDValidator = userDescID.Validators[0].(func(int) error)
 }

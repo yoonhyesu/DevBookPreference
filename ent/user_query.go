@@ -3,8 +3,8 @@
 package ent
 
 import (
-	"SpaceDev/ent/predicate"
-	"SpaceDev/ent/user"
+	"DBP/ent/predicate"
+	"DBP/ent/user"
 	"context"
 	"fmt"
 	"math"
@@ -262,12 +262,12 @@ func (uq *UserQuery) Clone() *UserQuery {
 // Example:
 //
 //	var v []struct {
-//		UserID string `json:"user_id,omitempty"`
+//		UserId string `json:"userId,omitempty"`
 //		Count int `json:"count,omitempty"`
 //	}
 //
 //	client.User.Query().
-//		GroupBy(user.FieldUserID).
+//		GroupBy(user.FieldUserId).
 //		Aggregate(ent.Count()).
 //		Scan(ctx, &v)
 func (uq *UserQuery) GroupBy(field string, fields ...string) *UserGroupBy {
@@ -285,11 +285,11 @@ func (uq *UserQuery) GroupBy(field string, fields ...string) *UserGroupBy {
 // Example:
 //
 //	var v []struct {
-//		UserID string `json:"user_id,omitempty"`
+//		UserId string `json:"userId,omitempty"`
 //	}
 //
 //	client.User.Query().
-//		Select(user.FieldUserID).
+//		Select(user.FieldUserId).
 //		Scan(ctx, &v)
 func (uq *UserQuery) Select(fields ...string) *UserSelect {
 	uq.ctx.Fields = append(uq.ctx.Fields, fields...)

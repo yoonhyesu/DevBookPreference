@@ -3,7 +3,7 @@
 package ent
 
 import (
-	"SpaceDev/ent/user"
+	"DBP/ent/user"
 	"fmt"
 	"strings"
 	"time"
@@ -17,40 +17,40 @@ type User struct {
 	config `json:"-"`
 	// ID of the ent.
 	ID int `json:"id,omitempty"`
-	// UserID holds the value of the "user_id" field.
-	UserID string `json:"user_id,omitempty"`
+	// UserId holds the value of the "userId" field.
+	UserId string `json:"userId,omitempty"`
 	// Password holds the value of the "password" field.
 	Password string `json:"-"`
-	// UserName holds the value of the "user_name" field.
-	UserName string `json:"user_name,omitempty"`
-	// UserStatus holds the value of the "user_status" field.
-	UserStatus bool `json:"user_status,omitempty"`
+	// UserName holds the value of the "userName" field.
+	UserName string `json:"userName,omitempty"`
+	// UserStatus holds the value of the "userStatus" field.
+	UserStatus bool `json:"userStatus,omitempty"`
 	// Email holds the value of the "email" field.
 	Email string `json:"email,omitempty"`
-	// PhoneNumber holds the value of the "phone_number" field.
-	PhoneNumber string `json:"phone_number,omitempty"`
-	// JobCd holds the value of the "job_cd" field.
-	JobCd int `json:"job_cd,omitempty"`
-	// ProfileImage holds the value of the "profile_image" field.
-	ProfileImage string `json:"profile_image,omitempty"`
-	// GithubLink holds the value of the "github_link" field.
-	GithubLink string `json:"github_link,omitempty"`
-	// BlogLink holds the value of the "blog_link" field.
-	BlogLink string `json:"blog_link,omitempty"`
-	// UserText holds the value of the "user_text" field.
-	UserText string `json:"user_text,omitempty"`
+	// PhoneNumber holds the value of the "phoneNumber" field.
+	PhoneNumber string `json:"phoneNumber,omitempty"`
+	// JobCd holds the value of the "jobCd" field.
+	JobCd int `json:"jobCd,omitempty"`
+	// ProfileImage holds the value of the "profileImage" field.
+	ProfileImage string `json:"profileImage,omitempty"`
+	// GithubLink holds the value of the "githubLink" field.
+	GithubLink string `json:"githubLink,omitempty"`
+	// BlogLink holds the value of the "blogLink" field.
+	BlogLink string `json:"blogLink,omitempty"`
+	// UserText holds the value of the "userText" field.
+	UserText string `json:"userText,omitempty"`
 	// Company holds the value of the "company" field.
 	Company string `json:"company,omitempty"`
 	// Skill holds the value of the "skill" field.
 	Skill string `json:"skill,omitempty"`
-	// CreateDate holds the value of the "create_date" field.
-	CreateDate time.Time `json:"create_date,omitempty"`
-	// UpdateDate holds the value of the "update_date" field.
-	UpdateDate time.Time `json:"update_date,omitempty"`
-	// SessionToken holds the value of the "session_token" field.
+	// CreateDate holds the value of the "createDate" field.
+	CreateDate time.Time `json:"createDate,omitempty"`
+	// UpdateDate holds the value of the "updateDate" field.
+	UpdateDate time.Time `json:"updateDate,omitempty"`
+	// SessionToken holds the value of the "sessionToken" field.
 	SessionToken string `json:"-"`
-	// SessionExpiry holds the value of the "session_expiry" field.
-	SessionExpiry time.Time `json:"session_expiry,omitempty"`
+	// SessionExpiry holds the value of the "sessionExpiry" field.
+	SessionExpiry time.Time `json:"sessionExpiry,omitempty"`
 	selectValues  sql.SelectValues
 }
 
@@ -63,7 +63,7 @@ func (*User) scanValues(columns []string) ([]any, error) {
 			values[i] = new(sql.NullBool)
 		case user.FieldID, user.FieldJobCd:
 			values[i] = new(sql.NullInt64)
-		case user.FieldUserID, user.FieldPassword, user.FieldUserName, user.FieldEmail, user.FieldPhoneNumber, user.FieldProfileImage, user.FieldGithubLink, user.FieldBlogLink, user.FieldUserText, user.FieldCompany, user.FieldSkill, user.FieldSessionToken:
+		case user.FieldUserId, user.FieldPassword, user.FieldUserName, user.FieldEmail, user.FieldPhoneNumber, user.FieldProfileImage, user.FieldGithubLink, user.FieldBlogLink, user.FieldUserText, user.FieldCompany, user.FieldSkill, user.FieldSessionToken:
 			values[i] = new(sql.NullString)
 		case user.FieldCreateDate, user.FieldUpdateDate, user.FieldSessionExpiry:
 			values[i] = new(sql.NullTime)
@@ -88,11 +88,11 @@ func (u *User) assignValues(columns []string, values []any) error {
 				return fmt.Errorf("unexpected type %T for field id", value)
 			}
 			u.ID = int(value.Int64)
-		case user.FieldUserID:
+		case user.FieldUserId:
 			if value, ok := values[i].(*sql.NullString); !ok {
-				return fmt.Errorf("unexpected type %T for field user_id", values[i])
+				return fmt.Errorf("unexpected type %T for field userId", values[i])
 			} else if value.Valid {
-				u.UserID = value.String
+				u.UserId = value.String
 			}
 		case user.FieldPassword:
 			if value, ok := values[i].(*sql.NullString); !ok {
@@ -102,13 +102,13 @@ func (u *User) assignValues(columns []string, values []any) error {
 			}
 		case user.FieldUserName:
 			if value, ok := values[i].(*sql.NullString); !ok {
-				return fmt.Errorf("unexpected type %T for field user_name", values[i])
+				return fmt.Errorf("unexpected type %T for field userName", values[i])
 			} else if value.Valid {
 				u.UserName = value.String
 			}
 		case user.FieldUserStatus:
 			if value, ok := values[i].(*sql.NullBool); !ok {
-				return fmt.Errorf("unexpected type %T for field user_status", values[i])
+				return fmt.Errorf("unexpected type %T for field userStatus", values[i])
 			} else if value.Valid {
 				u.UserStatus = value.Bool
 			}
@@ -120,37 +120,37 @@ func (u *User) assignValues(columns []string, values []any) error {
 			}
 		case user.FieldPhoneNumber:
 			if value, ok := values[i].(*sql.NullString); !ok {
-				return fmt.Errorf("unexpected type %T for field phone_number", values[i])
+				return fmt.Errorf("unexpected type %T for field phoneNumber", values[i])
 			} else if value.Valid {
 				u.PhoneNumber = value.String
 			}
 		case user.FieldJobCd:
 			if value, ok := values[i].(*sql.NullInt64); !ok {
-				return fmt.Errorf("unexpected type %T for field job_cd", values[i])
+				return fmt.Errorf("unexpected type %T for field jobCd", values[i])
 			} else if value.Valid {
 				u.JobCd = int(value.Int64)
 			}
 		case user.FieldProfileImage:
 			if value, ok := values[i].(*sql.NullString); !ok {
-				return fmt.Errorf("unexpected type %T for field profile_image", values[i])
+				return fmt.Errorf("unexpected type %T for field profileImage", values[i])
 			} else if value.Valid {
 				u.ProfileImage = value.String
 			}
 		case user.FieldGithubLink:
 			if value, ok := values[i].(*sql.NullString); !ok {
-				return fmt.Errorf("unexpected type %T for field github_link", values[i])
+				return fmt.Errorf("unexpected type %T for field githubLink", values[i])
 			} else if value.Valid {
 				u.GithubLink = value.String
 			}
 		case user.FieldBlogLink:
 			if value, ok := values[i].(*sql.NullString); !ok {
-				return fmt.Errorf("unexpected type %T for field blog_link", values[i])
+				return fmt.Errorf("unexpected type %T for field blogLink", values[i])
 			} else if value.Valid {
 				u.BlogLink = value.String
 			}
 		case user.FieldUserText:
 			if value, ok := values[i].(*sql.NullString); !ok {
-				return fmt.Errorf("unexpected type %T for field user_text", values[i])
+				return fmt.Errorf("unexpected type %T for field userText", values[i])
 			} else if value.Valid {
 				u.UserText = value.String
 			}
@@ -168,25 +168,25 @@ func (u *User) assignValues(columns []string, values []any) error {
 			}
 		case user.FieldCreateDate:
 			if value, ok := values[i].(*sql.NullTime); !ok {
-				return fmt.Errorf("unexpected type %T for field create_date", values[i])
+				return fmt.Errorf("unexpected type %T for field createDate", values[i])
 			} else if value.Valid {
 				u.CreateDate = value.Time
 			}
 		case user.FieldUpdateDate:
 			if value, ok := values[i].(*sql.NullTime); !ok {
-				return fmt.Errorf("unexpected type %T for field update_date", values[i])
+				return fmt.Errorf("unexpected type %T for field updateDate", values[i])
 			} else if value.Valid {
 				u.UpdateDate = value.Time
 			}
 		case user.FieldSessionToken:
 			if value, ok := values[i].(*sql.NullString); !ok {
-				return fmt.Errorf("unexpected type %T for field session_token", values[i])
+				return fmt.Errorf("unexpected type %T for field sessionToken", values[i])
 			} else if value.Valid {
 				u.SessionToken = value.String
 			}
 		case user.FieldSessionExpiry:
 			if value, ok := values[i].(*sql.NullTime); !ok {
-				return fmt.Errorf("unexpected type %T for field session_expiry", values[i])
+				return fmt.Errorf("unexpected type %T for field sessionExpiry", values[i])
 			} else if value.Valid {
 				u.SessionExpiry = value.Time
 			}
@@ -226,36 +226,36 @@ func (u *User) String() string {
 	var builder strings.Builder
 	builder.WriteString("User(")
 	builder.WriteString(fmt.Sprintf("id=%v, ", u.ID))
-	builder.WriteString("user_id=")
-	builder.WriteString(u.UserID)
+	builder.WriteString("userId=")
+	builder.WriteString(u.UserId)
 	builder.WriteString(", ")
 	builder.WriteString("password=<sensitive>")
 	builder.WriteString(", ")
-	builder.WriteString("user_name=")
+	builder.WriteString("userName=")
 	builder.WriteString(u.UserName)
 	builder.WriteString(", ")
-	builder.WriteString("user_status=")
+	builder.WriteString("userStatus=")
 	builder.WriteString(fmt.Sprintf("%v", u.UserStatus))
 	builder.WriteString(", ")
 	builder.WriteString("email=")
 	builder.WriteString(u.Email)
 	builder.WriteString(", ")
-	builder.WriteString("phone_number=")
+	builder.WriteString("phoneNumber=")
 	builder.WriteString(u.PhoneNumber)
 	builder.WriteString(", ")
-	builder.WriteString("job_cd=")
+	builder.WriteString("jobCd=")
 	builder.WriteString(fmt.Sprintf("%v", u.JobCd))
 	builder.WriteString(", ")
-	builder.WriteString("profile_image=")
+	builder.WriteString("profileImage=")
 	builder.WriteString(u.ProfileImage)
 	builder.WriteString(", ")
-	builder.WriteString("github_link=")
+	builder.WriteString("githubLink=")
 	builder.WriteString(u.GithubLink)
 	builder.WriteString(", ")
-	builder.WriteString("blog_link=")
+	builder.WriteString("blogLink=")
 	builder.WriteString(u.BlogLink)
 	builder.WriteString(", ")
-	builder.WriteString("user_text=")
+	builder.WriteString("userText=")
 	builder.WriteString(u.UserText)
 	builder.WriteString(", ")
 	builder.WriteString("company=")
@@ -264,15 +264,15 @@ func (u *User) String() string {
 	builder.WriteString("skill=")
 	builder.WriteString(u.Skill)
 	builder.WriteString(", ")
-	builder.WriteString("create_date=")
+	builder.WriteString("createDate=")
 	builder.WriteString(u.CreateDate.Format(time.ANSIC))
 	builder.WriteString(", ")
-	builder.WriteString("update_date=")
+	builder.WriteString("updateDate=")
 	builder.WriteString(u.UpdateDate.Format(time.ANSIC))
 	builder.WriteString(", ")
-	builder.WriteString("session_token=<sensitive>")
+	builder.WriteString("sessionToken=<sensitive>")
 	builder.WriteString(", ")
-	builder.WriteString("session_expiry=")
+	builder.WriteString("sessionExpiry=")
 	builder.WriteString(u.SessionExpiry.Format(time.ANSIC))
 	builder.WriteByte(')')
 	return builder.String()

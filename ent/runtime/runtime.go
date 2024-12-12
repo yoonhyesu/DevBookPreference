@@ -2,7 +2,7 @@
 
 package runtime
 
-// The schema-stitching logic is generated in SpaceDev/ent/runtime.go
+// The schema-stitching logic is generated in DBP/ent/runtime.go
 
 const (
 	Version = "v0.14.1"                                         // Version of ent codegen.

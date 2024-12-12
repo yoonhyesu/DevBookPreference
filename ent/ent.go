@@ -3,7 +3,7 @@
 package ent
 
 import (
-	"SpaceDev/ent/user"
+	"DBP/ent/user"
 	"context"
 	"errors"
 	"fmt"

@@ -3,8 +3,8 @@
 package ent
 
 import (
-	"SpaceDev/ent/predicate"
-	"SpaceDev/ent/user"
+	"DBP/ent/predicate"
+	"DBP/ent/user"
 	"context"
 
 	"entgo.io/ent/dialect/sql"

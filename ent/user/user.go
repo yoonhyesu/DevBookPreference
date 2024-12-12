@@ -12,40 +12,40 @@ const (
 	// Label holds the string label denoting the user type in the database.
 	Label = "user"
 	// FieldID holds the string denoting the id field in the database.
-	FieldID = "ID"
-	// FieldUserID holds the string denoting the user_id field in the database.
-	FieldUserID = "USER_ID"
+	FieldID = "id"
+	// FieldUserId holds the string denoting the userid field in the database.
+	FieldUserId = "USER_ID"
 	// FieldPassword holds the string denoting the password field in the database.
 	FieldPassword = "PASSWORD"
-	// FieldUserName holds the string denoting the user_name field in the database.
+	// FieldUserName holds the string denoting the username field in the database.
 	FieldUserName = "USER_NAME"
-	// FieldUserStatus holds the string denoting the user_status field in the database.
+	// FieldUserStatus holds the string denoting the userstatus field in the database.
 	FieldUserStatus = "USER_STATUS"
 	// FieldEmail holds the string denoting the email field in the database.
 	FieldEmail = "EMAIL"
-	// FieldPhoneNumber holds the string denoting the phone_number field in the database.
+	// FieldPhoneNumber holds the string denoting the phonenumber field in the database.
 	FieldPhoneNumber = "PHONE_NUMBER"
-	// FieldJobCd holds the string denoting the job_cd field in the database.
+	// FieldJobCd holds the string denoting the jobcd field in the database.
 	FieldJobCd = "JOB_CODE"
-	// FieldProfileImage holds the string denoting the profile_image field in the database.
+	// FieldProfileImage holds the string denoting the profileimage field in the database.
 	FieldProfileImage = "PROFILE_IMAGE"
-	// FieldGithubLink holds the string denoting the github_link field in the database.
+	// FieldGithubLink holds the string denoting the githublink field in the database.
 	FieldGithubLink = "GITHUB_LINK"
-	// FieldBlogLink holds the string denoting the blog_link field in the database.
+	// FieldBlogLink holds the string denoting the bloglink field in the database.
 	FieldBlogLink = "BLOG_LINK"
-	// FieldUserText holds the string denoting the user_text field in the database.
+	// FieldUserText holds the string denoting the usertext field in the database.
 	FieldUserText = "USER_TEXT"
 	// FieldCompany holds the string denoting the company field in the database.
 	FieldCompany = "COMPANY"
 	// FieldSkill holds the string denoting the skill field in the database.
 	FieldSkill = "SKILL"
-	// FieldCreateDate holds the string denoting the create_date field in the database.
+	// FieldCreateDate holds the string denoting the createdate field in the database.
 	FieldCreateDate = "CREATE_DATE"
-	// FieldUpdateDate holds the string denoting the update_date field in the database.
+	// FieldUpdateDate holds the string denoting the updatedate field in the database.
 	FieldUpdateDate = "UPDATE_DATE"
-	// FieldSessionToken holds the string denoting the session_token field in the database.
+	// FieldSessionToken holds the string denoting the sessiontoken field in the database.
 	FieldSessionToken = "SESSION_TOKEN"
-	// FieldSessionExpiry holds the string denoting the session_expiry field in the database.
+	// FieldSessionExpiry holds the string denoting the sessionexpiry field in the database.
 	FieldSessionExpiry = "SESSION_EXPIRY"
 	// Table holds the table name of the user in the database.
 	Table = "users"
@@ -54,7 +54,7 @@ const (
 // Columns holds all SQL columns for user fields.
 var Columns = []string{
 	FieldID,
-	FieldUserID,
+	FieldUserId,
 	FieldPassword,
 	FieldUserName,
 	FieldUserStatus,
@@ -84,22 +84,20 @@ func ValidColumn(column string) bool {
 }
 
 var (
-	// UserIDValidator is a validator for the "user_id" field. It is called by the builders before save.
-	UserIDValidator func(string) error
+	// UserIdValidator is a validator for the "userId" field. It is called by the builders before save.
+	UserIdValidator func(string) error
 	// PasswordValidator is a validator for the "password" field. It is called by the builders before save.
 	PasswordValidator func(string) error
-	// UserNameValidator is a validator for the "user_name" field. It is called by the builders before save.
+	// UserNameValidator is a validator for the "userName" field. It is called by the builders before save.
 	UserNameValidator func(string) error
-	// DefaultUserStatus holds the default value on creation for the "user_status" field.
+	// DefaultUserStatus holds the default value on creation for the "userStatus" field.
 	DefaultUserStatus bool
-	// PhoneNumberValidator is a validator for the "phone_number" field. It is called by the builders before save.
+	// PhoneNumberValidator is a validator for the "phoneNumber" field. It is called by the builders before save.
 	PhoneNumberValidator func(string) error
-	// DefaultCreateDate holds the default value on creation for the "create_date" field.
+	// DefaultCreateDate holds the default value on creation for the "createDate" field.
 	DefaultCreateDate time.Time
-	// DefaultUpdateDate holds the default value on creation for the "update_date" field.
+	// DefaultUpdateDate holds the default value on creation for the "updateDate" field.
 	DefaultUpdateDate time.Time
-	// IDValidator is a validator for the "id" field. It is called by the builders before save.
-	IDValidator func(int) error
 )
 
 // OrderOption defines the ordering options for the User queries.
@@ -110,9 +108,9 @@ func ByID(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldID, opts...).ToFunc()
 }
 
-// ByUserID orders the results by the user_id field.
-func ByUserID(opts ...sql.OrderTermOption) OrderOption {
-	return sql.OrderByField(FieldUserID, opts...).ToFunc()
+// ByUserId orders the results by the userId field.
+func ByUserId(opts ...sql.OrderTermOption) OrderOption {
+	return sql.OrderByField(FieldUserId, opts...).ToFunc()
 }
 
 // ByPassword orders the results by the password field.
@@ -120,12 +118,12 @@ func ByPassword(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldPassword, opts...).ToFunc()
 }
 
-// ByUserName orders the results by the user_name field.
+// ByUserName orders the results by the userName field.
 func ByUserName(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldUserName, opts...).ToFunc()
 }
 
-// ByUserStatus orders the results by the user_status field.
+// ByUserStatus orders the results by the userStatus field.
 func ByUserStatus(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldUserStatus, opts...).ToFunc()
 }
@@ -135,32 +133,32 @@ func ByEmail(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldEmail, opts...).ToFunc()
 }
 
-// ByPhoneNumber orders the results by the phone_number field.
+// ByPhoneNumber orders the results by the phoneNumber field.
 func ByPhoneNumber(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldPhoneNumber, opts...).ToFunc()
 }
 
-// ByJobCd orders the results by the job_cd field.
+// ByJobCd orders the results by the jobCd field.
 func ByJobCd(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldJobCd, opts...).ToFunc()
 }
 
-// ByProfileImage orders the results by the profile_image field.
+// ByProfileImage orders the results by the profileImage field.
 func ByProfileImage(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldProfileImage, opts...).ToFunc()
 }
 
-// ByGithubLink orders the results by the github_link field.
+// ByGithubLink orders the results by the githubLink field.
 func ByGithubLink(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldGithubLink, opts...).ToFunc()
 }
 
-// ByBlogLink orders the results by the blog_link field.
+// ByBlogLink orders the results by the blogLink field.
 func ByBlogLink(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldBlogLink, opts...).ToFunc()
 }
 
-// ByUserText orders the results by the user_text field.
+// ByUserText orders the results by the userText field.
 func ByUserText(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldUserText, opts...).ToFunc()
 }
@@ -175,22 +173,22 @@ func BySkill(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldSkill, opts...).ToFunc()
 }
 
-// ByCreateDate orders the results by the create_date field.
+// ByCreateDate orders the results by the createDate field.
 func ByCreateDate(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldCreateDate, opts...).ToFunc()
 }
 
-// ByUpdateDate orders the results by the update_date field.
+// ByUpdateDate orders the results by the updateDate field.
 func ByUpdateDate(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldUpdateDate, opts...).ToFunc()
 }
 
-// BySessionToken orders the results by the session_token field.
+// BySessionToken orders the results by the sessionToken field.
 func BySessionToken(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldSessionToken, opts...).ToFunc()
 }
 
-// BySessionExpiry orders the results by the session_expiry field.
+// BySessionExpiry orders the results by the sessionExpiry field.
 func BySessionExpiry(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldSessionExpiry, opts...).ToFunc()
 }

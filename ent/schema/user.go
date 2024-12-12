@@ -15,10 +15,7 @@ type User struct {
 // Fields of the User.
 func (User) Fields() []ent.Field {
 	return []ent.Field{
-		field.Int("id").
-			Positive().
-			StorageKey("ID"),
-		field.String("user_id").
+		field.String("userId").
 			Unique().
 			NotEmpty().
 			StorageKey("USER_ID"),
@@ -26,32 +23,32 @@ func (User) Fields() []ent.Field {
 			NotEmpty().
 			StorageKey("PASSWORD").
 			Sensitive(),
-		field.String("user_name").
+		field.String("userName").
 			NotEmpty().
 			StorageKey("USER_NAME"),
-		field.Bool("user_status").
+		field.Bool("userStatus").
 			Default(false).
 			StorageKey("USER_STATUS"),
 		field.String("email").
 			Unique().
 			StorageKey("EMAIL"),
-		field.String("phone_number").
+		field.String("phoneNumber").
 			Unique().
 			NotEmpty().
 			StorageKey("PHONE_NUMBER"),
-		field.Int("job_cd").
+		field.Int("jobCd").
 			Optional().
 			StorageKey("JOB_CODE"),
-		field.String("profile_image").
+		field.String("profileImage").
 			Optional().
 			StorageKey("PROFILE_IMAGE"),
-		field.String("github_link").
+		field.String("githubLink").
 			Optional().
 			StorageKey("GITHUB_LINK"),
-		field.String("blog_link").
+		field.String("blogLink").
 			Optional().
 			StorageKey("BLOG_LINK"),
-		field.String("user_text").
+		field.String("userText").
 			Optional().
 			StorageKey("USER_TEXT"),
 		field.String("company").
@@ -60,17 +57,17 @@ func (User) Fields() []ent.Field {
 		field.String("skill").
 			Optional().
 			StorageKey("SKILL"),
-		field.Time("create_date").
+		field.Time("createDate").
 			Default(time.Now()).
 			StorageKey("CREATE_DATE"),
-		field.Time("update_date").
+		field.Time("updateDate").
 			Default(time.Now()).
 			StorageKey("UPDATE_DATE"),
-		field.String("session_token").
+		field.String("sessionToken").
 			Optional().
 			Sensitive().
 			StorageKey("SESSION_TOKEN"),
-		field.Time("session_expiry").
+		field.Time("sessionExpiry").
 			Optional().
 			StorageKey("SESSION_EXPIRY"),
 	}

@@ -1,14 +1,15 @@
 package main
 
 import (
-	"SpaceDev/pkg/database"
+	"DBP/internal/router"
+	"DBP/pkg/database"
 	"log"
-	"net/http"
 )
 
 func main() {
 	client := database.NewMariaDBConnection()
 	defer client.Close()
 
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	router := router.SetupRouter(client)
+	log.Fatal(router.Run(":7031"))
 }

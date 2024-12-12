@@ -3,7 +3,7 @@
 package ent
 
 import (
-	"SpaceDev/ent/user"
+	"DBP/ent/user"
 	"context"
 	"errors"
 	"fmt"
@@ -20,9 +20,9 @@ type UserCreate struct {
 	hooks    []Hook
 }
 
-// SetUserID sets the "user_id" field.
-func (uc *UserCreate) SetUserID(s string) *UserCreate {
-	uc.mutation.SetUserID(s)
+// SetUserId sets the "userId" field.
+func (uc *UserCreate) SetUserId(s string) *UserCreate {
+	uc.mutation.SetUserId(s)
 	return uc
 }
 
@@ -32,19 +32,19 @@ func (uc *UserCreate) SetPassword(s string) *UserCreate {
 	return uc
 }
 
-// SetUserName sets the "user_name" field.
+// SetUserName sets the "userName" field.
 func (uc *UserCreate) SetUserName(s string) *UserCreate {
 	uc.mutation.SetUserName(s)
 	return uc
 }
 
-// SetUserStatus sets the "user_status" field.
+// SetUserStatus sets the "userStatus" field.
 func (uc *UserCreate) SetUserStatus(b bool) *UserCreate {
 	uc.mutation.SetUserStatus(b)
 	return uc
 }
 
-// SetNillableUserStatus sets the "user_status" field if the given value is not nil.
+// SetNillableUserStatus sets the "userStatus" field if the given value is not nil.
 func (uc *UserCreate) SetNillableUserStatus(b *bool) *UserCreate {
 	if b != nil {
 		uc.SetUserStatus(*b)
@@ -58,19 +58,19 @@ func (uc *UserCreate) SetEmail(s string) *UserCreate {
 	return uc
 }
 
-// SetPhoneNumber sets the "phone_number" field.
+// SetPhoneNumber sets the "phoneNumber" field.
 func (uc *UserCreate) SetPhoneNumber(s string) *UserCreate {
 	uc.mutation.SetPhoneNumber(s)
 	return uc
 }
 
-// SetJobCd sets the "job_cd" field.
+// SetJobCd sets the "jobCd" field.
 func (uc *UserCreate) SetJobCd(i int) *UserCreate {
 	uc.mutation.SetJobCd(i)
 	return uc
 }
 
-// SetNillableJobCd sets the "job_cd" field if the given value is not nil.
+// SetNillableJobCd sets the "jobCd" field if the given value is not nil.
 func (uc *UserCreate) SetNillableJobCd(i *int) *UserCreate {
 	if i != nil {
 		uc.SetJobCd(*i)
@@ -78,13 +78,13 @@ func (uc *UserCreate) SetNillableJobCd(i *int) *UserCreate {
 	return uc
 }
 
-// SetProfileImage sets the "profile_image" field.
+// SetProfileImage sets the "profileImage" field.
 func (uc *UserCreate) SetProfileImage(s string) *UserCreate {
 	uc.mutation.SetProfileImage(s)
 	return uc
 }
 
-// SetNillableProfileImage sets the "profile_image" field if the given value is not nil.
+// SetNillableProfileImage sets the "profileImage" field if the given value is not nil.
 func (uc *UserCreate) SetNillableProfileImage(s *string) *UserCreate {
 	if s != nil {
 		uc.SetProfileImage(*s)
@@ -92,13 +92,13 @@ func (uc *UserCreate) SetNillableProfileImage(s *string) *UserCreate {
 	return uc
 }
 
-// SetGithubLink sets the "github_link" field.
+// SetGithubLink sets the "githubLink" field.
 func (uc *UserCreate) SetGithubLink(s string) *UserCreate {
 	uc.mutation.SetGithubLink(s)
 	return uc
 }
 
-// SetNillableGithubLink sets the "github_link" field if the given value is not nil.
+// SetNillableGithubLink sets the "githubLink" field if the given value is not nil.
 func (uc *UserCreate) SetNillableGithubLink(s *string) *UserCreate {
 	if s != nil {
 		uc.SetGithubLink(*s)
@@ -106,13 +106,13 @@ func (uc *UserCreate) SetNillableGithubLink(s *string) *UserCreate {
 	return uc
 }
 
-// SetBlogLink sets the "blog_link" field.
+// SetBlogLink sets the "blogLink" field.
 func (uc *UserCreate) SetBlogLink(s string) *UserCreate {
 	uc.mutation.SetBlogLink(s)
 	return uc
 }
 
-// SetNillableBlogLink sets the "blog_link" field if the given value is not nil.
+// SetNillableBlogLink sets the "blogLink" field if the given value is not nil.
 func (uc *UserCreate) SetNillableBlogLink(s *string) *UserCreate {
 	if s != nil {
 		uc.SetBlogLink(*s)
@@ -120,13 +120,13 @@ func (uc *UserCreate) SetNillableBlogLink(s *string) *UserCreate {
 	return uc
 }
 
-// SetUserText sets the "user_text" field.
+// SetUserText sets the "userText" field.
 func (uc *UserCreate) SetUserText(s string) *UserCreate {
 	uc.mutation.SetUserText(s)
 	return uc
 }
 
-// SetNillableUserText sets the "user_text" field if the given value is not nil.
+// SetNillableUserText sets the "userText" field if the given value is not nil.
 func (uc *UserCreate) SetNillableUserText(s *string) *UserCreate {
 	if s != nil {
 		uc.SetUserText(*s)
@@ -162,13 +162,13 @@ func (uc *UserCreate) SetNillableSkill(s *string) *UserCreate {
 	return uc
 }
 
-// SetCreateDate sets the "create_date" field.
+// SetCreateDate sets the "createDate" field.
 func (uc *UserCreate) SetCreateDate(t time.Time) *UserCreate {
 	uc.mutation.SetCreateDate(t)
 	return uc
 }
 
-// SetNillableCreateDate sets the "create_date" field if the given value is not nil.
+// SetNillableCreateDate sets the "createDate" field if the given value is not nil.
 func (uc *UserCreate) SetNillableCreateDate(t *time.Time) *UserCreate {
 	if t != nil {
 		uc.SetCreateDate(*t)
@@ -176,13 +176,13 @@ func (uc *UserCreate) SetNillableCreateDate(t *time.Time) *UserCreate {
 	return uc
 }
 
-// SetUpdateDate sets the "update_date" field.
+// SetUpdateDate sets the "updateDate" field.
 func (uc *UserCreate) SetUpdateDate(t time.Time) *UserCreate {
 	uc.mutation.SetUpdateDate(t)
 	return uc
 }
 
-// SetNillableUpdateDate sets the "update_date" field if the given value is not nil.
+// SetNillableUpdateDate sets the "updateDate" field if the given value is not nil.
 func (uc *UserCreate) SetNillableUpdateDate(t *time.Time) *UserCreate {
 	if t != nil {
 		uc.SetUpdateDate(*t)
@@ -190,13 +190,13 @@ func (uc *UserCreate) SetNillableUpdateDate(t *time.Time) *UserCreate {
 	return uc
 }
 
-// SetSessionToken sets the "session_token" field.
+// SetSessionToken sets the "sessionToken" field.
 func (uc *UserCreate) SetSessionToken(s string) *UserCreate {
 	uc.mutation.SetSessionToken(s)
 	return uc
 }
 
-// SetNillableSessionToken sets the "session_token" field if the given value is not nil.
+// SetNillableSessionToken sets the "sessionToken" field if the given value is not nil.
 func (uc *UserCreate) SetNillableSessionToken(s *string) *UserCreate {
 	if s != nil {
 		uc.SetSessionToken(*s)
@@ -204,23 +204,17 @@ func (uc *UserCreate) SetNillableSessionToken(s *string) *UserCreate {
 	return uc
 }
 
-// SetSessionExpiry sets the "session_expiry" field.
+// SetSessionExpiry sets the "sessionExpiry" field.
 func (uc *UserCreate) SetSessionExpiry(t time.Time) *UserCreate {
 	uc.mutation.SetSessionExpiry(t)
 	return uc
 }
 
-// SetNillableSessionExpiry sets the "session_expiry" field if the given value is not nil.
+// SetNillableSessionExpiry sets the "sessionExpiry" field if the given value is not nil.
 func (uc *UserCreate) SetNillableSessionExpiry(t *time.Time) *UserCreate {
 	if t != nil {
 		uc.SetSessionExpiry(*t)
 	}
-	return uc
-}
-
-// SetID sets the "id" field.
-func (uc *UserCreate) SetID(i int) *UserCreate {
-	uc.mutation.SetID(i)
 	return uc
 }
 
@@ -275,12 +269,12 @@ func (uc *UserCreate) defaults() {
 
 // check runs all checks and user-defined validators on the builder.
 func (uc *UserCreate) check() error {
-	if _, ok := uc.mutation.UserID(); !ok {
-		return &ValidationError{Name: "user_id", err: errors.New(`ent: missing required field "User.user_id"`)}
+	if _, ok := uc.mutation.UserId(); !ok {
+		return &ValidationError{Name: "userId", err: errors.New(`ent: missing required field "User.userId"`)}
 	}
-	if v, ok := uc.mutation.UserID(); ok {
-		if err := user.UserIDValidator(v); err != nil {
-			return &ValidationError{Name: "user_id", err: fmt.Errorf(`ent: validator failed for field "User.user_id": %w`, err)}
+	if v, ok := uc.mutation.UserId(); ok {
+		if err := user.UserIdValidator(v); err != nil {
+			return &ValidationError{Name: "userId", err: fmt.Errorf(`ent: validator failed for field "User.userId": %w`, err)}
 		}
 	}
 	if _, ok := uc.mutation.Password(); !ok {
@@ -292,37 +286,32 @@ func (uc *UserCreate) check() error {
 		}
 	}
 	if _, ok := uc.mutation.UserName(); !ok {
-		return &ValidationError{Name: "user_name", err: errors.New(`ent: missing required field "User.user_name"`)}
+		return &ValidationError{Name: "userName", err: errors.New(`ent: missing required field "User.userName"`)}
 	}
 	if v, ok := uc.mutation.UserName(); ok {
 		if err := user.UserNameValidator(v); err != nil {
-			return &ValidationError{Name: "user_name", err: fmt.Errorf(`ent: validator failed for field "User.user_name": %w`, err)}
+			return &ValidationError{Name: "userName", err: fmt.Errorf(`ent: validator failed for field "User.userName": %w`, err)}
 		}
 	}
 	if _, ok := uc.mutation.UserStatus(); !ok {
-		return &ValidationError{Name: "user_status", err: errors.New(`ent: missing required field "User.user_status"`)}
+		return &ValidationError{Name: "userStatus", err: errors.New(`ent: missing required field "User.userStatus"`)}
 	}
 	if _, ok := uc.mutation.Email(); !ok {
 		return &ValidationError{Name: "email", err: errors.New(`ent: missing required field "User.email"`)}
 	}
 	if _, ok := uc.mutation.PhoneNumber(); !ok {
-		return &ValidationError{Name: "phone_number", err: errors.New(`ent: missing required field "User.phone_number"`)}
+		return &ValidationError{Name: "phoneNumber", err: errors.New(`ent: missing required field "User.phoneNumber"`)}
 	}
 	if v, ok := uc.mutation.PhoneNumber(); ok {
 		if err := user.PhoneNumberValidator(v); err != nil {
-			return &ValidationError{Name: "phone_number", err: fmt.Errorf(`ent: validator failed for field "User.phone_number": %w`, err)}
+			return &ValidationError{Name: "phoneNumber", err: fmt.Errorf(`ent: validator failed for field "User.phoneNumber": %w`, err)}
 		}
 	}
 	if _, ok := uc.mutation.CreateDate(); !ok {
-		return &ValidationError{Name: "create_date", err: errors.New(`ent: missing required field "User.create_date"`)}
+		return &ValidationError{Name: "createDate", err: errors.New(`ent: missing required field "User.createDate"`)}
 	}
 	if _, ok := uc.mutation.UpdateDate(); !ok {
-		return &ValidationError{Name: "update_date", err: errors.New(`ent: missing required field "User.update_date"`)}
-	}
-	if v, ok := uc.mutation.ID(); ok {
-		if err := user.IDValidator(v); err != nil {
-			return &ValidationError{Name: "id", err: fmt.Errorf(`ent: validator failed for field "User.id": %w`, err)}
-		}
+		return &ValidationError{Name: "updateDate", err: errors.New(`ent: missing required field "User.updateDate"`)}
 	}
 	return nil
 }
@@ -338,10 +327,8 @@ func (uc *UserCreate) sqlSave(ctx context.Context) (*User, error) {
 		}
 		return nil, err
 	}
-	if _spec.ID.Value != _node.ID {
-		id := _spec.ID.Value.(int64)
-		_node.ID = int(id)
-	}
+	id := _spec.ID.Value.(int64)
+	_node.ID = int(id)
 	uc.mutation.id = &_node.ID
 	uc.mutation.done = true
 	return _node, nil
@@ -352,13 +339,9 @@ func (uc *UserCreate) createSpec() (*User, *sqlgraph.CreateSpec) {
 		_node = &User{config: uc.config}
 		_spec = sqlgraph.NewCreateSpec(user.Table, sqlgraph.NewFieldSpec(user.FieldID, field.TypeInt))
 	)
-	if id, ok := uc.mutation.ID(); ok {
-		_node.ID = id
-		_spec.ID.Value = id
-	}
-	if value, ok := uc.mutation.UserID(); ok {
-		_spec.SetField(user.FieldUserID, field.TypeString, value)
-		_node.UserID = value
+	if value, ok := uc.mutation.UserId(); ok {
+		_spec.SetField(user.FieldUserId, field.TypeString, value)
+		_node.UserId = value
 	}
 	if value, ok := uc.mutation.Password(); ok {
 		_spec.SetField(user.FieldPassword, field.TypeString, value)
@@ -472,7 +455,7 @@ func (ucb *UserCreateBulk) Save(ctx context.Context) ([]*User, error) {
 					return nil, err
 				}
 				mutation.id = &nodes[i].ID
-				if specs[i].ID.Value != nil && nodes[i].ID == 0 {
+				if specs[i].ID.Value != nil {
 					id := specs[i].ID.Value.(int64)
 					nodes[i].ID = int(id)
 				}

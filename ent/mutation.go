@@ -3,8 +3,8 @@
 package ent
 
 import (
-	"SpaceDev/ent/predicate"
-	"SpaceDev/ent/user"
+	"DBP/ent/predicate"
+	"DBP/ent/user"
 	"context"
 	"errors"
 	"fmt"
@@ -30,31 +30,31 @@ const (
 // UserMutation represents an operation that mutates the User nodes in the graph.
 type UserMutation struct {
 	config
-	op             Op
-	typ            string
-	id             *int
-	user_id        *string
-	password       *string
-	user_name      *string
-	user_status    *bool
-	email          *string
-	phone_number   *string
-	job_cd         *int
-	addjob_cd      *int
-	profile_image  *string
-	github_link    *string
-	blog_link      *string
-	user_text      *string
-	company        *string
-	skill          *string
-	create_date    *time.Time
-	update_date    *time.Time
-	session_token  *string
-	session_expiry *time.Time
-	clearedFields  map[string]struct{}
-	done           bool
-	oldValue       func(context.Context) (*User, error)
-	predicates     []predicate.User
+	op            Op
+	typ           string
+	id            *int
+	userId        *string
+	password      *string
+	userName      *string
+	userStatus    *bool
+	email         *string
+	phoneNumber   *string
+	jobCd         *int
+	addjobCd      *int
+	profileImage  *string
+	githubLink    *string
+	blogLink      *string
+	userText      *string
+	company       *string
+	skill         *string
+	createDate    *time.Time
+	updateDate    *time.Time
+	sessionToken  *string
+	sessionExpiry *time.Time
+	clearedFields map[string]struct{}
+	done          bool
+	oldValue      func(context.Context) (*User, error)
+	predicates    []predicate.User
 }
 
 var _ ent.Mutation = (*UserMutation)(nil)
@@ -127,12 +127,6 @@ func (m UserMutation) Tx() (*Tx, error) {
 	return tx, nil
 }
 
-// SetID sets the value of the id field. Note that this
-// operation is only accepted on creation of User entities.
-func (m *UserMutation) SetID(id int) {
-	m.id = &id
-}
-
 // ID returns the ID value in the mutation. Note that the ID is only available
 // if it was provided to the builder or after it was returned from the database.
 func (m *UserMutation) ID() (id int, exists bool) {
@@ -161,40 +155,40 @@ func (m *UserMutation) IDs(ctx context.Context) ([]int, error) {
 	}
 }
 
-// SetUserID sets the "user_id" field.
-func (m *UserMutation) SetUserID(s string) {
-	m.user_id = &s
+// SetUserId sets the "userId" field.
+func (m *UserMutation) SetUserId(s string) {
+	m.userId = &s
 }
 
-// UserID returns the value of the "user_id" field in the mutation.
-func (m *UserMutation) UserID() (r string, exists bool) {
-	v := m.user_id
+// UserId returns the value of the "userId" field in the mutation.
+func (m *UserMutation) UserId() (r string, exists bool) {
+	v := m.userId
 	if v == nil {
 		return
 	}
 	return *v, true
 }
 
-// OldUserID returns the old "user_id" field's value of the User entity.
+// OldUserId returns the old "userId" field's value of the User entity.
 // If the User object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
-func (m *UserMutation) OldUserID(ctx context.Context) (v string, err error) {
+func (m *UserMutation) OldUserId(ctx context.Context) (v string, err error) {
 	if !m.op.Is(OpUpdateOne) {
-		return v, errors.New("OldUserID is only allowed on UpdateOne operations")
+		return v, errors.New("OldUserId is only allowed on UpdateOne operations")
 	}
 	if m.id == nil || m.oldValue == nil {
-		return v, errors.New("OldUserID requires an ID field in the mutation")
+		return v, errors.New("OldUserId requires an ID field in the mutation")
 	}
 	oldValue, err := m.oldValue(ctx)
 	if err != nil {
-		return v, fmt.Errorf("querying old value for OldUserID: %w", err)
+		return v, fmt.Errorf("querying old value for OldUserId: %w", err)
 	}
-	return oldValue.UserID, nil
+	return oldValue.UserId, nil
 }
 
-// ResetUserID resets all changes to the "user_id" field.
-func (m *UserMutation) ResetUserID() {
-	m.user_id = nil
+// ResetUserId resets all changes to the "userId" field.
+func (m *UserMutation) ResetUserId() {
+	m.userId = nil
 }
 
 // SetPassword sets the "password" field.
@@ -233,21 +227,21 @@ func (m *UserMutation) ResetPassword() {
 	m.password = nil
 }
 
-// SetUserName sets the "user_name" field.
+// SetUserName sets the "userName" field.
 func (m *UserMutation) SetUserName(s string) {
-	m.user_name = &s
+	m.userName = &s
 }
 
-// UserName returns the value of the "user_name" field in the mutation.
+// UserName returns the value of the "userName" field in the mutation.
 func (m *UserMutation) UserName() (r string, exists bool) {
-	v := m.user_name
+	v := m.userName
 	if v == nil {
 		return
 	}
 	return *v, true
 }
 
-// OldUserName returns the old "user_name" field's value of the User entity.
+// OldUserName returns the old "userName" field's value of the User entity.
 // If the User object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
 func (m *UserMutation) OldUserName(ctx context.Context) (v string, err error) {
@@ -264,26 +258,26 @@ func (m *UserMutation) OldUserName(ctx context.Context) (v string, err error) {
 	return oldValue.UserName, nil
 }
 
-// ResetUserName resets all changes to the "user_name" field.
+// ResetUserName resets all changes to the "userName" field.
 func (m *UserMutation) ResetUserName() {
-	m.user_name = nil
+	m.userName = nil
 }
 
-// SetUserStatus sets the "user_status" field.
+// SetUserStatus sets the "userStatus" field.
 func (m *UserMutation) SetUserStatus(b bool) {
-	m.user_status = &b
+	m.userStatus = &b
 }
 
-// UserStatus returns the value of the "user_status" field in the mutation.
+// UserStatus returns the value of the "userStatus" field in the mutation.
 func (m *UserMutation) UserStatus() (r bool, exists bool) {
-	v := m.user_status
+	v := m.userStatus
 	if v == nil {
 		return
 	}
 	return *v, true
 }
 
-// OldUserStatus returns the old "user_status" field's value of the User entity.
+// OldUserStatus returns the old "userStatus" field's value of the User entity.
 // If the User object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
 func (m *UserMutation) OldUserStatus(ctx context.Context) (v bool, err error) {
@@ -300,9 +294,9 @@ func (m *UserMutation) OldUserStatus(ctx context.Context) (v bool, err error) {
 	return oldValue.UserStatus, nil
 }
 
-// ResetUserStatus resets all changes to the "user_status" field.
+// ResetUserStatus resets all changes to the "userStatus" field.
 func (m *UserMutation) ResetUserStatus() {
-	m.user_status = nil
+	m.userStatus = nil
 }
 
 // SetEmail sets the "email" field.
@@ -341,21 +335,21 @@ func (m *UserMutation) ResetEmail() {
 	m.email = nil
 }
 
-// SetPhoneNumber sets the "phone_number" field.
+// SetPhoneNumber sets the "phoneNumber" field.
 func (m *UserMutation) SetPhoneNumber(s string) {
-	m.phone_number = &s
+	m.phoneNumber = &s
 }
 
-// PhoneNumber returns the value of the "phone_number" field in the mutation.
+// PhoneNumber returns the value of the "phoneNumber" field in the mutation.
 func (m *UserMutation) PhoneNumber() (r string, exists bool) {
-	v := m.phone_number
+	v := m.phoneNumber
 	if v == nil {
 		return
 	}
 	return *v, true
 }
 
-// OldPhoneNumber returns the old "phone_number" field's value of the User entity.
+// OldPhoneNumber returns the old "phoneNumber" field's value of the User entity.
 // If the User object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
 func (m *UserMutation) OldPhoneNumber(ctx context.Context) (v string, err error) {
@@ -372,27 +366,27 @@ func (m *UserMutation) OldPhoneNumber(ctx context.Context) (v string, err error)
 	return oldValue.PhoneNumber, nil
 }
 
-// ResetPhoneNumber resets all changes to the "phone_number" field.
+// ResetPhoneNumber resets all changes to the "phoneNumber" field.
 func (m *UserMutation) ResetPhoneNumber() {
-	m.phone_number = nil
+	m.phoneNumber = nil
 }
 
-// SetJobCd sets the "job_cd" field.
+// SetJobCd sets the "jobCd" field.
 func (m *UserMutation) SetJobCd(i int) {
-	m.job_cd = &i
-	m.addjob_cd = nil
+	m.jobCd = &i
+	m.addjobCd = nil
 }
 
-// JobCd returns the value of the "job_cd" field in the mutation.
+// JobCd returns the value of the "jobCd" field in the mutation.
 func (m *UserMutation) JobCd() (r int, exists bool) {
-	v := m.job_cd
+	v := m.jobCd
 	if v == nil {
 		return
 	}
 	return *v, true
 }
 
-// OldJobCd returns the old "job_cd" field's value of the User entity.
+// OldJobCd returns the old "jobCd" field's value of the User entity.
 // If the User object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
 func (m *UserMutation) OldJobCd(ctx context.Context) (v int, err error) {
@@ -409,59 +403,59 @@ func (m *UserMutation) OldJobCd(ctx context.Context) (v int, err error) {
 	return oldValue.JobCd, nil
 }
 
-// AddJobCd adds i to the "job_cd" field.
+// AddJobCd adds i to the "jobCd" field.
 func (m *UserMutation) AddJobCd(i int) {
-	if m.addjob_cd != nil {
-		*m.addjob_cd += i
+	if m.addjobCd != nil {
+		*m.addjobCd += i
 	} else {
-		m.addjob_cd = &i
+		m.addjobCd = &i
 	}
 }
 
-// AddedJobCd returns the value that was added to the "job_cd" field in this mutation.
+// AddedJobCd returns the value that was added to the "jobCd" field in this mutation.
 func (m *UserMutation) AddedJobCd() (r int, exists bool) {
-	v := m.addjob_cd
+	v := m.addjobCd
 	if v == nil {
 		return
 	}
 	return *v, true
 }
 
-// ClearJobCd clears the value of the "job_cd" field.
+// ClearJobCd clears the value of the "jobCd" field.
 func (m *UserMutation) ClearJobCd() {
-	m.job_cd = nil
-	m.addjob_cd = nil
+	m.jobCd = nil
+	m.addjobCd = nil
 	m.clearedFields[user.FieldJobCd] = struct{}{}
 }
 
-// JobCdCleared returns if the "job_cd" field was cleared in this mutation.
+// JobCdCleared returns if the "jobCd" field was cleared in this mutation.
 func (m *UserMutation) JobCdCleared() bool {
 	_, ok := m.clearedFields[user.FieldJobCd]
 	return ok
 }
 
-// ResetJobCd resets all changes to the "job_cd" field.
+// ResetJobCd resets all changes to the "jobCd" field.
 func (m *UserMutation) ResetJobCd() {
-	m.job_cd = nil
-	m.addjob_cd = nil
+	m.jobCd = nil
+	m.addjobCd = nil
 	delete(m.clearedFields, user.FieldJobCd)
 }
 
-// SetProfileImage sets the "profile_image" field.
+// SetProfileImage sets the "profileImage" field.
 func (m *UserMutation) SetProfileImage(s string) {
-	m.profile_image = &s
+	m.profileImage = &s
 }
 
-// ProfileImage returns the value of the "profile_image" field in the mutation.
+// ProfileImage returns the value of the "profileImage" field in the mutation.
 func (m *UserMutation) ProfileImage() (r string, exists bool) {
-	v := m.profile_image
+	v := m.profileImage
 	if v == nil {
 		return
 	}
 	return *v, true
 }
 
-// OldProfileImage returns the old "profile_image" field's value of the User entity.
+// OldProfileImage returns the old "profileImage" field's value of the User entity.
 // If the User object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
 func (m *UserMutation) OldProfileImage(ctx context.Context) (v string, err error) {
@@ -478,39 +472,39 @@ func (m *UserMutation) OldProfileImage(ctx context.Context) (v string, err error
 	return oldValue.ProfileImage, nil
 }
 
-// ClearProfileImage clears the value of the "profile_image" field.
+// ClearProfileImage clears the value of the "profileImage" field.
 func (m *UserMutation) ClearProfileImage() {
-	m.profile_image = nil
+	m.profileImage = nil
 	m.clearedFields[user.FieldProfileImage] = struct{}{}
 }
 
-// ProfileImageCleared returns if the "profile_image" field was cleared in this mutation.
+// ProfileImageCleared returns if the "profileImage" field was cleared in this mutation.
 func (m *UserMutation) ProfileImageCleared() bool {
 	_, ok := m.clearedFields[user.FieldProfileImage]
 	return ok
 }
 
-// ResetProfileImage resets all changes to the "profile_image" field.
+// ResetProfileImage resets all changes to the "profileImage" field.
 func (m *UserMutation) ResetProfileImage() {
-	m.profile_image = nil
+	m.profileImage = nil
 	delete(m.clearedFields, user.FieldProfileImage)
 }
 
-// SetGithubLink sets the "github_link" field.
+// SetGithubLink sets the "githubLink" field.
 func (m *UserMutation) SetGithubLink(s string) {
-	m.github_link = &s
+	m.githubLink = &s
 }
 
-// GithubLink returns the value of the "github_link" field in the mutation.
+// GithubLink returns the value of the "githubLink" field in the mutation.
 func (m *UserMutation) GithubLink() (r string, exists bool) {
-	v := m.github_link
+	v := m.githubLink
 	if v == nil {
 		return
 	}
 	return *v, true
 }
 
-// OldGithubLink returns the old "github_link" field's value of the User entity.
+// OldGithubLink returns the old "githubLink" field's value of the User entity.
 // If the User object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
 func (m *UserMutation) OldGithubLink(ctx context.Context) (v string, err error) {
@@ -527,39 +521,39 @@ func (m *UserMutation) OldGithubLink(ctx context.Context) (v string, err error) 
 	return oldValue.GithubLink, nil
 }
 
-// ClearGithubLink clears the value of the "github_link" field.
+// ClearGithubLink clears the value of the "githubLink" field.
 func (m *UserMutation) ClearGithubLink() {
-	m.github_link = nil
+	m.githubLink = nil
 	m.clearedFields[user.FieldGithubLink] = struct{}{}
 }
 
-// GithubLinkCleared returns if the "github_link" field was cleared in this mutation.
+// GithubLinkCleared returns if the "githubLink" field was cleared in this mutation.
 func (m *UserMutation) GithubLinkCleared() bool {
 	_, ok := m.clearedFields[user.FieldGithubLink]
 	return ok
 }
 
-// ResetGithubLink resets all changes to the "github_link" field.
+// ResetGithubLink resets all changes to the "githubLink" field.
 func (m *UserMutation) ResetGithubLink() {
-	m.github_link = nil
+	m.githubLink = nil
 	delete(m.clearedFields, user.FieldGithubLink)
 }
 
-// SetBlogLink sets the "blog_link" field.
+// SetBlogLink sets the "blogLink" field.
 func (m *UserMutation) SetBlogLink(s string) {
-	m.blog_link = &s
+	m.blogLink = &s
 }
 
-// BlogLink returns the value of the "blog_link" field in the mutation.
+// BlogLink returns the value of the "blogLink" field in the mutation.
 func (m *UserMutation) BlogLink() (r string, exists bool) {
-	v := m.blog_link
+	v := m.blogLink
 	if v == nil {
 		return
 	}
 	return *v, true
 }
 
-// OldBlogLink returns the old "blog_link" field's value of the User entity.
+// OldBlogLink returns the old "blogLink" field's value of the User entity.
 // If the User object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
 func (m *UserMutation) OldBlogLink(ctx context.Context) (v string, err error) {
@@ -576,39 +570,39 @@ func (m *UserMutation) OldBlogLink(ctx context.Context) (v string, err error) {
 	return oldValue.BlogLink, nil
 }
 
-// ClearBlogLink clears the value of the "blog_link" field.
+// ClearBlogLink clears the value of the "blogLink" field.
 func (m *UserMutation) ClearBlogLink() {
-	m.blog_link = nil
+	m.blogLink = nil
 	m.clearedFields[user.FieldBlogLink] = struct{}{}
 }
 
-// BlogLinkCleared returns if the "blog_link" field was cleared in this mutation.
+// BlogLinkCleared returns if the "blogLink" field was cleared in this mutation.
 func (m *UserMutation) BlogLinkCleared() bool {
 	_, ok := m.clearedFields[user.FieldBlogLink]
 	return ok
 }
 
-// ResetBlogLink resets all changes to the "blog_link" field.
+// ResetBlogLink resets all changes to the "blogLink" field.
 func (m *UserMutation) ResetBlogLink() {
-	m.blog_link = nil
+	m.blogLink = nil
 	delete(m.clearedFields, user.FieldBlogLink)
 }
 
-// SetUserText sets the "user_text" field.
+// SetUserText sets the "userText" field.
 func (m *UserMutation) SetUserText(s string) {
-	m.user_text = &s
+	m.userText = &s
 }
 
-// UserText returns the value of the "user_text" field in the mutation.
+// UserText returns the value of the "userText" field in the mutation.
 func (m *UserMutation) UserText() (r string, exists bool) {
-	v := m.user_text
+	v := m.userText
 	if v == nil {
 		return
 	}
 	return *v, true
 }
 
-// OldUserText returns the old "user_text" field's value of the User entity.
+// OldUserText returns the old "userText" field's value of the User entity.
 // If the User object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
 func (m *UserMutation) OldUserText(ctx context.Context) (v string, err error) {
@@ -625,21 +619,21 @@ func (m *UserMutation) OldUserText(ctx context.Context) (v string, err error) {
 	return oldValue.UserText, nil
 }
 
-// ClearUserText clears the value of the "user_text" field.
+// ClearUserText clears the value of the "userText" field.
 func (m *UserMutation) ClearUserText() {
-	m.user_text = nil
+	m.userText = nil
 	m.clearedFields[user.FieldUserText] = struct{}{}
 }
 
-// UserTextCleared returns if the "user_text" field was cleared in this mutation.
+// UserTextCleared returns if the "userText" field was cleared in this mutation.
 func (m *UserMutation) UserTextCleared() bool {
 	_, ok := m.clearedFields[user.FieldUserText]
 	return ok
 }
 
-// ResetUserText resets all changes to the "user_text" field.
+// ResetUserText resets all changes to the "userText" field.
 func (m *UserMutation) ResetUserText() {
-	m.user_text = nil
+	m.userText = nil
 	delete(m.clearedFields, user.FieldUserText)
 }
 
@@ -741,21 +735,21 @@ func (m *UserMutation) ResetSkill() {
 	delete(m.clearedFields, user.FieldSkill)
 }
 
-// SetCreateDate sets the "create_date" field.
+// SetCreateDate sets the "createDate" field.
 func (m *UserMutation) SetCreateDate(t time.Time) {
-	m.create_date = &t
+	m.createDate = &t
 }
 
-// CreateDate returns the value of the "create_date" field in the mutation.
+// CreateDate returns the value of the "createDate" field in the mutation.
 func (m *UserMutation) CreateDate() (r time.Time, exists bool) {
-	v := m.create_date
+	v := m.createDate
 	if v == nil {
 		return
 	}
 	return *v, true
 }
 
-// OldCreateDate returns the old "create_date" field's value of the User entity.
+// OldCreateDate returns the old "createDate" field's value of the User entity.
 // If the User object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
 func (m *UserMutation) OldCreateDate(ctx context.Context) (v time.Time, err error) {
@@ -772,26 +766,26 @@ func (m *UserMutation) OldCreateDate(ctx context.Context) (v time.Time, err erro
 	return oldValue.CreateDate, nil
 }
 
-// ResetCreateDate resets all changes to the "create_date" field.
+// ResetCreateDate resets all changes to the "createDate" field.
 func (m *UserMutation) ResetCreateDate() {
-	m.create_date = nil
+	m.createDate = nil
 }
 
-// SetUpdateDate sets the "update_date" field.
+// SetUpdateDate sets the "updateDate" field.
 func (m *UserMutation) SetUpdateDate(t time.Time) {
-	m.update_date = &t
+	m.updateDate = &t
 }
 
-// UpdateDate returns the value of the "update_date" field in the mutation.
+// UpdateDate returns the value of the "updateDate" field in the mutation.
 func (m *UserMutation) UpdateDate() (r time.Time, exists bool) {
-	v := m.update_date
+	v := m.updateDate
 	if v == nil {
 		return
 	}
 	return *v, true
 }
 
-// OldUpdateDate returns the old "update_date" field's value of the User entity.
+// OldUpdateDate returns the old "updateDate" field's value of the User entity.
 // If the User object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
 func (m *UserMutation) OldUpdateDate(ctx context.Context) (v time.Time, err error) {
@@ -808,26 +802,26 @@ func (m *UserMutation) OldUpdateDate(ctx context.Context) (v time.Time, err erro
 	return oldValue.UpdateDate, nil
 }
 
-// ResetUpdateDate resets all changes to the "update_date" field.
+// ResetUpdateDate resets all changes to the "updateDate" field.
 func (m *UserMutation) ResetUpdateDate() {
-	m.update_date = nil
+	m.updateDate = nil
 }
 
-// SetSessionToken sets the "session_token" field.
+// SetSessionToken sets the "sessionToken" field.
 func (m *UserMutation) SetSessionToken(s string) {
-	m.session_token = &s
+	m.sessionToken = &s
 }
 
-// SessionToken returns the value of the "session_token" field in the mutation.
+// SessionToken returns the value of the "sessionToken" field in the mutation.
 func (m *UserMutation) SessionToken() (r string, exists bool) {
-	v := m.session_token
+	v := m.sessionToken
 	if v == nil {
 		return
 	}
 	return *v, true
 }
 
-// OldSessionToken returns the old "session_token" field's value of the User entity.
+// OldSessionToken returns the old "sessionToken" field's value of the User entity.
 // If the User object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
 func (m *UserMutation) OldSessionToken(ctx context.Context) (v string, err error) {
@@ -844,39 +838,39 @@ func (m *UserMutation) OldSessionToken(ctx context.Context) (v string, err error
 	return oldValue.SessionToken, nil
 }
 
-// ClearSessionToken clears the value of the "session_token" field.
+// ClearSessionToken clears the value of the "sessionToken" field.
 func (m *UserMutation) ClearSessionToken() {
-	m.session_token = nil
+	m.sessionToken = nil
 	m.clearedFields[user.FieldSessionToken] = struct{}{}
 }
 
-// SessionTokenCleared returns if the "session_token" field was cleared in this mutation.
+// SessionTokenCleared returns if the "sessionToken" field was cleared in this mutation.
 func (m *UserMutation) SessionTokenCleared() bool {
 	_, ok := m.clearedFields[user.FieldSessionToken]
 	return ok
 }
 
-// ResetSessionToken resets all changes to the "session_token" field.
+// ResetSessionToken resets all changes to the "sessionToken" field.
 func (m *UserMutation) ResetSessionToken() {
-	m.session_token = nil
+	m.sessionToken = nil
 	delete(m.clearedFields, user.FieldSessionToken)
 }
 
-// SetSessionExpiry sets the "session_expiry" field.
+// SetSessionExpiry sets the "sessionExpiry" field.
 func (m *UserMutation) SetSessionExpiry(t time.Time) {
-	m.session_expiry = &t
+	m.sessionExpiry = &t
 }
 
-// SessionExpiry returns the value of the "session_expiry" field in the mutation.
+// SessionExpiry returns the value of the "sessionExpiry" field in the mutation.
 func (m *UserMutation) SessionExpiry() (r time.Time, exists bool) {
-	v := m.session_expiry
+	v := m.sessionExpiry
 	if v == nil {
 		return
 	}
 	return *v, true
 }
 
-// OldSessionExpiry returns the old "session_expiry" field's value of the User entity.
+// OldSessionExpiry returns the old "sessionExpiry" field's value of the User entity.
 // If the User object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
 func (m *UserMutation) OldSessionExpiry(ctx context.Context) (v time.Time, err error) {
@@ -893,21 +887,21 @@ func (m *UserMutation) OldSessionExpiry(ctx context.Context) (v time.Time, err e
 	return oldValue.SessionExpiry, nil
 }
 
-// ClearSessionExpiry clears the value of the "session_expiry" field.
+// ClearSessionExpiry clears the value of the "sessionExpiry" field.
 func (m *UserMutation) ClearSessionExpiry() {
-	m.session_expiry = nil
+	m.sessionExpiry = nil
 	m.clearedFields[user.FieldSessionExpiry] = struct{}{}
 }
 
-// SessionExpiryCleared returns if the "session_expiry" field was cleared in this mutation.
+// SessionExpiryCleared returns if the "sessionExpiry" field was cleared in this mutation.
 func (m *UserMutation) SessionExpiryCleared() bool {
 	_, ok := m.clearedFields[user.FieldSessionExpiry]
 	return ok
 }
 
-// ResetSessionExpiry resets all changes to the "session_expiry" field.
+// ResetSessionExpiry resets all changes to the "sessionExpiry" field.
 func (m *UserMutation) ResetSessionExpiry() {
-	m.session_expiry = nil
+	m.sessionExpiry = nil
 	delete(m.clearedFields, user.FieldSessionExpiry)
 }
 
@@ -946,37 +940,37 @@ func (m *UserMutation) Type() string {
 // AddedFields().
 func (m *UserMutation) Fields() []string {
 	fields := make([]string, 0, 17)
-	if m.user_id != nil {
-		fields = append(fields, user.FieldUserID)
+	if m.userId != nil {
+		fields = append(fields, user.FieldUserId)
 	}
 	if m.password != nil {
 		fields = append(fields, user.FieldPassword)
 	}
-	if m.user_name != nil {
+	if m.userName != nil {
 		fields = append(fields, user.FieldUserName)
 	}
-	if m.user_status != nil {
+	if m.userStatus != nil {
 		fields = append(fields, user.FieldUserStatus)
 	}
 	if m.email != nil {
 		fields = append(fields, user.FieldEmail)
 	}
-	if m.phone_number != nil {
+	if m.phoneNumber != nil {
 		fields = append(fields, user.FieldPhoneNumber)
 	}
-	if m.job_cd != nil {
+	if m.jobCd != nil {
 		fields = append(fields, user.FieldJobCd)
 	}
-	if m.profile_image != nil {
+	if m.profileImage != nil {
 		fields = append(fields, user.FieldProfileImage)
 	}
-	if m.github_link != nil {
+	if m.githubLink != nil {
 		fields = append(fields, user.FieldGithubLink)
 	}
-	if m.blog_link != nil {
+	if m.blogLink != nil {
 		fields = append(fields, user.FieldBlogLink)
 	}
-	if m.user_text != nil {
+	if m.userText != nil {
 		fields = append(fields, user.FieldUserText)
 	}
 	if m.company != nil {
@@ -985,16 +979,16 @@ func (m *UserMutation) Fields() []string {
 	if m.skill != nil {
 		fields = append(fields, user.FieldSkill)
 	}
-	if m.create_date != nil {
+	if m.createDate != nil {
 		fields = append(fields, user.FieldCreateDate)
 	}
-	if m.update_date != nil {
+	if m.updateDate != nil {
 		fields = append(fields, user.FieldUpdateDate)
 	}
-	if m.session_token != nil {
+	if m.sessionToken != nil {
 		fields = append(fields, user.FieldSessionToken)
 	}
-	if m.session_expiry != nil {
+	if m.sessionExpiry != nil {
 		fields = append(fields, user.FieldSessionExpiry)
 	}
 	return fields
@@ -1005,8 +999,8 @@ func (m *UserMutation) Fields() []string {
 // schema.
 func (m *UserMutation) Field(name string) (ent.Value, bool) {
 	switch name {
-	case user.FieldUserID:
-		return m.UserID()
+	case user.FieldUserId:
+		return m.UserId()
 	case user.FieldPassword:
 		return m.Password()
 	case user.FieldUserName:
@@ -1048,8 +1042,8 @@ func (m *UserMutation) Field(name string) (ent.Value, bool) {
 // database failed.
 func (m *UserMutation) OldField(ctx context.Context, name string) (ent.Value, error) {
 	switch name {
-	case user.FieldUserID:
-		return m.OldUserID(ctx)
+	case user.FieldUserId:
+		return m.OldUserId(ctx)
 	case user.FieldPassword:
 		return m.OldPassword(ctx)
 	case user.FieldUserName:
@@ -1091,12 +1085,12 @@ func (m *UserMutation) OldField(ctx context.Context, name string) (ent.Value, er
 // type.
 func (m *UserMutation) SetField(name string, value ent.Value) error {
 	switch name {
-	case user.FieldUserID:
+	case user.FieldUserId:
 		v, ok := value.(string)
 		if !ok {
 			return fmt.Errorf("unexpected type %T for field %s", value, name)
 		}
-		m.SetUserID(v)
+		m.SetUserId(v)
 		return nil
 	case user.FieldPassword:
 		v, ok := value.(string)
@@ -1218,7 +1212,7 @@ func (m *UserMutation) SetField(name string, value ent.Value) error {
 // this mutation.
 func (m *UserMutation) AddedFields() []string {
 	var fields []string
-	if m.addjob_cd != nil {
+	if m.addjobCd != nil {
 		fields = append(fields, user.FieldJobCd)
 	}
 	return fields
@@ -1331,8 +1325,8 @@ func (m *UserMutation) ClearField(name string) error {
 // It returns an error if the field is not defined in the schema.
 func (m *UserMutation) ResetField(name string) error {
 	switch name {
-	case user.FieldUserID:
-		m.ResetUserID()
+	case user.FieldUserId:
+		m.ResetUserId()
 		return nil
 	case user.FieldPassword:
 		m.ResetPassword()

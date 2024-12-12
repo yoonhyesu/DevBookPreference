@@ -1,7 +1,7 @@
 package database
 
 import (
-	"SpaceDev/ent"
+	"DBP/ent"
 	"context"
 	"log"
 

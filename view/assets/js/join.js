@@ -165,7 +165,7 @@ $(document).ready(function () {
 
         if (flagID === true) {
             $.ajax({
-                url: 'SPACEDEV/internal/handler/auth',
+                url: 'DBP/internal/handler/auth',
 
             })
         }
