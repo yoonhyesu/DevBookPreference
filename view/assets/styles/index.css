@@ -7,7 +7,7 @@ body { font-family:"Noto Sans KR",'맑은 고딕',Dotum,"돋움",arial,verdana,s
 fieldset,img { border: 0 none; vertical-align: middle;}
 img { max-width: 100%;}
 ul,ol,dl,li { list-style:none; }	
-button, .btn { border:0; outline:0; box-shadow: none !important; }	
+button, .btn, .form-control { outline: 0 !important; box-shadow: none !important; }	
 a { color: inherit; text-decoration: none; }
 a:active, a:hover { text-decoration: none; }
 caption { overflow:hidden;width:1px;font-size:1px;line-height:0;text-indent:150%;white-space:nowrap; }	
@@ -633,9 +633,12 @@ input:-webkit-autofill:active {
     padding: 20px;
     border-radius: 10px 0 0 10px;
     z-index: 1;
-    border: 2px solid #fff;
+    border: 2px solid #dee2e6;
     border-right: unset;
     font-size: 14px;
+  }
+  [data-bs-theme="dark"] .left-sidebar-wrapper {
+    border: 2px solid #495057;
   }
   [dir=rtl] .left-sidebar-wrapper {
     border-left: unset;
@@ -739,7 +742,7 @@ input:-webkit-autofill:active {
   }
   .left-sidebar-wrapper .advance-options .chats-user {
     border-bottom: unset;
-    height: 635px;
+    height: 639px;
     overflow-y: auto;
   }
   .chats-user::-webkit-scrollbar {
@@ -986,8 +989,11 @@ input:-webkit-autofill:active {
   .right-sidebar-chat {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    border: 2px solid #fff;
+    border: 2px solid #dee2e6;
     border-left: unset;
+  }
+  [data-bs-theme="dark"] .right-sidebar-chat {
+    border: 2px solid #495057;
   }
   [dir=rtl] .right-sidebar-chat {
     border-right: unset;
@@ -1122,7 +1128,6 @@ input:-webkit-autofill:active {
     flex: 1;
     overflow-y: auto;
     padding: 10px;
-    background: #fff;
     height: 620px;
   }
   .msger-chat::-webkit-scrollbar {
@@ -1238,6 +1243,9 @@ input:-webkit-autofill:active {
     align-items: center;
     cursor: pointer;
   }
+  [data-bs-theme="dark"] .msger-inputarea {
+    background: #1b1f22
+ }
   .msger-inputarea .dropdown-toggle::after {
     content: unset;
   }
@@ -1326,7 +1334,6 @@ input:-webkit-autofill:active {
   
   .msger-input {
     flex: 1;
-    background-color: #fff;
     width: 100%;
     font-size: 14px;    
   }
