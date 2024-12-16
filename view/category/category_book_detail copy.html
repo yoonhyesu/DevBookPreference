@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
+
+    <title>개 북 취</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+    <!-- bootstrap -->
+    <link href="../../view/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../../view/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../view/node_modules/bootstrap/js/color-modes.js"></script>
+
+    <!-- jquery -->
+    <script src="../../view/assets/js/jquery.min.js"></script>
+
+    <!-- CHOICES CSS -->
+    <link type="text/css" href="../../view/assets/styles/choices.min.css" rel="stylesheet">
+    <script src="../../view/assets/js/choices.min.js"></script>
+
+    <!-- custom -->
+    <link href="../../view/assets/font/font.css" rel="stylesheet">
+    <link href="../../view/assets/styles/index.css" rel="stylesheet">
+    <link href="../../view/assets/styles/app.min.css" rel="stylesheet">    
+    <link rel="stylesheet" href="../../view/assets/styles/bootstrap-icons.css" />
+    <script src="../../view/assets/js/load-header.js"></script>
+
+    <script type="text/javascript">
+
+		$(function(){
+      
+
+		});
+
+	</script>   
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="check2" viewBox="0 0 16 16">
+            <path
+                d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+        </symbol>
+        <symbol id="circle-half" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+        </symbol>
+        <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+            <path
+                d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+            <path
+                d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+        </symbol>
+        <symbol id="sun-fill" viewBox="0 0 16 16">
+            <path
+                d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+        </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+        <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+            aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+            <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+                <use href="#circle-half"></use>
+            </svg>
+            <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                    aria-pressed="false">
+                    <svg class="bi me-2 opacity-50" width="1em" height="1em">
+                        <use href="#sun-fill"></use>
+                    </svg>
+                    Light
+                    <svg class="bi ms-auto d-none" width="1em" height="1em">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                    aria-pressed="false">
+                    <svg class="bi me-2 opacity-50" width="1em" height="1em">
+                        <use href="#moon-stars-fill"></use>
+                    </svg>
+                    Dark
+                    <svg class="bi ms-auto d-none" width="1em" height="1em">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
+                    aria-pressed="true">
+                    <svg class="bi me-2 opacity-50" width="1em" height="1em">
+                        <use href="#circle-half"></use>
+                    </svg>
+                    Auto
+                    <svg class="bi ms-auto d-none" width="1em" height="1em">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+        </ul>
+    </div>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <path
+                d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
+        </symbol>
+        <symbol id="cart" viewBox="0 0 16 16">
+            <path
+                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </symbol>
+        <symbol id="chevron-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+        </symbol>
+    </svg>
+
+    <div class="container">
+        <header class="lh-1">
+            <!-- 상단 로그인/회원가입 영역 -->
+            <div class="d-flex justify-content-end py-2 border-bottom">
+                <div class="me-3">
+                    <a class="btn btn-sm btn-outline-default me-2" href="../main/login.html">로그인</a>
+                    <a class="btn btn-sm btn-outline-default" href="../main/join.html">회원가입</a>
+                </div>
+            </div>
+
+            <!-- 로고, 검색, 프로필 영역 -->
+            <div class="row flex-nowrap justify-content-between align-items-center py-3">
+                <div class="col-4 d-flex align-items-center">
+                    <img src="../../view/assets/images/IMG_0023.PNG" alt="" width="100" height="100">
+                    <a class="blog-header-logo text-body-emphasis text-decoration-none ms-3"
+                        style="font-family: 'Gasoek One', serif;" href="../index.html">
+                        <span style="color:rgb(77, 122, 248);">개</span>발자
+                        <span style="color:rgb(77, 122, 248);">북 </span>
+                        <span style="color:rgb(77, 122, 248);">취</span>향
+                    </a>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <div class="search-container d-flex align-items-center me-3">
+                        <input type="search" class="form-control form-control-sm" placeholder="검색어를 입력하세요"
+                            aria-label="Search">
+                        <button class="btn btn-link link-secondary" type="button" aria-label="Search">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                role="img" viewBox="0 0 24 24">
+                                <title>Search</title>
+                                <circle cx="10.5" cy="10.5" r="7.5" />
+                                <path d="M21 21l-5.2-5.2" />
+                            </svg>
+                        </button>
+                    </div>
+                    <img src="../../view/assets/images/IMG_0028.PNG" alt="프로필" width="70" height="70"
+                        class="rounded-circle">
+                </div>
+            </div>
+        </header>
+
+        <div class="nav py-1 mb-3 border-bottom">
+            <nav class="nav nav-underline justify-content-center w-100">
+                <a class="nav-item nav-link link-body-emphasis mx-4" href="../../view/main/about.html">
+                    <img src="../../view/assets/images/IMG_0031.PNG" alt="메뉴 아이콘" height="30">
+                </a>
+                <a class="nav-item nav-link link-body-emphasis mx-4" href="../../view/category/category_field.html">분야별 추천</a>
+                <a class="nav-item nav-link link-body-emphasis mx-4" href="../../view/category/category_developer.html">개발자별 추천</a>
+                <div class="nav-item dropdown mx-4">
+                    <a class="nav-link link-body-emphasis dropdown-toggle" href="../../view/category/category_step.html" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        단계별 추천
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../../view/category/category_step.html">초급</a></li>
+                        <li><a class="dropdown-item" href="../../view/category/category_step.html">중급</a></li>
+                        <li><a class="dropdown-item" href="../../view/category/category_step.html">고급</a></li>
+                    </ul>
+                </div>
+                <div class="nav-item dropdown mx-4">
+                    <a class="nav-link link-body-emphasis dropdown-toggle active" href="../../view/admin/member.html" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        관리자
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../../view/admin/member.html">회원관리</a></li>
+                        <li><a class="dropdown-item" href="../../view/admin/book.html">도서관리</a></li>
+                        <li><a class="dropdown-item" href="../../view/admin/board.html">게시글관리</a></li>
+                    </ul>
+                </div>             
+            </nav>
+        </div>
+    </div>
+
+    <main class="container">
+ 
+        <div class="row g-5 mb-5">
+            <div class="col-12">
+                <h4 class="fw-semibold mb-3">#책분야1, #책분야2</h4>
+                <div class="row mb-2">
+                    <div class="col-md-12">
+                        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-300 position-relative">
+                            <div class="col-auto d-none d-lg-block">
+                                <img src="../../view/assets/images/tucker.jpg" height="300" class="bd-placeholder-img" alt="Tucker">
+                            </div>                            
+                            <div class="col p-4 d-flex flex-column position-static">
+                                <h3 class="mb-3">Must Have Tucker의 Go 언어 프로그래밍</h3>
+                                <div class="mb-1 text-body-secondary">공봉식 저 | 골든래빗 | 2024년 07월 25일</div>                                                              
+                                <p class="card-text mb-auto">Golang 입문부터 HTTPS, RESTful API, Gin, gnet, gRPC을 활용하는 서버 네트워크 기법까지</p>                                
+                                <div class="mt-1 p-3 bg-body-tertiary border rounded-3 overflow-y-auto" style="height: 115px;">
+                                    <h6 class="fw-semibold mb-1">추천 이유</h6>
+                                    <p class="mb-0">Go 언어 입문자에게 추천할 수 있는 우리나라 책을 알게 되어 기분이 좋습니다. 'A Tour of Go'보다 더 많은 예시를 보고 싶은 현 Go 언어 개발자께도 추천합니다.</p>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="book-intro" data-bs-toggle="tab" data-bs-target="#book-intro-pane" type="button" role="tab" aria-controls="book-intro-pane" aria-selected="true">책 소개</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="book-review" data-bs-toggle="tab" data-bs-target="#book-review-pane" type="button" role="tab" aria-controls="book-review-pane" aria-selected="false">책 리뷰</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="book-intro-pane" role="tabpanel" aria-labelledby="book-intro" tabindex="0">
+                            <div class="mt-4">
+                                <h5 class="fw-semibold mb-4">줄거리</h5>
+                                <p>EA, 넥슨를 거쳐 현 ‘2K 게임즈’ 서버 전문가가 알려주는<br />
+                                Go 언어를 내 것으로 만드는 비법</p>                          
+                                <p>구글이 개발한 Go는 고성능 비동기 프로그래밍에 유용한 언어이다. 이 책은 Go 언어로 ‘나만의 프로그램’을 만들 수 있게 이끌어준다. 프로그래밍 초보자도 쉽고 명확하게 이해할 수 있도록 학습 목표를 일목요연하게 제시하고 핵심 내용을 정리해 보여준다. 언어 문법과 예제 작동 순서를 그림을 곁들여 설명하고, 단계별로 프로젝트를 구현하며 프로그래밍을 직접 체험할 수 있게 했다.</p>                            
+                                <p>[Must Have 시리즈]는 내 것으로 만드는 시간을 준다. 명확한 학습 목표와 핵심 정리를 제공하고, 간단명료한 설명과 다양한 그림으로 학습 효과를 극대화한다. 설명과 예제를 제공해 응용력을 키워준다. 할 수 있다. 포기는 없다. 지금 당장 밑 줄 긋고 메모하고 타이핑하자! Must Have가 여러분의 성장을 도울 것이다.</p>
+                            
+                                <h5 class="fw-semibold mt-5 mb-4">목차</h5>
+                                <p>00 개발 환경 구축 - 윈도우, MacOS, 리눅스</p>
+
+                                <p>[1단계 탄탄하게 기초 문법 다지기]</p>
+                                
+                                <p> 01 Hello Go World<br />
+                                __1.1 Go 역사<br />
+                                __1.2 Go 언어 특징<br />
+                                __1.3 코드가 실행되기까지<br />
+                                __1.4 Hello Go World 코드 뜯어보기</p>
+                                
+                                <p> 02 변수<br />
+                                __2.1 변수란?<br />
+                                __2.2 변수 선언<br />
+                                __2.3 변수에 대해 더 알아보기<br />
+                                __2.4 변수 선언의 다른 형태<br />
+                                __2.5 타입 변환<br />
+                                __2.6 변수의 범위<br />
+                                __2.7 숫자 표현
+                                핵심 요약 / 연습문제</p>                                                     
+                            </div>                  
+                        </div>
+                        <div class="tab-pane fade" id="book-review-pane" role="tabpanel" aria-labelledby="book-review" tabindex="0">
+                            <div class="w-100 user-chat mt-4 ms-lg-1">
+                                <div class="card">
+                                    <div class="p-3 border-bottom">
+                                        <div class="row">
+                                            <div class="col-xl-4 col-7">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-shrink-0 avatar me-3 d-sm-block d-none">
+                                                        <img src="../../view/assets/images/avatar-2.jpg" alt="" class="img-thumbnail d-block rounded-circle">
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <h5 class="font-size-14 mb-1 text-truncate"><a href="#" class="text-body">Bootstrap Community</a></h5>
+														<p class="text-muted text-truncate mb-0"><i class="bi bi-circle-fill text-success font-size-10 align-middle me-1"></i>Online</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-8 col-5">
+                                                <ul class="list-inline user-chat-nav text-end mb-0">
+                                                    <li class="list-inline-item">
+                                                        <div class="dropdown">
+                                                            <button class="btn nav-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <i class="bi bi-three-dots"></i>
+                                                            </button>
+                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <a class="dropdown-item" href="#">Profile</a>
+                                                                <a class="dropdown-item" href="#">Archive</a>
+                                                                <a class="dropdown-item" href="#">Muted</a>
+                                                                <a class="dropdown-item" href="#">Delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </li><!-- end li -->
+                                                </ul><!-- end ul -->                                                                                                                                                                                                                                                                                      
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="chat-conversation p-3 simplebar-scrollable-y" data-simplebar="init"><div class="simplebar-wrapper" style="margin: -16px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;"><div class="simplebar-content" style="padding: 16px;">
+                                            <ul class="list-unstyled mb-0">
+                                                <li class="chat-day-title"> 
+                                                    <div class="title">Today</div> 
+                                                </li>
+                                                <li>
+                                                    <div class="conversation-list">
+                                                        <div class="ctext-wrap">
+                                                            <div class="chat-avatar">
+                                                                <img src="../../view/assets/images/avatar-2.jpg" alt="avatar-2">
+                                                            </div>
+                                                            <div class="ctext-wrap-content">
+                                                                <h5 class="conversation-name"><a href="#" class="user-name">Daniel Pickering</a> <span class="time">10:00</span></h5>
+                                                                <p class="mb-0">Good morning !</p>
+                                                            </div>
+                                                            <div class="dropdown align-self-start">
+                                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="#">Copy</a>
+                                                                    <a class="dropdown-item" href="#">Save</a>
+                                                                    <a class="dropdown-item" href="#">Forward</a>
+                                                                    <a class="dropdown-item" href="#">Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li> <!-- end li -->
+                                                <li class="right">
+                                                    <div class="conversation-list">
+                                                        <div class="ctext-wrap">
+                                                            <div class="chat-avatar">
+                                                                <img src="../../view/assets/images/avatar-1.jpg" alt="avatar-1">
+                                                            </div>
+                                                            <div class="ctext-wrap-content">
+                                                                <h5 class="conversation-name"><a href="#" class="user-name">Kate</a> <span class="time">10:02</span></h5>
+                                                                <p class="mb-0">Good morning</p>
+                                                            </div>
+                                                            <div class="dropdown align-self-start">
+                                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="#">Copy</a>
+                                                                    <a class="dropdown-item" href="#">Save</a>
+                                                                    <a class="dropdown-item" href="#">Forward</a>
+                                                                    <a class="dropdown-item" href="#">Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                </li><!-- end li -->
+                                                <li>
+                                                    <div class="conversation-list mb-0">
+                                                        <div class="ctext-wrap">
+                                                            <div class="chat-avatar">
+                                                                <img src="../../view/assets/images/avatar-2.jpg" alt="avatar-2">
+                                                            </div>
+                                                            <div class="ctext-wrap-content">
+                                                                <h5 class="conversation-name"><a href="#" class="user-name">Daniel Pickering</a> <span class="time">10:04</span></h5>
+                                                                <p class="mb-0">
+                                                                    Hello!
+                                                                </p>
+                                                            </div>
+                                                            <div class="dropdown align-self-start">
+                                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="#">Copy</a>
+                                                                    <a class="dropdown-item" href="#">Save</a>
+                                                                    <a class="dropdown-item" href="#">Forward</a>
+                                                                    <a class="dropdown-item" href="#">Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="ctext-wrap">
+                                                            <div class="chat-avatar">
+                                                                <img src="../../view/assets/images/avatar-2.jpg" alt="avatar-2">
+                                                            </div>
+                                                            <div class="ctext-wrap-content">
+                                                                <h5 class="conversation-name"><a href="#" class="user-name">Daniel Pickering</a> <span class="time">10:04</span></h5>
+                                                                <p class="mb-0">
+                                                                    What about our next meeting?
+                                                                </p>
+                                                            </div>
+                                                            <div class="dropdown align-self-start">
+                                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="#">Copy</a>
+                                                                    <a class="dropdown-item" href="#">Save</a>
+                                                                    <a class="dropdown-item" href="#">Forward</a>
+                                                                    <a class="dropdown-item" href="#">Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                </li><!-- end li -->
+                                                <li>
+                                                    <div class="conversation-list">
+                                                        <div class="ctext-wrap">
+                                                            <div class="chat-avatar">
+                                                                <img src="../../view/assets/images/avatar-2.jpg" alt="avatar-2">
+                                                            </div>
+                                                            <div class="ctext-wrap-content">
+                                                                <h5 class="conversation-name"><a href="#" class="user-name">Daniel Pickering</a> <span class="time">10:06</span></h5>
+                                                                <p class="mb-0">
+                                                                    Next meeting tomorrow 10.00AM
+                                                                </p>
+                                                            </div>
+                                                            <div class="dropdown align-self-start">
+                                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="#">Copy</a>
+                                                                    <a class="dropdown-item" href="#">Save</a>
+                                                                    <a class="dropdown-item" href="#">Forward</a>
+                                                                    <a class="dropdown-item" href="#">Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li> <!-- end li -->
+                                                <li class="right">
+                                                    <div class="conversation-list">
+                                                        <div class="ctext-wrap">
+                                                            <div class="chat-avatar">
+                                                                <img src="../../view/assets/images/avatar-1.jpg" alt="avatar-1">
+                                                            </div>
+                                                            <div class="ctext-wrap-content">
+                                                                <h5 class="conversation-name"><a href="#" class="user-name">Kate</a> <span class="time">10:06</span></h5>
+                                                                <p class="mb-0">
+                                                                    Wow that's great
+                                                                </p>
+                                                            </div>
+                                                            <div class="dropdown align-self-start">
+                                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="#">Copy</a>
+                                                                    <a class="dropdown-item" href="#">Save</a>
+                                                                    <a class="dropdown-item" href="#">Forward</a>
+                                                                    <a class="dropdown-item" href="#">Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li><!-- end li -->
+                                                <li>
+                                                    <div class="conversation-list">
+                                                        <div class="ctext-wrap">
+                                                            <div class="chat-avatar">
+                                                                <img src="../../view/assets/images/avatar-2.jpg" alt="avatar-2">
+                                                            </div>
+                                                            <div class="ctext-wrap-content">
+                                                                <h5 class="conversation-name"><a href="#" class="user-name">Daniel Pickering</a> <span class="time">10:06</span></h5>
+                                                                <p class="mb-0">
+                                                                    img-1.jpg &amp; img-2.jpg images for a New Projects
+                                                                </p>
+                                                            </div>
+                                                            <div class="dropdown align-self-start">
+                                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="#">Copy</a>
+                                                                    <a class="dropdown-item" href="#">Save</a>
+                                                                    <a class="dropdown-item" href="#">Forward</a>
+                                                                    <a class="dropdown-item" href="#">Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                </li><!-- end li -->
+                                            </ul><!-- end ul -->
+                                        </div></div></div></div><div class="simplebar-placeholder" style="width: 1222px; height: 771px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="height: 456px; transform: translate3d(0px, 0px, 0px); display: block;"></div></div></div>
+                                    </div>
+                                    <div class="p-3 chat-input-section">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="position-relative">
+                                                    <input type="text" class="form-control chat-input" placeholder="한글 기준 50자까지 작성 가능합니다.">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <button type="submit" class="btn btn-primary chat-send w-md"><span class="d-sm-inline-block me-2">등록</span> <i class="bi bi-send-fill"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>        
+
+    </main>
+
+    <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+        <p>©DBP Corp. All rights reserved.</a></p>
+        <p class="mb-0">
+            <a href="#">위로 올라가기</a>
+        </p>
+    </footer>
+
+</body>
+
+</html>

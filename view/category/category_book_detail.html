@@ -12,13 +12,13 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
+    <!-- jquery -->
+    <script src="../../view/assets/js/jquery.min.js"></script>    
+
     <!-- bootstrap -->
     <link href="../../view/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="../../view/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../view/node_modules/bootstrap/js/color-modes.js"></script>
-
-    <!-- jquery -->
-    <script src="../../view/assets/js/jquery.min.js"></script>
 
     <!-- CHOICES CSS -->
     <link type="text/css" href="../../view/assets/styles/choices.min.css" rel="stylesheet">
@@ -35,6 +35,9 @@
 
 		$(function(){
       
+            $(".chat-menu-icons .toogle-bar").click(function () {
+                $(".chat-menu").toggleClass("show");
+            });
 
 		});
 
@@ -268,236 +271,189 @@
                             </div>                  
                         </div>
                         <div class="tab-pane fade" id="book-review-pane" role="tabpanel" aria-labelledby="book-review" tabindex="0">
-                            <div class="w-100 user-chat mt-4 ms-lg-1">
-                                <div class="card">
-                                    <div class="p-3 border-bottom">
-                                        <div class="row">
-                                            <div class="col-xl-4 col-7">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 avatar me-3 d-sm-block d-none">
-                                                        <img src="../../view/assets/images/avatar-2.jpg" alt="" class="img-thumbnail d-block rounded-circle">
-                                                    </div>
-                                                    <div class="flex-grow-1">
-                                                        <h5 class="font-size-14 mb-1 text-truncate"><a href="#" class="text-body">Bootstrap Community</a></h5>
-														<p class="text-muted text-truncate mb-0"><i class="bi bi-circle-fill text-success font-size-10 align-middle me-1"></i>Online</p>
+                            <div class="row border rounded mt-3 g-0">
+                                <div class="col-xxl-3 col-xl-4 col-md-5 box-col-5 xl-40">
+                                    <div class="left-sidebar-wrapper card">
+                                        <div class="advance-options"> 
+                                            <ul class="nav border-tab" id="chat-options-tab" role="tablist">
+                                                <li class="nav-item w-100 text-center" role="presentation"><a class="nav-link active" id="chats-tab" data-bs-toggle="tab" href="#chats" role="tab" aria-controls="chats" aria-selected="true">Chats</a></li>
+                                            </ul>
+                                            <div class="tab-content" id="chat-options-tabContent"> 
+                                                <div class="tab-pane fade show active" id="chats" role="tabpanel" aria-labelledby="chats-tab">
+                                                    <div class="chats-user mt-3">
+                                                        <ul">
+                                                            <li class="common-space border-bottom pb-3">
+                                                                <div class="chat-time">
+                                                                    <div class="active-profile"><img class="img-fluid rounded-circle" src="../../view/assets/images/chat/3.jpg" alt="user">
+                                                                        <div class="status bg-success"></div>
+                                                                    </div>
+                                                                    <div> <span>Cameron Williamson</span>
+                                                                        <p>Hey, How are you?</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    <p>2 min</p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="common-space">
+                                                                <div class="chat-time">
+                                                                    <div class="active-profile"><img class="img-fluid rounded-circle" src="../../view/assets/images/chat/10.jpg" alt="user">
+                                                                        <div class="status bg-success"></div>
+                                                                    </div>
+                                                                    <div> <span>Esther Howard</span>
+                                                                        <p>Thanks for reply</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    <p>7:30 PM</p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="common-space">
+                                                                <div class="chat-time">
+                                                                    <div class="active-profile"><img class="img-fluid rounded-circle" src="../../view/assets/images/chat/7.jpg" alt="user">
+                                                                        <div class="status bg-secondary"></div>
+                                                                    </div>
+                                                                    <div> <span>Andreas</span>
+                                                                        <p>Congratulations on your new project</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    <p>7:30 PM</p>
+                                                                </div>
+                                                            </li>                                                            
+                                                        </ul>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-8 col-5">
-                                                <ul class="list-inline user-chat-nav text-end mb-0">
-                                                    <li class="list-inline-item">
-                                                        <div class="dropdown">
-                                                            <button class="btn nav-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                <i class="bi bi-three-dots"></i>
-                                                            </button>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <a class="dropdown-item" href="#">Profile</a>
-                                                                <a class="dropdown-item" href="#">Archive</a>
-                                                                <a class="dropdown-item" href="#">Muted</a>
-                                                                <a class="dropdown-item" href="#">Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </li><!-- end li -->
-                                                </ul><!-- end ul -->                                                                                                                                                                                                                                                                                      
-                                            </div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <div class="chat-conversation p-3 simplebar-scrollable-y" data-simplebar="init"><div class="simplebar-wrapper" style="margin: -16px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;"><div class="simplebar-content" style="padding: 16px;">
-                                            <ul class="list-unstyled mb-0">
-                                                <li class="chat-day-title"> 
-                                                    <div class="title">Today</div> 
+                                </div>
+                                <div class="col-xxl-9 col-xl-8 col-md-7 box-col-7 xl-60 border-start">
+                                    <div class="card right-sidebar-chat">
+                                    <div class="right-sidebar-title">
+                                        <div class="common-space"> 
+                                            <div class="chat-time-chat group-chat">
+                                                <ul> 
+                                                <li><img class="img-fluid rounded-circle" src="../../view/assets/images/chat/3.jpg" alt="user"></li>
+                                                <li><img class="img-fluid rounded-circle" src="../../view/assets/images/chat/10.jpg" alt="user"></li>
+                                                <li> 
+                                                    <div class="custom-name profile-count bg-info">
+                                                    <p class="f-w-500">2+</p>
+                                                    </div>
                                                 </li>
-                                                <li>
-                                                    <div class="conversation-list">
-                                                        <div class="ctext-wrap">
-                                                            <div class="chat-avatar">
-                                                                <img src="../../view/assets/images/avatar-2.jpg" alt="avatar-2">
-                                                            </div>
-                                                            <div class="ctext-wrap-content">
-                                                                <h5 class="conversation-name"><a href="#" class="user-name">Daniel Pickering</a> <span class="time">10:00</span></h5>
-                                                                <p class="mb-0">Good morning !</p>
-                                                            </div>
-                                                            <div class="dropdown align-self-start">
-                                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                                </a>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Copy</a>
-                                                                    <a class="dropdown-item" href="#">Save</a>
-                                                                    <a class="dropdown-item" href="#">Forward</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li> <!-- end li -->
-                                                <li class="right">
-                                                    <div class="conversation-list">
-                                                        <div class="ctext-wrap">
-                                                            <div class="chat-avatar">
-                                                                <img src="../../view/assets/images/avatar-1.jpg" alt="avatar-1">
-                                                            </div>
-                                                            <div class="ctext-wrap-content">
-                                                                <h5 class="conversation-name"><a href="#" class="user-name">Kate</a> <span class="time">10:02</span></h5>
-                                                                <p class="mb-0">Good morning</p>
-                                                            </div>
-                                                            <div class="dropdown align-self-start">
-                                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                                </a>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Copy</a>
-                                                                    <a class="dropdown-item" href="#">Save</a>
-                                                                    <a class="dropdown-item" href="#">Forward</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div> 
-                                                </li><!-- end li -->
-                                                <li>
-                                                    <div class="conversation-list mb-0">
-                                                        <div class="ctext-wrap">
-                                                            <div class="chat-avatar">
-                                                                <img src="../../view/assets/images/avatar-2.jpg" alt="avatar-2">
-                                                            </div>
-                                                            <div class="ctext-wrap-content">
-                                                                <h5 class="conversation-name"><a href="#" class="user-name">Daniel Pickering</a> <span class="time">10:04</span></h5>
-                                                                <p class="mb-0">
-                                                                    Hello!
-                                                                </p>
-                                                            </div>
-                                                            <div class="dropdown align-self-start">
-                                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                                </a>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Copy</a>
-                                                                    <a class="dropdown-item" href="#">Save</a>
-                                                                    <a class="dropdown-item" href="#">Forward</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="ctext-wrap">
-                                                            <div class="chat-avatar">
-                                                                <img src="../../view/assets/images/avatar-2.jpg" alt="avatar-2">
-                                                            </div>
-                                                            <div class="ctext-wrap-content">
-                                                                <h5 class="conversation-name"><a href="#" class="user-name">Daniel Pickering</a> <span class="time">10:04</span></h5>
-                                                                <p class="mb-0">
-                                                                    What about our next meeting?
-                                                                </p>
-                                                            </div>
-                                                            <div class="dropdown align-self-start">
-                                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                                </a>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Copy</a>
-                                                                    <a class="dropdown-item" href="#">Save</a>
-                                                                    <a class="dropdown-item" href="#">Forward</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div> 
-                                                </li><!-- end li -->
-                                                <li>
-                                                    <div class="conversation-list">
-                                                        <div class="ctext-wrap">
-                                                            <div class="chat-avatar">
-                                                                <img src="../../view/assets/images/avatar-2.jpg" alt="avatar-2">
-                                                            </div>
-                                                            <div class="ctext-wrap-content">
-                                                                <h5 class="conversation-name"><a href="#" class="user-name">Daniel Pickering</a> <span class="time">10:06</span></h5>
-                                                                <p class="mb-0">
-                                                                    Next meeting tomorrow 10.00AM
-                                                                </p>
-                                                            </div>
-                                                            <div class="dropdown align-self-start">
-                                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                                </a>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Copy</a>
-                                                                    <a class="dropdown-item" href="#">Save</a>
-                                                                    <a class="dropdown-item" href="#">Forward</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li> <!-- end li -->
-                                                <li class="right">
-                                                    <div class="conversation-list">
-                                                        <div class="ctext-wrap">
-                                                            <div class="chat-avatar">
-                                                                <img src="../../view/assets/images/avatar-1.jpg" alt="avatar-1">
-                                                            </div>
-                                                            <div class="ctext-wrap-content">
-                                                                <h5 class="conversation-name"><a href="#" class="user-name">Kate</a> <span class="time">10:06</span></h5>
-                                                                <p class="mb-0">
-                                                                    Wow that's great
-                                                                </p>
-                                                            </div>
-                                                            <div class="dropdown align-self-start">
-                                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                                </a>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Copy</a>
-                                                                    <a class="dropdown-item" href="#">Save</a>
-                                                                    <a class="dropdown-item" href="#">Forward</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li><!-- end li -->
-                                                <li>
-                                                    <div class="conversation-list">
-                                                        <div class="ctext-wrap">
-                                                            <div class="chat-avatar">
-                                                                <img src="../../view/assets/images/avatar-2.jpg" alt="avatar-2">
-                                                            </div>
-                                                            <div class="ctext-wrap-content">
-                                                                <h5 class="conversation-name"><a href="#" class="user-name">Daniel Pickering</a> <span class="time">10:06</span></h5>
-                                                                <p class="mb-0">
-                                                                    img-1.jpg &amp; img-2.jpg images for a New Projects
-                                                                </p>
-                                                            </div>
-                                                            <div class="dropdown align-self-start">
-                                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                                </a>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Copy</a>
-                                                                    <a class="dropdown-item" href="#">Save</a>
-                                                                    <a class="dropdown-item" href="#">Forward</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div> 
-                                                </li><!-- end li -->
-                                            </ul><!-- end ul -->
-                                        </div></div></div></div><div class="simplebar-placeholder" style="width: 1222px; height: 771px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="height: 456px; transform: translate3d(0px, 0px, 0px); display: block;"></div></div></div>
-                                    </div>
-                                    <div class="p-3 chat-input-section">
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="position-relative">
-                                                    <input type="text" class="form-control chat-input" placeholder="한글 기준 50자까지 작성 가능합니다.">
-                                                    
+                                                </ul>
+                                                <div> <span>Meeting Department</span>
+                                                <p>35 Members</p>
                                                 </div>
                                             </div>
-                                            <div class="col-auto">
-                                                <button type="submit" class="btn btn-primary chat-send w-md"><span class="d-sm-inline-block me-2">등록</span> <i class="bi bi-send-fill"></i></button>
-                                            </div>
                                         </div>
+                                    </div>
+                                    <div class="right-sidebar-Chats"> 
+                                        <div class="msger">
+                                        <div class="msger-chat">
+                                            <div class="msg left-msg">
+                                            <div class="msg-img"></div>
+                                            <div class="msg-bubble">
+                                                <div class="msg-info">
+                                                <div class="msg-info-name">Shepherd Doyle</div>
+                                                <div class="msg-info-time">01:14 PM</div>
+                                                </div>
+                                                <div class="msg-text">Good morning. How may I help you with this? 😄</div>
+                                            </div>
+                                            </div>
+                                            <div class="msg right-msg">
+                                            <div class="msg-img"></div>
+                                            <div class="msg-bubble">
+                                                <div class="msg-info">
+                                                <div class="msg-info-name">Esther Howard</div>
+                                                <div class="msg-info-time">12:14 PM</div>
+                                                </div>
+                                                <div class="msg-text">Could you perhaps clarify the most recent project deadline?</div>
+                                            </div>
+                                            </div>
+                                            <div class="msg right-msg">
+                                            <div class="msg-img"></div>
+                                            <div class="msg-bubble">
+                                                <div class="msg-info">
+                                                <div class="msg-info-name">Esther Howard</div>
+                                                <div class="msg-info-time">12:14 PM</div>
+                                                </div>
+                                                <div class="msg-text">Yes, the deadline is scheduled for Friday of next week.</div>
+                                            </div>
+                                            </div>
+                                            <div class="msg left-msg">
+                                            <div class="msg-img"></div>
+                                            <div class="msg-bubble">
+                                                <div class="msg-info">
+                                                <div class="msg-info-name">Shepherd Doyle</div>
+                                                <div class="msg-info-time">01:14 PM</div>
+                                                </div>
+                                                <div class="msg-text">Is that timeline negotiable?</div>
+                                            </div>
+                                            </div>
+                                            <div class="msg right-msg">
+                                            <div class="msg-img"></div>
+                                            <div class="msg-bubble">
+                                                <div class="msg-info">
+                                                <div class="msg-info-name">Esther Howard</div>
+                                                <div class="msg-info-time">12:14 PM</div>
+                                                </div>
+                                                <div class="msg-text">I'll talk to the team about it.</div>
+                                            </div>
+                                            </div>
+                                            <div class="msg left-msg">
+                                            <div class="msg-img"></div>
+                                            <div class="msg-bubble">
+                                                <div class="msg-info">
+                                                <div class="msg-info-name">Shepherd Doyle</div>
+                                                <div class="msg-info-time">01:14 PM</div>
+                                                </div>
+                                                <div class="msg-text"> I appreciate your quick attention to this.</div>
+                                            </div>
+                                            </div>
+                                            <div class="msg right-msg">
+                                            <div class="msg-img"></div>
+                                            <div class="msg-bubble">
+                                                <div class="msg-info">
+                                                <div class="msg-info-name">Esther Howard</div>
+                                                <div class="msg-info-time">12:14 PM</div>
+                                                </div>
+                                                <div class="msg-text">Regards. Do you have any further questions</div>
+                                            </div>
+                                            </div>
+                                        
+                                                    <div class="msg right-msg">
+                                                    <div class="msg-img" style="background-image: url(../../view/assets/images/chat/10.jpg)"></div>
+                                                
+                                                    <div class="msg-bubble">
+                                                        <div class="msg-info">
+                                                        <div class="msg-info-name">Alden Barker</div>
+                                                        <div class="msg-info-time">15:25</div>
+                                                        </div>
+                                                
+                                                        <div class="msg-text">sdfsdfsdfsdf</div>
+                                                    </div>
+                                                    </div>
+                                                
+                                                    <div class="msg left-msg">
+                                                    <div class="msg-img" style="background-image: url(../../view/assets/images/chat/13.jpg)"></div>
+                                                
+                                                    <div class="msg-bubble">
+                                                        <div class="msg-info">
+                                                        <div class="msg-info-name">Shepherd Doyle</div>
+                                                        <div class="msg-info-time">15:25</div>
+                                                        </div>
+                                                
+                                                        <div class="msg-text">I like to play games... But I don't know how to play!</div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <form class="msger-inputarea">
+                                                    <input class="msger-input two uk-textarea" type="text" placeholder="Type Message here..">
+                                                    <button class="msger-send-btn" type="submit"><i class="bi bi-send-fill"></i></button>
+                                                </form>
+                                            </div>
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -509,12 +465,19 @@
 
     </main>
 
-    <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
-        <p>©DBP Corp. All rights reserved.</a></p>
-        <p class="mb-0">
-            <a href="#">위로 올라가기</a>
-        </p>
+    <footer class="text-body-secondary bg-body-tertiary py-5">
+        <div class="container">
+            <p class="float-end mb-1">
+            <a href="#">Back to top</a>
+            </p>
+            <p class="mb-1">©DBP Corp. All rights reserved.</p>
+        </div>
     </footer>
+
+
+    <!-- chat -->
+    <script src="../../view/assets/js/common-chat.js"></script>
+    <script src="../../view/assets/js/script.js"></script>    
 
 </body>
 
