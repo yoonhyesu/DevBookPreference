@@ -739,8 +739,17 @@ input:-webkit-autofill:active {
   }
   .left-sidebar-wrapper .advance-options .chats-user {
     border-bottom: unset;
-    height: auto;
+    height: 635px;
     overflow-y: auto;
+  }
+  .chats-user::-webkit-scrollbar {
+    width: 6px;
+  }
+  .chats-user::-webkit-scrollbar-track {
+    background: #ddd;
+  }
+  .chats-user::-webkit-scrollbar-thumb {
+    background: #bdbdbd;
   }
   .left-sidebar-wrapper .advance-options .chats-user li {
     width: 100%;
@@ -761,7 +770,7 @@ input:-webkit-autofill:active {
     }
   }
   .left-sidebar-wrapper .advance-options .chats-user li:last-child {
-    border-bottom: unset;
+    border-bottom: unset !important;
   }
   .left-sidebar-wrapper .advance-options .chats-user li .chat-time {
     display: flex;
