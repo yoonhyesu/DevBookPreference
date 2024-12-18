@@ -1209,8 +1209,7 @@ input:-webkit-autofill:active {
     color: #999;
     width: calc(100% - 33px);
   }
-  
-  .right-msg {
+   .right-msg {
     flex-direction: row-reverse;
   }
   .right-msg .msg-bubble {
