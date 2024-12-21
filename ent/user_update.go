@@ -287,43 +287,37 @@ func (uu *UserUpdate) SetNillableUpdateDate(t *time.Time) *UserUpdate {
 	return uu
 }
 
-// SetSessionToken sets the "sessionToken" field.
-func (uu *UserUpdate) SetSessionToken(s string) *UserUpdate {
-	uu.mutation.SetSessionToken(s)
+// SetLastLoginDate sets the "lastLoginDate" field.
+func (uu *UserUpdate) SetLastLoginDate(t time.Time) *UserUpdate {
+	uu.mutation.SetLastLoginDate(t)
 	return uu
 }
 
-// SetNillableSessionToken sets the "sessionToken" field if the given value is not nil.
-func (uu *UserUpdate) SetNillableSessionToken(s *string) *UserUpdate {
-	if s != nil {
-		uu.SetSessionToken(*s)
-	}
-	return uu
-}
-
-// ClearSessionToken clears the value of the "sessionToken" field.
-func (uu *UserUpdate) ClearSessionToken() *UserUpdate {
-	uu.mutation.ClearSessionToken()
-	return uu
-}
-
-// SetSessionExpiry sets the "sessionExpiry" field.
-func (uu *UserUpdate) SetSessionExpiry(t time.Time) *UserUpdate {
-	uu.mutation.SetSessionExpiry(t)
-	return uu
-}
-
-// SetNillableSessionExpiry sets the "sessionExpiry" field if the given value is not nil.
-func (uu *UserUpdate) SetNillableSessionExpiry(t *time.Time) *UserUpdate {
+// SetNillableLastLoginDate sets the "lastLoginDate" field if the given value is not nil.
+func (uu *UserUpdate) SetNillableLastLoginDate(t *time.Time) *UserUpdate {
 	if t != nil {
-		uu.SetSessionExpiry(*t)
+		uu.SetLastLoginDate(*t)
 	}
 	return uu
 }
 
-// ClearSessionExpiry clears the value of the "sessionExpiry" field.
-func (uu *UserUpdate) ClearSessionExpiry() *UserUpdate {
-	uu.mutation.ClearSessionExpiry()
+// ClearLastLoginDate clears the value of the "lastLoginDate" field.
+func (uu *UserUpdate) ClearLastLoginDate() *UserUpdate {
+	uu.mutation.ClearLastLoginDate()
+	return uu
+}
+
+// SetIsAdmin sets the "isAdmin" field.
+func (uu *UserUpdate) SetIsAdmin(b bool) *UserUpdate {
+	uu.mutation.SetIsAdmin(b)
+	return uu
+}
+
+// SetNillableIsAdmin sets the "isAdmin" field if the given value is not nil.
+func (uu *UserUpdate) SetNillableIsAdmin(b *bool) *UserUpdate {
+	if b != nil {
+		uu.SetIsAdmin(*b)
+	}
 	return uu
 }
 
@@ -465,17 +459,14 @@ func (uu *UserUpdate) sqlSave(ctx context.Context) (n int, err error) {
 	if value, ok := uu.mutation.UpdateDate(); ok {
 		_spec.SetField(user.FieldUpdateDate, field.TypeTime, value)
 	}
-	if value, ok := uu.mutation.SessionToken(); ok {
-		_spec.SetField(user.FieldSessionToken, field.TypeString, value)
+	if value, ok := uu.mutation.LastLoginDate(); ok {
+		_spec.SetField(user.FieldLastLoginDate, field.TypeTime, value)
 	}
-	if uu.mutation.SessionTokenCleared() {
-		_spec.ClearField(user.FieldSessionToken, field.TypeString)
+	if uu.mutation.LastLoginDateCleared() {
+		_spec.ClearField(user.FieldLastLoginDate, field.TypeTime)
 	}
-	if value, ok := uu.mutation.SessionExpiry(); ok {
-		_spec.SetField(user.FieldSessionExpiry, field.TypeTime, value)
-	}
-	if uu.mutation.SessionExpiryCleared() {
-		_spec.ClearField(user.FieldSessionExpiry, field.TypeTime)
+	if value, ok := uu.mutation.IsAdmin(); ok {
+		_spec.SetField(user.FieldIsAdmin, field.TypeBool, value)
 	}
 	if n, err = sqlgraph.UpdateNodes(ctx, uu.driver, _spec); err != nil {
 		if _, ok := err.(*sqlgraph.NotFoundError); ok {
@@ -756,43 +747,37 @@ func (uuo *UserUpdateOne) SetNillableUpdateDate(t *time.Time) *UserUpdateOne {
 	return uuo
 }
 
-// SetSessionToken sets the "sessionToken" field.
-func (uuo *UserUpdateOne) SetSessionToken(s string) *UserUpdateOne {
-	uuo.mutation.SetSessionToken(s)
+// SetLastLoginDate sets the "lastLoginDate" field.
+func (uuo *UserUpdateOne) SetLastLoginDate(t time.Time) *UserUpdateOne {
+	uuo.mutation.SetLastLoginDate(t)
 	return uuo
 }
 
-// SetNillableSessionToken sets the "sessionToken" field if the given value is not nil.
-func (uuo *UserUpdateOne) SetNillableSessionToken(s *string) *UserUpdateOne {
-	if s != nil {
-		uuo.SetSessionToken(*s)
-	}
-	return uuo
-}
-
-// ClearSessionToken clears the value of the "sessionToken" field.
-func (uuo *UserUpdateOne) ClearSessionToken() *UserUpdateOne {
-	uuo.mutation.ClearSessionToken()
-	return uuo
-}
-
-// SetSessionExpiry sets the "sessionExpiry" field.
-func (uuo *UserUpdateOne) SetSessionExpiry(t time.Time) *UserUpdateOne {
-	uuo.mutation.SetSessionExpiry(t)
-	return uuo
-}
-
-// SetNillableSessionExpiry sets the "sessionExpiry" field if the given value is not nil.
-func (uuo *UserUpdateOne) SetNillableSessionExpiry(t *time.Time) *UserUpdateOne {
+// SetNillableLastLoginDate sets the "lastLoginDate" field if the given value is not nil.
+func (uuo *UserUpdateOne) SetNillableLastLoginDate(t *time.Time) *UserUpdateOne {
 	if t != nil {
-		uuo.SetSessionExpiry(*t)
+		uuo.SetLastLoginDate(*t)
 	}
 	return uuo
 }
 
-// ClearSessionExpiry clears the value of the "sessionExpiry" field.
-func (uuo *UserUpdateOne) ClearSessionExpiry() *UserUpdateOne {
-	uuo.mutation.ClearSessionExpiry()
+// ClearLastLoginDate clears the value of the "lastLoginDate" field.
+func (uuo *UserUpdateOne) ClearLastLoginDate() *UserUpdateOne {
+	uuo.mutation.ClearLastLoginDate()
+	return uuo
+}
+
+// SetIsAdmin sets the "isAdmin" field.
+func (uuo *UserUpdateOne) SetIsAdmin(b bool) *UserUpdateOne {
+	uuo.mutation.SetIsAdmin(b)
+	return uuo
+}
+
+// SetNillableIsAdmin sets the "isAdmin" field if the given value is not nil.
+func (uuo *UserUpdateOne) SetNillableIsAdmin(b *bool) *UserUpdateOne {
+	if b != nil {
+		uuo.SetIsAdmin(*b)
+	}
 	return uuo
 }
 
@@ -964,17 +949,14 @@ func (uuo *UserUpdateOne) sqlSave(ctx context.Context) (_node *User, err error) 
 	if value, ok := uuo.mutation.UpdateDate(); ok {
 		_spec.SetField(user.FieldUpdateDate, field.TypeTime, value)
 	}
-	if value, ok := uuo.mutation.SessionToken(); ok {
-		_spec.SetField(user.FieldSessionToken, field.TypeString, value)
+	if value, ok := uuo.mutation.LastLoginDate(); ok {
+		_spec.SetField(user.FieldLastLoginDate, field.TypeTime, value)
 	}
-	if uuo.mutation.SessionTokenCleared() {
-		_spec.ClearField(user.FieldSessionToken, field.TypeString)
+	if uuo.mutation.LastLoginDateCleared() {
+		_spec.ClearField(user.FieldLastLoginDate, field.TypeTime)
 	}
-	if value, ok := uuo.mutation.SessionExpiry(); ok {
-		_spec.SetField(user.FieldSessionExpiry, field.TypeTime, value)
-	}
-	if uuo.mutation.SessionExpiryCleared() {
-		_spec.ClearField(user.FieldSessionExpiry, field.TypeTime)
+	if value, ok := uuo.mutation.IsAdmin(); ok {
+		_spec.SetField(user.FieldIsAdmin, field.TypeBool, value)
 	}
 	_node = &User{config: uuo.config}
 	_spec.Assign = _node.assignValues

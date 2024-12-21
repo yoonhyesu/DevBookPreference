@@ -43,10 +43,10 @@ const (
 	FieldCreateDate = "CREATE_DATE"
 	// FieldUpdateDate holds the string denoting the updatedate field in the database.
 	FieldUpdateDate = "UPDATE_DATE"
-	// FieldSessionToken holds the string denoting the sessiontoken field in the database.
-	FieldSessionToken = "SESSION_TOKEN"
-	// FieldSessionExpiry holds the string denoting the sessionexpiry field in the database.
-	FieldSessionExpiry = "SESSION_EXPIRY"
+	// FieldLastLoginDate holds the string denoting the lastlogindate field in the database.
+	FieldLastLoginDate = "LAST_LOGIN_DATE"
+	// FieldIsAdmin holds the string denoting the isadmin field in the database.
+	FieldIsAdmin = "IS_ADMIN"
 	// Table holds the table name of the user in the database.
 	Table = "users"
 )
@@ -69,8 +69,8 @@ var Columns = []string{
 	FieldSkill,
 	FieldCreateDate,
 	FieldUpdateDate,
-	FieldSessionToken,
-	FieldSessionExpiry,
+	FieldLastLoginDate,
+	FieldIsAdmin,
 }
 
 // ValidColumn reports if the column name is valid (part of the table columns).
@@ -98,6 +98,8 @@ var (
 	DefaultCreateDate time.Time
 	// DefaultUpdateDate holds the default value on creation for the "updateDate" field.
 	DefaultUpdateDate time.Time
+	// DefaultIsAdmin holds the default value on creation for the "isAdmin" field.
+	DefaultIsAdmin bool
 )
 
 // OrderOption defines the ordering options for the User queries.
@@ -183,12 +185,12 @@ func ByUpdateDate(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldUpdateDate, opts...).ToFunc()
 }
 
-// BySessionToken orders the results by the sessionToken field.
-func BySessionToken(opts ...sql.OrderTermOption) OrderOption {
-	return sql.OrderByField(FieldSessionToken, opts...).ToFunc()
+// ByLastLoginDate orders the results by the lastLoginDate field.
+func ByLastLoginDate(opts ...sql.OrderTermOption) OrderOption {
+	return sql.OrderByField(FieldLastLoginDate, opts...).ToFunc()
 }
 
-// BySessionExpiry orders the results by the sessionExpiry field.
-func BySessionExpiry(opts ...sql.OrderTermOption) OrderOption {
-	return sql.OrderByField(FieldSessionExpiry, opts...).ToFunc()
+// ByIsAdmin orders the results by the isAdmin field.
+func ByIsAdmin(opts ...sql.OrderTermOption) OrderOption {
+	return sql.OrderByField(FieldIsAdmin, opts...).ToFunc()
 }

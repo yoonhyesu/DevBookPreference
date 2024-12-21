@@ -47,11 +47,11 @@ type User struct {
 	CreateDate time.Time `json:"createDate,omitempty"`
 	// UpdateDate holds the value of the "updateDate" field.
 	UpdateDate time.Time `json:"updateDate,omitempty"`
-	// SessionToken holds the value of the "sessionToken" field.
-	SessionToken string `json:"-"`
-	// SessionExpiry holds the value of the "sessionExpiry" field.
-	SessionExpiry time.Time `json:"sessionExpiry,omitempty"`
-	selectValues  sql.SelectValues
+	// LastLoginDate holds the value of the "lastLoginDate" field.
+	LastLoginDate time.Time `json:"lastLoginDate,omitempty"`
+	// IsAdmin holds the value of the "isAdmin" field.
+	IsAdmin      bool `json:"isAdmin,omitempty"`
+	selectValues sql.SelectValues
 }
 
 // scanValues returns the types for scanning values from sql.Rows.
@@ -59,13 +59,13 @@ func (*User) scanValues(columns []string) ([]any, error) {
 	values := make([]any, len(columns))
 	for i := range columns {
 		switch columns[i] {
-		case user.FieldUserStatus:
+		case user.FieldUserStatus, user.FieldIsAdmin:
 			values[i] = new(sql.NullBool)
 		case user.FieldID, user.FieldJobCd:
 			values[i] = new(sql.NullInt64)
-		case user.FieldUserId, user.FieldPassword, user.FieldUserName, user.FieldEmail, user.FieldPhoneNumber, user.FieldProfileImage, user.FieldGithubLink, user.FieldBlogLink, user.FieldUserText, user.FieldCompany, user.FieldSkill, user.FieldSessionToken:
+		case user.FieldUserId, user.FieldPassword, user.FieldUserName, user.FieldEmail, user.FieldPhoneNumber, user.FieldProfileImage, user.FieldGithubLink, user.FieldBlogLink, user.FieldUserText, user.FieldCompany, user.FieldSkill:
 			values[i] = new(sql.NullString)
-		case user.FieldCreateDate, user.FieldUpdateDate, user.FieldSessionExpiry:
+		case user.FieldCreateDate, user.FieldUpdateDate, user.FieldLastLoginDate:
 			values[i] = new(sql.NullTime)
 		default:
 			values[i] = new(sql.UnknownType)
@@ -178,17 +178,17 @@ func (u *User) assignValues(columns []string, values []any) error {
 			} else if value.Valid {
 				u.UpdateDate = value.Time
 			}
-		case user.FieldSessionToken:
-			if value, ok := values[i].(*sql.NullString); !ok {
-				return fmt.Errorf("unexpected type %T for field sessionToken", values[i])
-			} else if value.Valid {
-				u.SessionToken = value.String
-			}
-		case user.FieldSessionExpiry:
+		case user.FieldLastLoginDate:
 			if value, ok := values[i].(*sql.NullTime); !ok {
-				return fmt.Errorf("unexpected type %T for field sessionExpiry", values[i])
+				return fmt.Errorf("unexpected type %T for field lastLoginDate", values[i])
 			} else if value.Valid {
-				u.SessionExpiry = value.Time
+				u.LastLoginDate = value.Time
+			}
+		case user.FieldIsAdmin:
+			if value, ok := values[i].(*sql.NullBool); !ok {
+				return fmt.Errorf("unexpected type %T for field isAdmin", values[i])
+			} else if value.Valid {
+				u.IsAdmin = value.Bool
 			}
 		default:
 			u.selectValues.Set(columns[i], values[i])
@@ -270,10 +270,11 @@ func (u *User) String() string {
 	builder.WriteString("updateDate=")
 	builder.WriteString(u.UpdateDate.Format(time.ANSIC))
 	builder.WriteString(", ")
-	builder.WriteString("sessionToken=<sensitive>")
+	builder.WriteString("lastLoginDate=")
+	builder.WriteString(u.LastLoginDate.Format(time.ANSIC))
 	builder.WriteString(", ")
-	builder.WriteString("sessionExpiry=")
-	builder.WriteString(u.SessionExpiry.Format(time.ANSIC))
+	builder.WriteString("isAdmin=")
+	builder.WriteString(fmt.Sprintf("%v", u.IsAdmin))
 	builder.WriteByte(')')
 	return builder.String()
 }

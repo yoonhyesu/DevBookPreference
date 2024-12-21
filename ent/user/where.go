@@ -129,14 +129,14 @@ func UpdateDate(v time.Time) predicate.User {
 	return predicate.User(sql.FieldEQ(FieldUpdateDate, v))
 }
 
-// SessionToken applies equality check predicate on the "sessionToken" field. It's identical to SessionTokenEQ.
-func SessionToken(v string) predicate.User {
-	return predicate.User(sql.FieldEQ(FieldSessionToken, v))
+// LastLoginDate applies equality check predicate on the "lastLoginDate" field. It's identical to LastLoginDateEQ.
+func LastLoginDate(v time.Time) predicate.User {
+	return predicate.User(sql.FieldEQ(FieldLastLoginDate, v))
 }
 
-// SessionExpiry applies equality check predicate on the "sessionExpiry" field. It's identical to SessionExpiryEQ.
-func SessionExpiry(v time.Time) predicate.User {
-	return predicate.User(sql.FieldEQ(FieldSessionExpiry, v))
+// IsAdmin applies equality check predicate on the "isAdmin" field. It's identical to IsAdminEQ.
+func IsAdmin(v bool) predicate.User {
+	return predicate.User(sql.FieldEQ(FieldIsAdmin, v))
 }
 
 // UserIdEQ applies the EQ predicate on the "userId" field.
@@ -1054,129 +1054,64 @@ func UpdateDateLTE(v time.Time) predicate.User {
 	return predicate.User(sql.FieldLTE(FieldUpdateDate, v))
 }
 
-// SessionTokenEQ applies the EQ predicate on the "sessionToken" field.
-func SessionTokenEQ(v string) predicate.User {
-	return predicate.User(sql.FieldEQ(FieldSessionToken, v))
+// LastLoginDateEQ applies the EQ predicate on the "lastLoginDate" field.
+func LastLoginDateEQ(v time.Time) predicate.User {
+	return predicate.User(sql.FieldEQ(FieldLastLoginDate, v))
 }
 
-// SessionTokenNEQ applies the NEQ predicate on the "sessionToken" field.
-func SessionTokenNEQ(v string) predicate.User {
-	return predicate.User(sql.FieldNEQ(FieldSessionToken, v))
+// LastLoginDateNEQ applies the NEQ predicate on the "lastLoginDate" field.
+func LastLoginDateNEQ(v time.Time) predicate.User {
+	return predicate.User(sql.FieldNEQ(FieldLastLoginDate, v))
 }
 
-// SessionTokenIn applies the In predicate on the "sessionToken" field.
-func SessionTokenIn(vs ...string) predicate.User {
-	return predicate.User(sql.FieldIn(FieldSessionToken, vs...))
+// LastLoginDateIn applies the In predicate on the "lastLoginDate" field.
+func LastLoginDateIn(vs ...time.Time) predicate.User {
+	return predicate.User(sql.FieldIn(FieldLastLoginDate, vs...))
 }
 
-// SessionTokenNotIn applies the NotIn predicate on the "sessionToken" field.
-func SessionTokenNotIn(vs ...string) predicate.User {
-	return predicate.User(sql.FieldNotIn(FieldSessionToken, vs...))
+// LastLoginDateNotIn applies the NotIn predicate on the "lastLoginDate" field.
+func LastLoginDateNotIn(vs ...time.Time) predicate.User {
+	return predicate.User(sql.FieldNotIn(FieldLastLoginDate, vs...))
 }
 
-// SessionTokenGT applies the GT predicate on the "sessionToken" field.
-func SessionTokenGT(v string) predicate.User {
-	return predicate.User(sql.FieldGT(FieldSessionToken, v))
+// LastLoginDateGT applies the GT predicate on the "lastLoginDate" field.
+func LastLoginDateGT(v time.Time) predicate.User {
+	return predicate.User(sql.FieldGT(FieldLastLoginDate, v))
 }
 
-// SessionTokenGTE applies the GTE predicate on the "sessionToken" field.
-func SessionTokenGTE(v string) predicate.User {
-	return predicate.User(sql.FieldGTE(FieldSessionToken, v))
+// LastLoginDateGTE applies the GTE predicate on the "lastLoginDate" field.
+func LastLoginDateGTE(v time.Time) predicate.User {
+	return predicate.User(sql.FieldGTE(FieldLastLoginDate, v))
 }
 
-// SessionTokenLT applies the LT predicate on the "sessionToken" field.
-func SessionTokenLT(v string) predicate.User {
-	return predicate.User(sql.FieldLT(FieldSessionToken, v))
+// LastLoginDateLT applies the LT predicate on the "lastLoginDate" field.
+func LastLoginDateLT(v time.Time) predicate.User {
+	return predicate.User(sql.FieldLT(FieldLastLoginDate, v))
 }
 
-// SessionTokenLTE applies the LTE predicate on the "sessionToken" field.
-func SessionTokenLTE(v string) predicate.User {
-	return predicate.User(sql.FieldLTE(FieldSessionToken, v))
+// LastLoginDateLTE applies the LTE predicate on the "lastLoginDate" field.
+func LastLoginDateLTE(v time.Time) predicate.User {
+	return predicate.User(sql.FieldLTE(FieldLastLoginDate, v))
 }
 
-// SessionTokenContains applies the Contains predicate on the "sessionToken" field.
-func SessionTokenContains(v string) predicate.User {
-	return predicate.User(sql.FieldContains(FieldSessionToken, v))
+// LastLoginDateIsNil applies the IsNil predicate on the "lastLoginDate" field.
+func LastLoginDateIsNil() predicate.User {
+	return predicate.User(sql.FieldIsNull(FieldLastLoginDate))
 }
 
-// SessionTokenHasPrefix applies the HasPrefix predicate on the "sessionToken" field.
-func SessionTokenHasPrefix(v string) predicate.User {
-	return predicate.User(sql.FieldHasPrefix(FieldSessionToken, v))
+// LastLoginDateNotNil applies the NotNil predicate on the "lastLoginDate" field.
+func LastLoginDateNotNil() predicate.User {
+	return predicate.User(sql.FieldNotNull(FieldLastLoginDate))
 }
 
-// SessionTokenHasSuffix applies the HasSuffix predicate on the "sessionToken" field.
-func SessionTokenHasSuffix(v string) predicate.User {
-	return predicate.User(sql.FieldHasSuffix(FieldSessionToken, v))
+// IsAdminEQ applies the EQ predicate on the "isAdmin" field.
+func IsAdminEQ(v bool) predicate.User {
+	return predicate.User(sql.FieldEQ(FieldIsAdmin, v))
 }
 
-// SessionTokenIsNil applies the IsNil predicate on the "sessionToken" field.
-func SessionTokenIsNil() predicate.User {
-	return predicate.User(sql.FieldIsNull(FieldSessionToken))
-}
-
-// SessionTokenNotNil applies the NotNil predicate on the "sessionToken" field.
-func SessionTokenNotNil() predicate.User {
-	return predicate.User(sql.FieldNotNull(FieldSessionToken))
-}
-
-// SessionTokenEqualFold applies the EqualFold predicate on the "sessionToken" field.
-func SessionTokenEqualFold(v string) predicate.User {
-	return predicate.User(sql.FieldEqualFold(FieldSessionToken, v))
-}
-
-// SessionTokenContainsFold applies the ContainsFold predicate on the "sessionToken" field.
-func SessionTokenContainsFold(v string) predicate.User {
-	return predicate.User(sql.FieldContainsFold(FieldSessionToken, v))
-}
-
-// SessionExpiryEQ applies the EQ predicate on the "sessionExpiry" field.
-func SessionExpiryEQ(v time.Time) predicate.User {
-	return predicate.User(sql.FieldEQ(FieldSessionExpiry, v))
-}
-
-// SessionExpiryNEQ applies the NEQ predicate on the "sessionExpiry" field.
-func SessionExpiryNEQ(v time.Time) predicate.User {
-	return predicate.User(sql.FieldNEQ(FieldSessionExpiry, v))
-}
-
-// SessionExpiryIn applies the In predicate on the "sessionExpiry" field.
-func SessionExpiryIn(vs ...time.Time) predicate.User {
-	return predicate.User(sql.FieldIn(FieldSessionExpiry, vs...))
-}
-
-// SessionExpiryNotIn applies the NotIn predicate on the "sessionExpiry" field.
-func SessionExpiryNotIn(vs ...time.Time) predicate.User {
-	return predicate.User(sql.FieldNotIn(FieldSessionExpiry, vs...))
-}
-
-// SessionExpiryGT applies the GT predicate on the "sessionExpiry" field.
-func SessionExpiryGT(v time.Time) predicate.User {
-	return predicate.User(sql.FieldGT(FieldSessionExpiry, v))
-}
-
-// SessionExpiryGTE applies the GTE predicate on the "sessionExpiry" field.
-func SessionExpiryGTE(v time.Time) predicate.User {
-	return predicate.User(sql.FieldGTE(FieldSessionExpiry, v))
-}
-
-// SessionExpiryLT applies the LT predicate on the "sessionExpiry" field.
-func SessionExpiryLT(v time.Time) predicate.User {
-	return predicate.User(sql.FieldLT(FieldSessionExpiry, v))
-}
-
-// SessionExpiryLTE applies the LTE predicate on the "sessionExpiry" field.
-func SessionExpiryLTE(v time.Time) predicate.User {
-	return predicate.User(sql.FieldLTE(FieldSessionExpiry, v))
-}
-
-// SessionExpiryIsNil applies the IsNil predicate on the "sessionExpiry" field.
-func SessionExpiryIsNil() predicate.User {
-	return predicate.User(sql.FieldIsNull(FieldSessionExpiry))
-}
-
-// SessionExpiryNotNil applies the NotNil predicate on the "sessionExpiry" field.
-func SessionExpiryNotNil() predicate.User {
-	return predicate.User(sql.FieldNotNull(FieldSessionExpiry))
+// IsAdminNEQ applies the NEQ predicate on the "isAdmin" field.
+func IsAdminNEQ(v bool) predicate.User {
+	return predicate.User(sql.FieldNEQ(FieldIsAdmin, v))
 }
 
 // And groups predicates with the AND operator between them.

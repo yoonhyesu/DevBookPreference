@@ -42,4 +42,8 @@ func init() {
 	userDescUpdateDate := userFields[14].Descriptor()
 	// user.DefaultUpdateDate holds the default value on creation for the updateDate field.
 	user.DefaultUpdateDate = userDescUpdateDate.Default.(time.Time)
+	// userDescIsAdmin is the schema descriptor for isAdmin field.
+	userDescIsAdmin := userFields[16].Descriptor()
+	// user.DefaultIsAdmin holds the default value on creation for the isAdmin field.
+	user.DefaultIsAdmin = userDescIsAdmin.Default.(bool)
 }

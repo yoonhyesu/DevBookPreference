@@ -42,7 +42,7 @@ $(document).ready(function () {
         checkID = $('#user_id').val();
 
         if (checkID === "") {
-            $('#id-message').html('<i class="fa-solid fa-x"></i> 아이디를 입력해주세요.');
+            $('#id-message').html('<i class="fa-solid fa-x"></i> 아이디를 입력해���세요.');
             $('#id-message').css('color', 'red');
             flagID = false;
             return;
@@ -58,6 +58,7 @@ $(document).ready(function () {
             flagID = true;
         }
     }
+
     // 비밀번호 유효성 검사
     function validateInputPw() {
         const regexPw = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,16}$/;
@@ -160,19 +161,74 @@ $(document).ready(function () {
 
 
     // 아이디 중복 체크
-    $('#checkID').on('click', function () {
-        // 중복체크 로직
+    $('#checkID').on('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();  // 이벤트 전파 중지
 
+        const userId = $('#user_id').val();
+        console.log("아이디", userId);
         if (flagID === true) {
             $.ajax({
-                url: 'DBP/internal/handler/auth',
-
+                url: '/auth/check-duplicate',
+                method: 'POST',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data: JSON.stringify({
+                    USER_ID: userId
+                })
             })
+                .done(function (response) {
+                    console.log("서버 응답:", response);
+                    if (response.exists) {
+                        $('#id-message').html('<i class="fa-solid fa-x"></i> 이미 사용 중인 아이디입니다.');
+                        $('#id-message').css('color', 'red');
+                        alert('이미 사용 중인 아이디입니다.');
+                    } else {
+                        alert('사용 가능한 아이디입니다.');
+                    }
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    console.error("AJAX 오류:", textStatus, errorThrown);
+                    alert('중복 확인 중 오류가 발생했습니다.');
+                });
+        } else {
+            alert('올바른 아이디 형식을 입력해주세요.');
+        }
+    });
+
+    // 회원가입 폼 제출
+    $('#joinBtn').on('click', function (e) {
+        e.preventDefault();
+        console.log(flagID);
+        if (flagID === true && flagPW === true && flagName === true && flagEmail === true && flagPhone === true) {
+            $.ajax({
+                url: '/user/register',
+                method: 'POST',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data: JSON.stringify({
+                    USER_ID: $('#user_id').val(),
+                    PASSWORD: $('#password').val(),
+                    USER_NAME: $('#user_name').val(),
+                    EMAIL: $('#email').val(),
+                    PHONE_NUMBER: $('#phone_number').val()
+                })
+            })
+                .done(function (response) {
+                    console.log("서버 응답 :", response);
+                    alert('회원가입이 완료되었습니다.');
+                    window.location.href = '/';
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    console.error("AJAX 오류:", textStatus, errorThrown);
+                    if (jqXHR.status === 409) {
+                        const errorMessage = jqXHR.responseJSON.error;
+                    } else {
+                        alert('회원가입 중 오류가 발생했습니다. 다시 시도해주세요.');
+                    }
+                });
+        } else {
+            alert('모든 필드를 올바르게 입력해주세요.');
         }
     });
 });
-
-// 회원가입 폼 제출
-function submitJoinForm() {
-
-}

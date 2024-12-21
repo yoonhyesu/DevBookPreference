@@ -49,8 +49,8 @@ type UserMutation struct {
 	skill         *string
 	createDate    *time.Time
 	updateDate    *time.Time
-	sessionToken  *string
-	sessionExpiry *time.Time
+	lastLoginDate *time.Time
+	isAdmin       *bool
 	clearedFields map[string]struct{}
 	done          bool
 	oldValue      func(context.Context) (*User, error)
@@ -807,102 +807,89 @@ func (m *UserMutation) ResetUpdateDate() {
 	m.updateDate = nil
 }
 
-// SetSessionToken sets the "sessionToken" field.
-func (m *UserMutation) SetSessionToken(s string) {
-	m.sessionToken = &s
+// SetLastLoginDate sets the "lastLoginDate" field.
+func (m *UserMutation) SetLastLoginDate(t time.Time) {
+	m.lastLoginDate = &t
 }
 
-// SessionToken returns the value of the "sessionToken" field in the mutation.
-func (m *UserMutation) SessionToken() (r string, exists bool) {
-	v := m.sessionToken
+// LastLoginDate returns the value of the "lastLoginDate" field in the mutation.
+func (m *UserMutation) LastLoginDate() (r time.Time, exists bool) {
+	v := m.lastLoginDate
 	if v == nil {
 		return
 	}
 	return *v, true
 }
 
-// OldSessionToken returns the old "sessionToken" field's value of the User entity.
+// OldLastLoginDate returns the old "lastLoginDate" field's value of the User entity.
 // If the User object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
-func (m *UserMutation) OldSessionToken(ctx context.Context) (v string, err error) {
+func (m *UserMutation) OldLastLoginDate(ctx context.Context) (v time.Time, err error) {
 	if !m.op.Is(OpUpdateOne) {
-		return v, errors.New("OldSessionToken is only allowed on UpdateOne operations")
+		return v, errors.New("OldLastLoginDate is only allowed on UpdateOne operations")
 	}
 	if m.id == nil || m.oldValue == nil {
-		return v, errors.New("OldSessionToken requires an ID field in the mutation")
+		return v, errors.New("OldLastLoginDate requires an ID field in the mutation")
 	}
 	oldValue, err := m.oldValue(ctx)
 	if err != nil {
-		return v, fmt.Errorf("querying old value for OldSessionToken: %w", err)
+		return v, fmt.Errorf("querying old value for OldLastLoginDate: %w", err)
 	}
-	return oldValue.SessionToken, nil
+	return oldValue.LastLoginDate, nil
 }
 
-// ClearSessionToken clears the value of the "sessionToken" field.
-func (m *UserMutation) ClearSessionToken() {
-	m.sessionToken = nil
-	m.clearedFields[user.FieldSessionToken] = struct{}{}
+// ClearLastLoginDate clears the value of the "lastLoginDate" field.
+func (m *UserMutation) ClearLastLoginDate() {
+	m.lastLoginDate = nil
+	m.clearedFields[user.FieldLastLoginDate] = struct{}{}
 }
 
-// SessionTokenCleared returns if the "sessionToken" field was cleared in this mutation.
-func (m *UserMutation) SessionTokenCleared() bool {
-	_, ok := m.clearedFields[user.FieldSessionToken]
+// LastLoginDateCleared returns if the "lastLoginDate" field was cleared in this mutation.
+func (m *UserMutation) LastLoginDateCleared() bool {
+	_, ok := m.clearedFields[user.FieldLastLoginDate]
 	return ok
 }
 
-// ResetSessionToken resets all changes to the "sessionToken" field.
-func (m *UserMutation) ResetSessionToken() {
-	m.sessionToken = nil
-	delete(m.clearedFields, user.FieldSessionToken)
+// ResetLastLoginDate resets all changes to the "lastLoginDate" field.
+func (m *UserMutation) ResetLastLoginDate() {
+	m.lastLoginDate = nil
+	delete(m.clearedFields, user.FieldLastLoginDate)
 }
 
-// SetSessionExpiry sets the "sessionExpiry" field.
-func (m *UserMutation) SetSessionExpiry(t time.Time) {
-	m.sessionExpiry = &t
+// SetIsAdmin sets the "isAdmin" field.
+func (m *UserMutation) SetIsAdmin(b bool) {
+	m.isAdmin = &b
 }
 
-// SessionExpiry returns the value of the "sessionExpiry" field in the mutation.
-func (m *UserMutation) SessionExpiry() (r time.Time, exists bool) {
-	v := m.sessionExpiry
+// IsAdmin returns the value of the "isAdmin" field in the mutation.
+func (m *UserMutation) IsAdmin() (r bool, exists bool) {
+	v := m.isAdmin
 	if v == nil {
 		return
 	}
 	return *v, true
 }
 
-// OldSessionExpiry returns the old "sessionExpiry" field's value of the User entity.
+// OldIsAdmin returns the old "isAdmin" field's value of the User entity.
 // If the User object wasn't provided to the builder, the object is fetched from the database.
 // An error is returned if the mutation operation is not UpdateOne, or the database query fails.
-func (m *UserMutation) OldSessionExpiry(ctx context.Context) (v time.Time, err error) {
+func (m *UserMutation) OldIsAdmin(ctx context.Context) (v bool, err error) {
 	if !m.op.Is(OpUpdateOne) {
-		return v, errors.New("OldSessionExpiry is only allowed on UpdateOne operations")
+		return v, errors.New("OldIsAdmin is only allowed on UpdateOne operations")
 	}
 	if m.id == nil || m.oldValue == nil {
-		return v, errors.New("OldSessionExpiry requires an ID field in the mutation")
+		return v, errors.New("OldIsAdmin requires an ID field in the mutation")
 	}
 	oldValue, err := m.oldValue(ctx)
 	if err != nil {
-		return v, fmt.Errorf("querying old value for OldSessionExpiry: %w", err)
+		return v, fmt.Errorf("querying old value for OldIsAdmin: %w", err)
 	}
-	return oldValue.SessionExpiry, nil
+	return oldValue.IsAdmin, nil
 }
 
-// ClearSessionExpiry clears the value of the "sessionExpiry" field.
-func (m *UserMutation) ClearSessionExpiry() {
-	m.sessionExpiry = nil
-	m.clearedFields[user.FieldSessionExpiry] = struct{}{}
-}
-
-// SessionExpiryCleared returns if the "sessionExpiry" field was cleared in this mutation.
-func (m *UserMutation) SessionExpiryCleared() bool {
-	_, ok := m.clearedFields[user.FieldSessionExpiry]
-	return ok
-}
-
-// ResetSessionExpiry resets all changes to the "sessionExpiry" field.
-func (m *UserMutation) ResetSessionExpiry() {
-	m.sessionExpiry = nil
-	delete(m.clearedFields, user.FieldSessionExpiry)
+// ResetIsAdmin resets all changes to the "isAdmin" field.
+func (m *UserMutation) ResetIsAdmin() {
+	m.isAdmin = nil
 }
 
 // Where appends a list predicates to the UserMutation builder.
@@ -985,11 +972,11 @@ func (m *UserMutation) Fields() []string {
 	if m.updateDate != nil {
 		fields = append(fields, user.FieldUpdateDate)
 	}
-	if m.sessionToken != nil {
-		fields = append(fields, user.FieldSessionToken)
+	if m.lastLoginDate != nil {
+		fields = append(fields, user.FieldLastLoginDate)
 	}
-	if m.sessionExpiry != nil {
-		fields = append(fields, user.FieldSessionExpiry)
+	if m.isAdmin != nil {
+		fields = append(fields, user.FieldIsAdmin)
 	}
 	return fields
 }
@@ -1029,10 +1016,10 @@ func (m *UserMutation) Field(name string) (ent.Value, bool) {
 		return m.CreateDate()
 	case user.FieldUpdateDate:
 		return m.UpdateDate()
-	case user.FieldSessionToken:
-		return m.SessionToken()
-	case user.FieldSessionExpiry:
-		return m.SessionExpiry()
+	case user.FieldLastLoginDate:
+		return m.LastLoginDate()
+	case user.FieldIsAdmin:
+		return m.IsAdmin()
 	}
 	return nil, false
 }
@@ -1072,10 +1059,10 @@ func (m *UserMutation) OldField(ctx context.Context, name string) (ent.Value, er
 		return m.OldCreateDate(ctx)
 	case user.FieldUpdateDate:
 		return m.OldUpdateDate(ctx)
-	case user.FieldSessionToken:
-		return m.OldSessionToken(ctx)
-	case user.FieldSessionExpiry:
-		return m.OldSessionExpiry(ctx)
+	case user.FieldLastLoginDate:
+		return m.OldLastLoginDate(ctx)
+	case user.FieldIsAdmin:
+		return m.OldIsAdmin(ctx)
 	}
 	return nil, fmt.Errorf("unknown User field %s", name)
 }
@@ -1190,19 +1177,19 @@ func (m *UserMutation) SetField(name string, value ent.Value) error {
 		}
 		m.SetUpdateDate(v)
 		return nil
-	case user.FieldSessionToken:
-		v, ok := value.(string)
-		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
-		}
-		m.SetSessionToken(v)
-		return nil
-	case user.FieldSessionExpiry:
+	case user.FieldLastLoginDate:
 		v, ok := value.(time.Time)
 		if !ok {
 			return fmt.Errorf("unexpected type %T for field %s", value, name)
 		}
-		m.SetSessionExpiry(v)
+		m.SetLastLoginDate(v)
+		return nil
+	case user.FieldIsAdmin:
+		v, ok := value.(bool)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.SetIsAdmin(v)
 		return nil
 	}
 	return fmt.Errorf("unknown User field %s", name)
@@ -1270,11 +1257,8 @@ func (m *UserMutation) ClearedFields() []string {
 	if m.FieldCleared(user.FieldSkill) {
 		fields = append(fields, user.FieldSkill)
 	}
-	if m.FieldCleared(user.FieldSessionToken) {
-		fields = append(fields, user.FieldSessionToken)
-	}
-	if m.FieldCleared(user.FieldSessionExpiry) {
-		fields = append(fields, user.FieldSessionExpiry)
+	if m.FieldCleared(user.FieldLastLoginDate) {
+		fields = append(fields, user.FieldLastLoginDate)
 	}
 	return fields
 }
@@ -1311,11 +1295,8 @@ func (m *UserMutation) ClearField(name string) error {
 	case user.FieldSkill:
 		m.ClearSkill()
 		return nil
-	case user.FieldSessionToken:
-		m.ClearSessionToken()
-		return nil
-	case user.FieldSessionExpiry:
-		m.ClearSessionExpiry()
+	case user.FieldLastLoginDate:
+		m.ClearLastLoginDate()
 		return nil
 	}
 	return fmt.Errorf("unknown User nullable field %s", name)
@@ -1370,11 +1351,11 @@ func (m *UserMutation) ResetField(name string) error {
 	case user.FieldUpdateDate:
 		m.ResetUpdateDate()
 		return nil
-	case user.FieldSessionToken:
-		m.ResetSessionToken()
+	case user.FieldLastLoginDate:
+		m.ResetLastLoginDate()
 		return nil
-	case user.FieldSessionExpiry:
-		m.ResetSessionExpiry()
+	case user.FieldIsAdmin:
+		m.ResetIsAdmin()
 		return nil
 	}
 	return fmt.Errorf("unknown User field %s", name)

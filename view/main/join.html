@@ -1,20 +1,32 @@
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
+<html lang="ko">
 
 <head>
-    <script src="../node_modules/bootstrap/js/color-modes.js"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../assets/js/join.js"></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.122.0">
-    <title>개 북 취 회원가입</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+
+    <title>개발자 북취향</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
-    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap -->
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/node_modules/bootstrap/js/color-modes.js"></script>
+
+    <!-- jquery -->
+    <script src="/assets/js/jquery.min.js"></script>
+
+    <!-- custom -->
+    <link href="/assets/font/font.css" rel="stylesheet">
+    <link href="/assets/styles/index.css" rel="stylesheet">
+    <link href="/assets/styles/app.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/styles/bootstrap-icons.css" />
+    <link href="/assets/styles/join.css" rel="stylesheet">
+
 
     <style>
         .bd-placeholder-img {
@@ -94,10 +106,6 @@
             display: block !important;
         }
     </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="../assets/styles/join.css" rel="stylesheet">
 </head>
 
 <body class="bg-body-tertiary">
@@ -173,8 +181,8 @@
     <div class="container">
         <main>
             <div class="py-5 text-center">
-                <a href="../index.html"><img class="d-block mx-auto mb-4" src="../assets/images/logo.PNG" alt=""
-                        width="100" height="100"></a>
+                <a href="/"><img class="d-block mx-auto mb-4" src="/assets/images/logo.PNG" alt="" width="100"
+                        height="100"></a>
                 <h2>회원가입</h2>
             </div>
 
@@ -182,7 +190,7 @@
                 <div class="col-md-8 col-lg-6">
                     <div class="card p-4">
                         <h5 class="mb-3 text-center">회원정보를 입력해주세요!</h5>
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" novalidate onsubmit="return false;">
                             <div class="row g-3">
                                 <div class="mb-3">
                                     <label for="user_id" class="form-label">아이디*</label>
@@ -228,7 +236,7 @@
 
                             <hr class="my-4">
 
-                            <button class="w-100 btn btn-outline-info btn-lg" type="submit">가입하기</button>
+                            <button class="w-100 btn btn-outline-info btn-lg" type="submit" id="joinBtn">가입하기</button>
                         </form>
                     </div>
                 </div>
@@ -240,10 +248,7 @@
         <p class="mb-1">©DBP Corp. All rights reserved.</p>
     </footer>
     </div>
-    <!-- jQuery-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/js/load-header.js"></script>
+    <script src="/assets/js/join.js"></script>
 </body>
 
 </html>

@@ -63,13 +63,12 @@ func (User) Fields() []ent.Field {
 		field.Time("updateDate").
 			Default(time.Now()).
 			StorageKey("UPDATE_DATE"),
-		field.String("sessionToken").
+		field.Time("lastLoginDate").
 			Optional().
-			Sensitive().
-			StorageKey("SESSION_TOKEN"),
-		field.Time("sessionExpiry").
-			Optional().
-			StorageKey("SESSION_EXPIRY"),
+			StorageKey("LAST_LOGIN_DATE"),
+		field.Bool("isAdmin").
+			Default(false).
+			StorageKey("IS_ADMIN"),
 	}
 }
 

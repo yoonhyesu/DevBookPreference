@@ -13,37 +13,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
     <!-- bootstrap -->
-    <link href="../../view/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="../../view/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../view/node_modules/bootstrap/js/color-modes.js"></script>
+    <link href="/view/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/view/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/view/node_modules/bootstrap/js/color-modes.js"></script>
 
     <!-- jquery -->
-    <script src="../../view/assets/js/jquery.min.js"></script>
+    <script src="/view/assets/js/jquery.min.js"></script>
 
     <!-- CHOICES CSS -->
-    <link type="text/css" href="../../view/assets/styles/choices.min.css" rel="stylesheet">
-    <script src="../../view/assets/js/choices.min.js"></script>
+    <link type="text/css" href="/view/assets/styles/choices.min.css" rel="stylesheet">
+    <script src="/view/assets/js/choices.min.js"></script>
 
     <!-- custom -->
-    <link href="../../view/assets/font/font.css" rel="stylesheet">
-    <link href="../../view/assets/styles/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../view/assets/styles/bootstrap-icons.css" />
-    <script src="../../view/assets/js/load-header.js"></script>
-
-    <script type="text/javascript">
-
-		$(function(){
-      
-
-		});
-
-	</script>   
+    <link href="/view/assets/font/font.css" rel="stylesheet">
+    <link href="/view/assets/styles/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="/view/assets/styles/bootstrap-icons.css" />
+    <script src="/view/assets/js/load-header.js"></script>
 </head>
 
 <body>
-
-    <div id="header"></div>
-
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="check2" viewBox="0 0 16 16">
             <path
@@ -135,17 +123,17 @@
             <!-- 상단 로그인/회원가입 영역 -->
             <div class="d-flex justify-content-end py-2 border-bottom">
                 <div class="me-3">
-                    <a class="btn btn-sm btn-outline-default me-2" href="../main/login.html">로그인</a>
-                    <a class="btn btn-sm btn-outline-default" href="../main/join.html">회원가입</a>
+                    <a class="btn btn-sm btn-outline-default me-2" href="/view/main/login.html">로그인</a>
+                    <a class="btn btn-sm btn-outline-default" href="/view/main/join.html">회원가입</a>
                 </div>
             </div>
 
             <!-- 로고, 검색, 프로필 영역 -->
             <div class="row flex-nowrap justify-content-between align-items-center py-3">
                 <div class="col-4 d-flex align-items-center">
-                    <img src="../../view/assets/images/IMG_0023.PNG" alt="" width="100" height="100">
+                    <img src="/view/assets/images/logo.PNG" alt="" width="100" height="100">
                     <a class="blog-header-logo text-body-emphasis text-decoration-none ms-3"
-                        style="font-family: 'Gasoek One', serif;" href="../index.html">
+                        style="font-family: 'Gasoek One', serif;" href="/view/shared/index.html">
                         <span style="color:rgb(77, 122, 248);">개</span>발자
                         <span style="color:rgb(77, 122, 248);">북 </span>
                         <span style="color:rgb(77, 122, 248);">취</span>향
@@ -176,11 +164,13 @@
                 <a class="nav-item nav-link link-body-emphasis mx-4" href="../../view/main/about.html">
                     <img src="../../view/assets/images/IMG_0031.PNG" alt="메뉴 아이콘" height="30">
                 </a>
-                <a class="nav-item nav-link link-body-emphasis mx-4" href="../../view/category/category_field.html">분야별 추천</a>
-                <a class="nav-item nav-link link-body-emphasis mx-4" href="../../view/category/category_developer.html">개발자별 추천</a>
+                <a class="nav-item nav-link link-body-emphasis mx-4" href="../../view/category/category_field.html">분야별
+                    추천</a>
+                <a class="nav-item nav-link link-body-emphasis mx-4"
+                    href="../../view/category/category_developer.html">개발자별 추천</a>
                 <div class="nav-item dropdown mx-4">
-                    <a class="nav-link link-body-emphasis dropdown-toggle" href="../../view/category/category_step.html" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link link-body-emphasis dropdown-toggle" href="../../view/category/category_step.html"
+                        id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         단계별 추천
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -190,8 +180,8 @@
                     </ul>
                 </div>
                 <div class="nav-item dropdown mx-4">
-                    <a class="nav-link link-body-emphasis dropdown-toggle active" href="../../view/admin/member.html" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link link-body-emphasis dropdown-toggle active" href="../../view/admin/member.html"
+                        id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         관리자
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -199,46 +189,58 @@
                         <li><a class="dropdown-item" href="../../view/admin/book.html">도서관리</a></li>
                         <li><a class="dropdown-item" href="../../view/admin/board.html">게시글관리</a></li>
                     </ul>
-                </div>             
+                </div>
             </nav>
         </div>
     </div>
 
     <main class="container">
- 
+
         <div class="row g-5 mb-5">
             <div class="col-12">
                 <h4 class="fw-semibold mb-3">분야별 추천</h4>
-                <hr class="my-3">                
+                <hr class="my-3">
                 <h5 class="fw-semibold mb-3">분야1</h5>
                 <div class="row g-3 row-gap-5 mt-3 mb-3">
                     <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-center justify-content-center">
-                        <a href="category_book_detail.html"><img src="../../view/assets/images/tucker.jpg" width="200" height="250" class="bd-placeholder-img" alt="Tucker" /></a>
+                        <a href="category_book_detail.html"><img src="../../view/assets/images/tucker.jpg" width="200"
+                                height="250" class="bd-placeholder-img" alt="Tucker" /></a>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-center justify-content-center">
-                        <a href="category_book_detail.html"><img src="../../view/assets/images/thiscshrap.jpg" width="200" height="250" class="bd-placeholder-img border" style="border-width: 1px !important;" alt="Tucker" /></a>
-                    </div>   
-                    <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-center justify-content-center">
-                        <a href="category_book_detail.html"><img src="../../view/assets/images/tucker.jpg" width="200" height="250" class="bd-placeholder-img" alt="Tucker" /></a>
+                        <a href="category_book_detail.html"><img src="../../view/assets/images/thiscshrap.jpg"
+                                width="200" height="250" class="bd-placeholder-img border"
+                                style="border-width: 1px !important;" alt="Tucker" /></a>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-center justify-content-center">
-                        <a href="category_book_detail.html"><img src="../../view/assets/images/thiscshrap.jpg" width="200" height="250" class="bd-placeholder-img border" style="border-width: 1px !important;" alt="Tucker" /></a>
-                    </div> 
-                    <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-center justify-content-center">
-                        <a href="category_book_detail.html"><img src="../../view/assets/images/tucker.jpg" width="200" height="250" class="bd-placeholder-img" alt="Tucker" /></a>
+                        <a href="category_book_detail.html"><img src="../../view/assets/images/tucker.jpg" width="200"
+                                height="250" class="bd-placeholder-img" alt="Tucker" /></a>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-center justify-content-center">
-                        <a href="category_book_detail.html"><img src="../../view/assets/images/thiscshrap.jpg" width="200" height="250" class="bd-placeholder-img border" style="border-width: 1px !important;" alt="Tucker" /></a>
-                    </div>   
-                    <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-center justify-content-center">
-                        <a href="category_book_detail.html"><img src="../../view/assets/images/tucker.jpg" width="200" height="250" class="bd-placeholder-img" alt="Tucker" /></a>
+                        <a href="category_book_detail.html"><img src="../../view/assets/images/thiscshrap.jpg"
+                                width="200" height="250" class="bd-placeholder-img border"
+                                style="border-width: 1px !important;" alt="Tucker" /></a>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-center justify-content-center">
-                        <a href="category_book_detail.html"><img src="../../view/assets/images/thiscshrap.jpg" width="200" height="250" class="bd-placeholder-img border" style="border-width: 1px !important;" alt="Tucker" /></a>
-                    </div>                                                         
+                        <a href="category_book_detail.html"><img src="../../view/assets/images/tucker.jpg" width="200"
+                                height="250" class="bd-placeholder-img" alt="Tucker" /></a>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-center justify-content-center">
+                        <a href="category_book_detail.html"><img src="../../view/assets/images/thiscshrap.jpg"
+                                width="200" height="250" class="bd-placeholder-img border"
+                                style="border-width: 1px !important;" alt="Tucker" /></a>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-center justify-content-center">
+                        <a href="category_book_detail.html"><img src="../../view/assets/images/tucker.jpg" width="200"
+                                height="250" class="bd-placeholder-img" alt="Tucker" /></a>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-center justify-content-center">
+                        <a href="category_book_detail.html"><img src="../../view/assets/images/thiscshrap.jpg"
+                                width="200" height="250" class="bd-placeholder-img border"
+                                style="border-width: 1px !important;" alt="Tucker" /></a>
+                    </div>
                 </div>
-            </div>            
-        </div>        
+            </div>
+        </div>
 
     </main>
 

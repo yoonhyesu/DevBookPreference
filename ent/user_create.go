@@ -190,30 +190,30 @@ func (uc *UserCreate) SetNillableUpdateDate(t *time.Time) *UserCreate {
 	return uc
 }
 
-// SetSessionToken sets the "sessionToken" field.
-func (uc *UserCreate) SetSessionToken(s string) *UserCreate {
-	uc.mutation.SetSessionToken(s)
+// SetLastLoginDate sets the "lastLoginDate" field.
+func (uc *UserCreate) SetLastLoginDate(t time.Time) *UserCreate {
+	uc.mutation.SetLastLoginDate(t)
 	return uc
 }
 
-// SetNillableSessionToken sets the "sessionToken" field if the given value is not nil.
-func (uc *UserCreate) SetNillableSessionToken(s *string) *UserCreate {
-	if s != nil {
-		uc.SetSessionToken(*s)
+// SetNillableLastLoginDate sets the "lastLoginDate" field if the given value is not nil.
+func (uc *UserCreate) SetNillableLastLoginDate(t *time.Time) *UserCreate {
+	if t != nil {
+		uc.SetLastLoginDate(*t)
 	}
 	return uc
 }
 
-// SetSessionExpiry sets the "sessionExpiry" field.
-func (uc *UserCreate) SetSessionExpiry(t time.Time) *UserCreate {
-	uc.mutation.SetSessionExpiry(t)
+// SetIsAdmin sets the "isAdmin" field.
+func (uc *UserCreate) SetIsAdmin(b bool) *UserCreate {
+	uc.mutation.SetIsAdmin(b)
 	return uc
 }
 
-// SetNillableSessionExpiry sets the "sessionExpiry" field if the given value is not nil.
-func (uc *UserCreate) SetNillableSessionExpiry(t *time.Time) *UserCreate {
-	if t != nil {
-		uc.SetSessionExpiry(*t)
+// SetNillableIsAdmin sets the "isAdmin" field if the given value is not nil.
+func (uc *UserCreate) SetNillableIsAdmin(b *bool) *UserCreate {
+	if b != nil {
+		uc.SetIsAdmin(*b)
 	}
 	return uc
 }
@@ -265,6 +265,10 @@ func (uc *UserCreate) defaults() {
 		v := user.DefaultUpdateDate
 		uc.mutation.SetUpdateDate(v)
 	}
+	if _, ok := uc.mutation.IsAdmin(); !ok {
+		v := user.DefaultIsAdmin
+		uc.mutation.SetIsAdmin(v)
+	}
 }
 
 // check runs all checks and user-defined validators on the builder.
@@ -312,6 +316,9 @@ func (uc *UserCreate) check() error {
 	}
 	if _, ok := uc.mutation.UpdateDate(); !ok {
 		return &ValidationError{Name: "updateDate", err: errors.New(`ent: missing required field "User.updateDate"`)}
+	}
+	if _, ok := uc.mutation.IsAdmin(); !ok {
+		return &ValidationError{Name: "isAdmin", err: errors.New(`ent: missing required field "User.isAdmin"`)}
 	}
 	return nil
 }
@@ -399,13 +406,13 @@ func (uc *UserCreate) createSpec() (*User, *sqlgraph.CreateSpec) {
 		_spec.SetField(user.FieldUpdateDate, field.TypeTime, value)
 		_node.UpdateDate = value
 	}
-	if value, ok := uc.mutation.SessionToken(); ok {
-		_spec.SetField(user.FieldSessionToken, field.TypeString, value)
-		_node.SessionToken = value
+	if value, ok := uc.mutation.LastLoginDate(); ok {
+		_spec.SetField(user.FieldLastLoginDate, field.TypeTime, value)
+		_node.LastLoginDate = value
 	}
-	if value, ok := uc.mutation.SessionExpiry(); ok {
-		_spec.SetField(user.FieldSessionExpiry, field.TypeTime, value)
-		_node.SessionExpiry = value
+	if value, ok := uc.mutation.IsAdmin(); ok {
+		_spec.SetField(user.FieldIsAdmin, field.TypeBool, value)
+		_node.IsAdmin = value
 	}
 	return _node, _spec
 }

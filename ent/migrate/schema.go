@@ -26,8 +26,8 @@ var (
 		{Name: "SKILL", Type: field.TypeString, Nullable: true},
 		{Name: "CREATE_DATE", Type: field.TypeTime},
 		{Name: "UPDATE_DATE", Type: field.TypeTime},
-		{Name: "SESSION_TOKEN", Type: field.TypeString, Nullable: true},
-		{Name: "SESSION_EXPIRY", Type: field.TypeTime, Nullable: true},
+		{Name: "LAST_LOGIN_DATE", Type: field.TypeTime, Nullable: true},
+		{Name: "IS_ADMIN", Type: field.TypeBool, Default: false},
 	}
 	// UsersTable holds the schema information for the "users" table.
 	UsersTable = &schema.Table{
